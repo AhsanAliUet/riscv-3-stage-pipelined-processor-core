@@ -1,1 +1,3 @@
 *.bak
+report/
+sc_riscv_questa/
