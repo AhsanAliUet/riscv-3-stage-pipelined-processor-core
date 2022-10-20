@@ -239,7 +239,7 @@ mux_4x1 #(
 )i_mux_wb(
    .in0(alu_result),
    .in1(data_l_o),
-   .in2(pc_plus_4),        //for jumps
+   .in2(pc_plus_4),        //for jumps and non-jumps (Branches also)
    .in3(32'h0),
    .s(wb_sel),
    .out(data_wb)
