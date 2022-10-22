@@ -1,3 +1,4 @@
 *.bak
 report/
 pipelined_questa/
+pipelined_3_staged_questa/

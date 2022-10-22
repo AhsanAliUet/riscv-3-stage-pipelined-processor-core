@@ -40,9 +40,9 @@ riscv_sc_top #(
    end
 
    task reset();
-                        rst_i <= 0;
-      @(posedge clk_i); rst_i <= #1 1;
-      @(posedge clk_i); rst_i <= #1 0;
+                        rst_i <=    0;
+      @(posedge clk_i); rst_i <= #1 1;   //#4, because we do want instruction to come if there is reset
+                    #7; rst_i <= #1 0;
    endtask
 
 

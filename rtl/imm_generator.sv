@@ -23,7 +23,7 @@ module imm_generator #(
             imm_ext = {{12{inst[31]}}, inst[19:12], inst[20], inst[30:21], 1'b0};
          end
          3'b100: begin     //U-type
-            imm_ext = {inst[31:12], {12{1'b0}}};
+            imm_ext = {{inst[31:12]}, {12{1'b0}}};
          end
       endcase
    end

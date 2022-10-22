@@ -18,23 +18,28 @@ module riscv_sc_top #(
    logic [DW-1:0] pc;
    logic [DW-1:0] inst_o;
 
-   logic [6:0] opcode;
-   assign opcode = inst_o[6:0];   //declaration and assignment on the same line is prohibited
+   logic [6:0] opcode_f;
+   logic [6:0] opcode_m;
+   assign opcode_f = inst_o[6:0];   //declaration and assignment on the same line is prohibited
    
-   logic [REGW-1:0] rs1;
-   assign rs1 = inst_o[19:15];
+   logic [DW-1:0] instr_d;
+   logic [6:0] opcode_d;
+   assign opcode_d = instr_d[6:0];   //declaration and assignment on the same line is prohibited
+   // logic [REGW-1:0] rs1;
+   // assign rs1 = instr_d[19:15];
    
-   logic [REGW-1:0] rs2;
-   assign rs2 = inst_o[24:20];
+   // logic [REGW-1:0] rs2;
+   // assign rs2 = instr_d[24:20];
    
-   logic [REGW-1:0] rd;
-   assign rd = inst_o[11:7];
+   // logic [REGW-1:0] rd;
+   // assign rd = instr_d[11:7];
    
    logic [2:0] func3;
    assign func3 = inst_o[14:12];
    
    logic [6:0] func7;
-   assign func7 = inst_o[31:25];
+   // assign func7 = inst_o[31:25];
+   assign func7 = instr_d[31:25];
 
    logic [DW-1:0] rdata1;
    logic [DW-1:0] rdata2;
@@ -46,6 +51,7 @@ module riscv_sc_top #(
    logic          mem_write;
    logic [2:0]    imm_src;
    logic          alu_src;
+   logic          alu_src_a;
    logic [1:0]    wb_sel;
    logic [1:0]    alu_op;
 
@@ -72,6 +78,33 @@ module riscv_sc_top #(
    //
    logic [DW-1:0] pc_target;
 
+   //pipelined signals
+   logic [DW-1:0] pc_d;
+   // logic [DW-1:0] instr_f;
+   // logic [DW-1:0] instr_d;
+   // logic [DW-1:0] pc_plus_4_f;
+   logic [DW-1:0] pc_plus_4_d;
+
+   logic [DW-1:0] alu_out_e;
+   logic [DW-1:0] alu_out_m;
+   logic [DW-1:0] write_data_e;
+   logic [DW-1:0] write_data_m;
+   // logic [DW-1:0] rd_e;
+   logic [REGW-1:0] rd_m;
+   logic [DW-1:0] pc_plus_4_e;
+   logic [DW-1:0] pc_plus_4_m;
+
+   logic reg_write_d;
+   logic reg_write_m;
+   logic [1:0] wb_sel_d;
+   logic [1:0] wb_sel_m;
+   logic mem_write_d;
+   logic mem_write_m;
+
+   logic [2:0] func3_m;
+
+   logic [DW-1:0] imm_ext_d;
+
 pc #(
    .DW(DW)
 )i_pc(
@@ -81,6 +114,24 @@ pc #(
    .pc(pc)
 );
 
+pipeline_reg_1 #(
+   .DW(DW)
+)i_pipeline_reg_1(
+   .clk_i      (clk_i),
+   .rst_i      (rst_i),
+   
+   .instr_f    (inst_o),       //instruction in fetch stage
+   .instr_d    (instr_d),      //instruction in decode stage
+
+   .pc_f       (pc),           //PC in fetch stage
+   .pc_d       (pc_d),         //PC in decode stage
+
+   .pc_plus_4_f(pc_plus_4),    //PC plus 4 in fetch stage
+   .pc_plus_4_d(pc_plus_4_d),   //PC plus 4 in decode stage
+   .imm_ext_f(imm_ext),
+   .imm_ext_d(imm_ext_d)
+
+);
 mux_2x1 #(           //the mux to select PC+4 or PC+Target
    .DW(DW)
 )i_mux_pc(
@@ -104,6 +155,7 @@ inst_mem #(
    .MEM_SIZE_IN_KB(MEM_SIZE_IN_KB),
    .NO_OF_REGS(NO_OF_REGS)
 )i_inst_mem(
+   // .rst_i(rst_i),
    .addr_i(pc),
    .inst_o(inst_o)
 );
@@ -116,21 +168,21 @@ reg_file #(
    .clk_i(clk_i),
    .rst_i(rst_i),
 
-   .we(reg_write),
-   .raddr1_i(rs1),
+   .we(reg_write_m),
+   .raddr1_i(instr_d[19:15]),
    .rdata1_o(rdata1),
 
-   .raddr2_i(rs2),
+   .raddr2_i(instr_d[24:20]),
    .rdata2_o(rdata2),
 
-   .waddr_i(rd),
+   .waddr_i(rd_m),
    .wdata_i(data_wb)
 );
 
 imm_generator #(
    .DW(DW)
 )i_imm_generator(
-   .inst(inst_o),
+   .inst(instr_d),   //inst_o
    .s(imm_src),
    .imm_ext(imm_ext)
 );
@@ -139,7 +191,7 @@ mux_2x1 #(
    .DW(DW)
 )i_mux_i_type(
    .in0(rdata2),
-   .in1(imm_ext),
+   .in1(imm_ext),   //imm_ext_d
    .s(alu_src),
    .out(scr_b)
 );
@@ -149,7 +201,7 @@ branch_checker #(
 )i_branch_checker(
    .rdata1(rdata1),
    .rdata2(rdata2),
-   .opcode(opcode),
+   .opcode(opcode_d),
    .func3(func3),
    .br_taken(br_taken)
 );
@@ -157,9 +209,9 @@ branch_checker #(
 mux_2x1 #(
    .DW(DW)
 )i_mux_branch_pc(
-   .in0(pc),
+   .in0(pc_d),
    .in1(rdata1),
-   .s(!br_taken),                //according to Sir M. Tahir
+   .s(alu_src_a),                //according to Sir M. Tahir
    .out(alu_operand_1)
 );
 
@@ -177,7 +229,7 @@ mux_2x1 #(
 alu_decoder #(
    .DW(DW)
 )i_alu_decoder(
-   .opcode(opcode),
+   .opcode(opcode_d),  //opcode
    .func3(func3),
    .func7_5(func7[5]),
 
@@ -187,7 +239,7 @@ alu_decoder #(
 alu_new #(   //reduced hardware
    .DW(DW)
 )i_alu_new(
-   .opcode(opcode),
+   .opcode(opcode_d),   //opcode
    .func7_5(func7[5]),
 
    .alu_operand_1_i(alu_operand_1),
@@ -196,16 +248,51 @@ alu_new #(   //reduced hardware
    .alu_result_o(alu_result)
 );
 
+pipeline_reg_2 #(
+   .DW(DW),
+   .REGW(REGW)
+)i_pipeline_reg_2(
+   .clk_i        (clk_i),
+   .rst_i        (rst_i),
+   
+   .alu_out_e    (alu_result),
+   .alu_out_m    (alu_out_m),
+
+   .write_data_e (rdata2),
+   .write_data_m (write_data_m),
+
+   .rd_e         (instr_d[11:7]),
+   .rd_m         (rd_m),
+
+   .pc_plus_4_e  (pc_plus_4_d),    //because decode and execute stages are same
+   .pc_plus_4_m  (pc_plus_4_m),
+
+   .reg_write_d  (reg_write),
+   .wb_sel_d     (wb_sel),
+   .mem_write_d  (mem_write),
+
+   .reg_write_m  (reg_write_m),
+   .wb_sel_m     (wb_sel_m),
+   .mem_write_m  (mem_write_m),
+
+   .opcode_d(opcode_d),
+   .opcode_m(opcode_m),
+
+   .func3_d(func3),
+   .func3_m(func3_m)
+);
+
+
 lsu #(
    .DW(DW)
 )i_lsu(
-   .opcode(opcode),
-   .func3(func3),
+   .opcode(opcode_m),
+   .func3(func3_m),        //func3
 
-   .addr_in(alu_result),
+   .addr_in(alu_out_m),    //alu_result
    .addr_out(addr_data_mem),    
 
-   .data_s(rdata2),
+   .data_s(write_data_m),
    .data_s_o(data_s_o),
 
    .data_l(rdata_data_mem),
@@ -219,7 +306,7 @@ data_mem #(
 )i_data_mem(
    .clk_i(clk_i),
    .rst_i(rst_i),
-   .we(mem_write),
+   .we(mem_write_m),
    .cs(1'b0),         //Only one data memory, so always select it
    .addr_i(addr_data_mem),
    .wdata_i(data_s_o),
@@ -237,21 +324,22 @@ adder #(
 mux_4x1 #(
    .DW(DW)
 )i_mux_wb(
-   .in0(alu_result),
+   .in0(alu_out_m),   //alu_result
    .in1(data_l_o),
-   .in2(pc_plus_4),        //for jumps and non-jumps (Branches also)
+   .in2(pc_plus_4_m),        //for jumps and non-jumps (Branches also)
    .in3(32'h0),
-   .s(wb_sel),
+   .s(wb_sel_m),
    .out(data_wb)
 );
 
 main_decoder i_main_decoder(
-   .opcode(opcode),
+   .opcode(opcode_d),   //opcode
    
    .reg_write(reg_write),
    .mem_write(mem_write),
    .imm_src(imm_src),
    .alu_src(alu_src),
+   .alu_src_a(alu_src_a),
    .wb_sel(wb_sel),
 
    .alu_op(alu_op)

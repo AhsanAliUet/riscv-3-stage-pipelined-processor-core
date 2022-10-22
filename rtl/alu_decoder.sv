@@ -59,6 +59,9 @@ module alu_decoder #(
          7'b1101111 , 7'b1100111: begin    //J
             alu_control = 3'b000;
          end
+         default: begin            //default case is to add only
+            alu_control = 3'b000;
+         end
 
       endcase
    end
