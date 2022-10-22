@@ -43,7 +43,7 @@ module alu_new #(
       
       // operand_2_branch  = alu_operand_2_i
       case(alu_control)
-         ADD_SUB: if (func7_5 && (opcode == 7'b1100011 || opcode == 7'b1101111 || opcode == 7'b1100111)) begin //if there is a branch or jump, add the result even if func7_5 is 1
+         ADD_SUB: if (func7_5 && (opcode == 7'b1100011 || opcode == 7'b1101111 || opcode == 7'b1100111 || opcode == 7'b0010011)) begin //if there is a branch or jump or I-type, add the result even if func7_5 is 1
             alu_result_o = alu_operand_1_i + alu_operand_2_i;
 
          end else if (opcode == 7'b0110111) begin   //select operand 2 in lui only

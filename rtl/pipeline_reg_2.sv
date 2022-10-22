@@ -29,7 +29,10 @@ module pipeline_reg_2 #(
    output logic [6:0]      opcode_m,
    
    input  logic [2:0]      func3_d,
-   output logic [2:0]      func3_m
+   output logic [2:0]      func3_m,
+
+   input  logic [DW-1:0]   instr_d,
+   output logic [DW-1:0]   instr_m
 );
 
    always_ff @ (posedge clk_i, posedge rst_i) begin : pipelined_register
@@ -43,6 +46,7 @@ module pipeline_reg_2 #(
          mem_write_m  <= '0;
          opcode_m     <= '0;
          func3_m      <= '0;
+         instr_m      <= '0;
       end : reset_block
 
       else begin : to_next_stage
@@ -55,6 +59,7 @@ module pipeline_reg_2 #(
          mem_write_m  <= mem_write_d;
          opcode_m     <= opcode_d;
          func3_m      <= func3_d;
+         instr_m      <= instr_d;
       end : to_next_stage
       
    end : pipelined_register

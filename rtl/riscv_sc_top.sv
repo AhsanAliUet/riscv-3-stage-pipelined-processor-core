@@ -68,6 +68,8 @@ module riscv_sc_top #(
    logic [DW-1:0]       data_l_o;
    logic [DW-1:0]       data_s_o;
 
+   logic [3:0]          mask;
+
    //write back signals
    logic [REG_SIZE-1:0] data_wb;
    logic [REG_SIZE-1:0] pc_plus_4;
@@ -104,6 +106,8 @@ module riscv_sc_top #(
    logic [2:0] func3_m;
 
    logic [DW-1:0] imm_ext_d;
+
+   logic [DW-1:0] instr_m;
 
 pc #(
    .DW(DW)
@@ -279,15 +283,18 @@ pipeline_reg_2 #(
    .opcode_m(opcode_m),
 
    .func3_d(func3),
-   .func3_m(func3_m)
+   .func3_m(func3_m),
+
+   .instr_d(instr_d),
+   .instr_m(instr_m)
 );
 
 
 lsu #(
    .DW(DW)
 )i_lsu(
-   .opcode(opcode_m),
-   .func3(func3_m),        //func3
+   .opcode(instr_m[6:0]),
+   .func3(instr_m[14:12]),        //func3
 
    .addr_in(alu_out_m),    //alu_result
    .addr_out(addr_data_mem),    
@@ -296,7 +303,8 @@ lsu #(
    .data_s_o(data_s_o),
 
    .data_l(rdata_data_mem),
-   .data_l_o(data_l_o)
+   .data_l_o(data_l_o),
+   .mask(mask)
 );
 
 data_mem #(
@@ -308,6 +316,7 @@ data_mem #(
    .rst_i(rst_i),
    .we(mem_write_m),
    .cs(1'b0),         //Only one data memory, so always select it
+   .mask(mask),
    .addr_i(addr_data_mem),
    .wdata_i(data_s_o),
    .rdata_o(rdata_data_mem)
