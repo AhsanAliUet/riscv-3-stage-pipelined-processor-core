@@ -1,6 +1,6 @@
 //top file of single cycle riscv
 
-module riscv_sc_top #(
+module riscv_pipelined_top #(
    parameter DW = 32,
    parameter REG_SIZE = 32,
    parameter NO_OF_REGS_REG_FILE = 32,
@@ -53,7 +53,7 @@ module riscv_sc_top #(
    logic          alu_src;
    logic          alu_src_a;
    logic [1:0]    wb_sel;
-   logic [1:0]    alu_op;
+   // logic [1:0]    alu_op;
 
    //extend unit signls
    logic [DW-1:0] imm_ext;
@@ -93,14 +93,14 @@ module riscv_sc_top #(
    logic [DW-1:0] write_data_m;
    // logic [DW-1:0] rd_e;
    logic [REGW-1:0] rd_m;
-   logic [DW-1:0] pc_plus_4_e;
+   // logic [DW-1:0] pc_plus_4_e;
    logic [DW-1:0] pc_plus_4_m;
 
    logic reg_write_d;
    logic reg_write_m;
-   logic [1:0] wb_sel_d;
+   // logic [1:0] wb_sel_d;
    logic [1:0] wb_sel_m;
-   logic mem_write_d;
+   // logic mem_write_d;
    logic mem_write_m;
 
    logic [2:0] func3_m;
@@ -206,7 +206,7 @@ branch_checker #(
    .rdata1(rdata1),
    .rdata2(rdata2),
    .opcode(opcode_d),
-   .func3(func3),
+   .func3(instr_d[14:12]),   //func3_d and not func3
    .br_taken(br_taken)
 );
 
@@ -349,9 +349,7 @@ main_decoder i_main_decoder(
    .imm_src(imm_src),
    .alu_src(alu_src),
    .alu_src_a(alu_src_a),
-   .wb_sel(wb_sel),
-
-   .alu_op(alu_op)
+   .wb_sel(wb_sel)
 );
 
 endmodule

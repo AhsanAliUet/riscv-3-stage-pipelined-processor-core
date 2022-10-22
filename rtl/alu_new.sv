@@ -24,7 +24,7 @@ module alu_new #(
    } e_alu;
 
    logic [DW-1:0] operand_2;
-   logic          store_func7_5;
+   // logic          store_func7_5;
    // logic [DW-1:0] operand_2_branch;
 
    logic [DW-1:0] operand_2_srl_sra;   //the signal for only one shift for both srl and sra

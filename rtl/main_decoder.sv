@@ -8,9 +8,7 @@ module main_decoder (
    output logic [2:0] imm_src,
    output logic       alu_src,
    output logic       alu_src_a,
-   output logic [1:0] wb_sel,
-
-   output logic [1:0] alu_op       //used to alu_decoder module
+   output logic [1:0] wb_sel
 );
    logic       jump;
    logic       branch;
