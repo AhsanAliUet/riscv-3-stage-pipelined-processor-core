@@ -1,6 +1,6 @@
 //test bench for top file of riscv
 
-module tb_riscv_sc_top();
+module tb_riscv_pipelined_top();
    parameter DW = 32;
    parameter REG_SIZE = 32;
    parameter NO_OF_REGS_REG_FILE = 32;
@@ -12,7 +12,7 @@ module tb_riscv_sc_top();
    logic clk_i;
    logic rst_i;
 
-riscv_sc_top #(
+riscv_pipelined_top #(
    .DW(DW),
    .REG_SIZE(REG_SIZE),
    .NO_OF_REGS_REG_FILE(NO_OF_REGS_REG_FILE),
@@ -21,7 +21,7 @@ riscv_sc_top #(
    .NO_OF_REGS(NO_OF_REGS),
    .ADDENT(ADDENT)
 
-)i_riscv_sc_top(
+)i_riscv_pipelined_top(
    .clk_i(clk_i),
    .rst_i(rst_i)
 );

@@ -19,15 +19,17 @@ module forwarding_unit
    input  logic [REGW-1:0] rd_m,          //rd in memory/wb stage (Becaue M and WB are same stages)
    input  logic            reg_write_m,
    output logic            forward_a,     //forward to input A of ALU
-   output logic            forward_b,     //forward to input B of ALU
+   output logic            forward_b      //forward to input B of ALU
 );
 
 /////////////////////////////////////////////////////////////////////////////////
    always_comb begin
       if (rs1_e == rd_m && reg_write_m && |rs1_e) begin
          forward_a = 1;
+         forward_b = 0;
       end else if (rs2_e == rd_m && reg_write_m && |rs2_e) begin
          forward_b = 1;
+         forward_a = 0;
       end else begin
          forward_a = 0;
          forward_b = 0;

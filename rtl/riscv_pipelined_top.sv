@@ -108,6 +108,11 @@ module riscv_pipelined_top #(
    logic [DW-1:0] imm_ext_d;
 
    logic [DW-1:0] instr_m;
+   //forwarding unit signals
+   logic forward_a;
+   logic forward_b;
+   logic [DW-1:0] going_in_alu_a;
+   logic [DW-1:0] going_in_alu_b;
 
 pc #(
    .DW(DW)
@@ -194,7 +199,7 @@ imm_generator #(
 mux_2x1 #(
    .DW(DW)
 )i_mux_i_type(
-   .in0(rdata2),
+   .in0(going_in_alu_b),
    .in1(imm_ext),   //imm_ext_d
    .s(alu_src),
    .out(scr_b)
@@ -203,8 +208,8 @@ mux_2x1 #(
 branch_checker #(
    .REG_SIZE(REG_SIZE)
 )i_branch_checker(
-   .rdata1(rdata1),
-   .rdata2(rdata2),
+   .rdata1(going_in_alu_a),    //rdata1
+   .rdata2(going_in_alu_b),    //rdata2
    .opcode(opcode_d),
    .func3(instr_d[14:12]),   //func3_d and not func3
    .br_taken(br_taken)
@@ -214,7 +219,7 @@ mux_2x1 #(
    .DW(DW)
 )i_mux_branch_pc(
    .in0(pc_d),
-   .in1(rdata1),
+   .in1(going_in_alu_a),   //rdata1
    .s(alu_src_a),                //according to Sir M. Tahir
    .out(alu_operand_1)
 );
@@ -250,6 +255,23 @@ alu_new #(   //reduced hardware
    .alu_operand_2_i(scr_b),
    .alu_control(alu_control),
    .alu_result_o(alu_result)
+);
+
+mux_2x1 #(
+   .DW(DW)
+)i_mux_forward_a(
+   .in0(rdata1),
+   .in1(alu_out_m),
+   .s(forward_a),
+   .out(going_in_alu_a)
+);
+mux_2x1 #(
+   .DW(DW)
+)i_mux_forward_b(
+   .in0(rdata2),
+   .in1(alu_out_m),
+   .s(forward_b),
+   .out(going_in_alu_b)
 );
 
 pipeline_reg_2 #(
@@ -339,6 +361,16 @@ mux_4x1 #(
    .in3(32'h0),
    .s(wb_sel_m),
    .out(data_wb)
+);
+
+forwarding_unit
+i_forwarding_unit(
+   .rs1_e(instr_d[19:15]),
+   .rs2_e(instr_d[24:20]),
+   .rd_m(instr_m[11:7]),
+   .reg_write_m(reg_write_m),
+   .forward_a(forward_a),
+   .forward_b(forward_b)
 );
 
 main_decoder i_main_decoder(

@@ -1,4 +1,4 @@
-package riscv_pkg
+package riscv_pkg;
    localparam DW = 32;
    localparam REG_SIZE = 32;
    localparam NO_OF_REGS_REG_FILE = 32;
