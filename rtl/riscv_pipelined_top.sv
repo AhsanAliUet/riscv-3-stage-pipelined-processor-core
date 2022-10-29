@@ -35,7 +35,8 @@ module riscv_pipelined_top #(
    // assign rd = instr_d[11:7];
    
    logic [2:0] func3;
-   assign func3 = inst_o[14:12];
+   // assign func3 = inst_o[14:12];
+   assign func3 = instr_d[14:12];
    
    logic [6:0] func7;
    // assign func7 = inst_o[31:25];

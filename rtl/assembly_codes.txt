@@ -1,56 +1,29 @@
 #Assembly Program to find factorial of 11 (Result: 11! = 39916800, will be stored in x4)
 
-addi x3, x0, 11  				#the number for which we want to find factorial, n
-
+addi x3, x0, 10		#the number for which we want to find factorial, n
 add x0, x0, x0                  #nop
 add x0, x0, x0                  #nop
-
 blt x3, x0, negative_and_zero   #if n < 1 then return 1
-
 add x0, x0, x0                  #nop
 add x0, x0, x0                  #nop
-
 beq x3, x0, negative_and_zero   #if n == 0 then return 1
-
 add x0, x0, x0                  #nop
 add x0, x0, x0                  #nop
 
 addi x1, x0, 2					#used for comparison
-
 add x0, x0, x0                  #nop
 add x0, x0, x0                  #nop
-
 beq x3, x1, two                 #find factorial of 2
-
 add x0, x0, x0                  #nop
 add x0, x0, x0                  #nop
 
 add x4, x0, x3      			#result will be stored in this register
-
-add x0, x0, x0                  #nop
-add x0, x0, x0                  #nop
-
 add x2, x0, x3                  #copy of n
-
-add x0, x0, x0                  #nop
-add x0, x0, x0                  #nop
-
 addi x5, x5, 1      			#used for comparison
-
-add x0, x0, x0                  #nop
-add x0, x0, x0                  #nop
 
 find:               			#used for n-1    (n)(n-1) ... 2
    addi x2, x2, -1
-   
-   add x0, x0, x0               #nop
-   add x0, x0, x0               #nop
-   
    add x3, x0, x4   			#copy contents of x4 in x3
-   
-   add x0, x0, x0               #nop
-   add x0, x0, x0               #nop
-   
    j multiply
    
    add x0, x0, x0               #nop
@@ -59,38 +32,21 @@ find:               			#used for n-1    (n)(n-1) ... 2
 
 done:                			#checks if the factorial is found
    bne x2, x1, find
-   
    add x0, x0, x0               #nop
    add x0, x0, x0               #nop
    
    j stop
-   
    add x0, x0, x0               #nop
    add x0, x0, x0               #nop
 
 add x4, x4, x3
-
-add x0, x0, x0                  #nop
-add x0, x0, x0                  #nop
-
 multiply:           			#used for repeated additions, checks if multiplication is completed
    add x7, x0, x2
-   
-   add x0, x0, x0               #nop
-   add x0, x0, x0               #nop
 multiply1:         			    #used for repeated additions
    addi x7, x7, -1
-   
-   add x0, x0, x0               #nop
-   add x0, x0, x0               #nop
-   
    add x4, x4, x3
-   
-   add x0, x0, x0               #nop
-   add x0, x0, x0               #nop
-   
+ 
    bne x7, x5, multiply1
-   
    add x0, x0, x0               #nop
    add x0, x0, x0               #nop
    
@@ -100,21 +56,13 @@ multiply1:         			    #used for repeated additions
    add x0, x0, x0               #nop
 negative_and_zero:              #exception handler
    addi x4, x0, 1   			#give factorial of negative numbers =  1
-   
-   add x0, x0, x0               #nop
-   add x0, x0, x0               #nop
-   
    j stop
    
    add x0, x0, x0               #nop
    add x0, x0, x0               #nop
 two:
    addi x4, x0, 2
-   
-   add x0, x0, x0               #nop
-   add x0, x0, x0               #nop
 stop:
    j stop
-   
    add x0, x0, x0               #nop
    add x0, x0, x0               #nop

@@ -45,5 +45,48 @@ riscv_pipelined_top #(
                     #7; rst_i <= #1 0;
    endtask
 
+   initial begin
+      repeat(100) begin
+         $display("PC = %3d, Instr = %8h, forward_a = %0b, forward_b = %0b, reg_write = %0b", i_riscv_pipelined_top.pc_d, i_riscv_pipelined_top.instr_d, i_riscv_pipelined_top.forward_a, i_riscv_pipelined_top.forward_b, i_riscv_pipelined_top.reg_write_m);
+         $display("Instruction: %8h, asm: %s\n\n", i_riscv_pipelined_top.instr_d, print(i_riscv_pipelined_top.instr_d));
+         @(posedge clk_i);
+      end
+   end
 
+   initial begin
+      #50000000;
+      //seeing the contents of register file
+      $display("Register file is: ");
+      for (int i=0; i<10; i++) begin
+         $display("x%0d = %3d", i, i_riscv_pipelined_top.i_reg_file.reg_file[i]);
+      end
+      $finish;
+   end
+   function string print(logic [DW-1:0] instruction);
+      string as;
+      case(instruction)
+         32'h00400193: as = "addi x3, x0, 4";
+         32'h0801c463: as = "blt x3, x0, 136";
+         32'h00000033: as = "add x0, x0, x0";
+         32'h06018e63: as = "beq x3, x0, 124";
+         32'h00200093: as = "addi x1, x0, 2";
+         32'h06118e63: as = "beq x3, x1, two";
+         32'h00300233: as = "add x4, x0, x3";
+         32'h00300133: as = "add x2, x0, x3";
+         32'h00128293: as = "addi x5, x5, 1";
+         32'hfff10113: as = "addi x2, x2, -1";
+         32'h004001b3: as = "add x3, x0, x4";
+         32'h0280006f: as = "j multiply";
+         32'hfe1116e3: as = "bne x2, x1, find";
+         32'h0480006f: as = "j stop";
+         32'h00320233: as = "add x4, x4, x3";
+         32'h002003b3: as = "add x7, x0, x2";
+         32'hfff38393: as = "addi x7, x7, -1";
+         32'hfe539ce3: as = "bne x7, x5, multiply1";
+         32'hfcdff06f: as = "j done";
+         32'h00100213: as = "addi x4, x0, 1";
+
+      endcase
+      print = as;
+   endfunction
 endmodule
