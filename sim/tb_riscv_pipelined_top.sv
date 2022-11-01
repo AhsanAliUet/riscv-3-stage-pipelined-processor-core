@@ -54,7 +54,7 @@ riscv_pipelined_top #(
    end
 
    initial begin
-      #50000000;
+      #200;
       //seeing the contents of register file
       $display("Register file is: ");
       for (int i=0; i<10; i++) begin
