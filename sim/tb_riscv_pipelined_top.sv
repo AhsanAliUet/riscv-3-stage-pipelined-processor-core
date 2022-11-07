@@ -56,12 +56,22 @@ riscv_pipelined_top #(
    initial begin
       #200;
       //seeing the contents of register file
-      $display("Register file is: ");
-      for (int i=0; i<10; i++) begin
-         $display("x%0d = %3d", i, i_riscv_pipelined_top.i_reg_file.reg_file[i]);
+      $display("=============== Register file is: ===============");
+      for (int i=0; i<21; i++) begin
+         $display("x%0d = 0x%8h", i, i_riscv_pipelined_top.i_reg_file.reg_file[i]);
       end
+
+      // #200;
+      //seeing the contents of data memory
+      $display("\n\n=============== Data memory is: ===============");
+      for (int i=0; i<21; i++) begin
+         $display("x%0d = 0x%8h", i, i_riscv_pipelined_top.i_data_mem.data_mem[i]);
+      end
+
+      #2000;
       $finish;
    end
+
    function string print(logic [DW-1:0] instruction);
       string as;
       case(instruction)

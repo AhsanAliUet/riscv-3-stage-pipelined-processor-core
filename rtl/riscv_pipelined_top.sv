@@ -262,7 +262,7 @@ mux_2x1 #(
    .DW(DW)
 )i_mux_forward_a(
    .in0(rdata1),
-   .in1(alu_out_m),
+   .in1(data_wb),        //forward from write back stage //alu_out_m
    .s(forward_a),
    .out(going_in_alu_a)
 );
@@ -270,7 +270,7 @@ mux_2x1 #(
    .DW(DW)
 )i_mux_forward_b(
    .in0(rdata2),
-   .in1(alu_out_m),
+   .in1(data_wb),        //forward from write back stage //alu_out_m
    .s(forward_b),
    .out(going_in_alu_b)
 );
@@ -356,12 +356,12 @@ adder #(
 mux_4x1 #(
    .DW(DW)
 )i_mux_wb(
-   .in0(alu_out_m),   //alu_result
+   .in0(alu_out_m),           //alu_result
    .in1(data_l_o),
    .in2(pc_plus_4_m),        //for jumps and non-jumps (Branches also)
    .in3(32'h0),
    .s(wb_sel_m),
-   .out(data_wb)
+   .out(data_wb)             //forwarding will be taken from here
 );
 
 forwarding_unit
