@@ -54,18 +54,18 @@ riscv_pipelined_top #(
    end
 
    initial begin
-      #200;
+      #2000;
       //seeing the contents of register file
       $display("=============== Register file is: ===============");
-      for (int i=0; i<21; i++) begin
-         $display("x%0d = 0x%8h", i, i_riscv_pipelined_top.i_reg_file.reg_file[i]);
+      for (int i=0; i<32; i++) begin
+         $display("x%2d = 0x%8h", i, i_riscv_pipelined_top.i_reg_file.reg_file[i]);
       end
 
       // #200;
       //seeing the contents of data memory
       $display("\n\n=============== Data memory is: ===============");
       for (int i=0; i<21; i++) begin
-         $display("x%0d = 0x%8h", i, i_riscv_pipelined_top.i_data_mem.data_mem[i]);
+         $display("x%2d = 0x%8h", i, i_riscv_pipelined_top.i_data_mem.data_mem[i]);
       end
 
       #2000;
