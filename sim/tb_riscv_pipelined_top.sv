@@ -48,6 +48,7 @@ riscv_pipelined_top #(
    initial begin
       repeat(100) begin
          $display("PC = %3d, Instr = %8h, forward_a = %0b, forward_b = %0b, reg_write = %0b", i_riscv_pipelined_top.pc_d, i_riscv_pipelined_top.instr_d, i_riscv_pipelined_top.forward_a, i_riscv_pipelined_top.forward_b, i_riscv_pipelined_top.reg_write_m);
+         $display("Stall_FD = %0b, Stall_MW = %0b", i_riscv_pipelined_top.stall_fd, i_riscv_pipelined_top.stall_mw);
          $display("Instruction: %8h, asm: %s\n\n", i_riscv_pipelined_top.instr_d, print(i_riscv_pipelined_top.instr_d));
          @(posedge clk_i);
       end

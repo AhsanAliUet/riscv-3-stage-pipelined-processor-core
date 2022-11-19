@@ -5,6 +5,7 @@ module pipeline_reg_2 #(
    input  logic clk_i,
    input  logic rst_i,
    
+   input  logic stall,
    input  logic [DW-1:0]   alu_out_e,          //alu_out in execute stage
    output logic [DW-1:0]   alu_out_m,          //alu_out in memory stage
 
@@ -49,7 +50,20 @@ module pipeline_reg_2 #(
          instr_m      <= '0;
       end : reset_block
 
-      else begin : to_next_stage
+      else if (stall) begin : to_next_stage
+         alu_out_m    <= alu_out_m;
+         write_data_m <= write_data_m;
+         rd_m         <= rd_m;
+         pc_plus_4_m  <= pc_plus_4_m;
+         reg_write_m  <= reg_write_m;
+         wb_sel_m     <= wb_sel_m;
+         mem_write_m  <= mem_write_m;
+         opcode_m     <= opcode_m;
+         func3_m      <= func3_m;
+         instr_m      <= instr_m;
+      end : to_next_stage
+
+      else begin
          alu_out_m    <= alu_out_e;
          write_data_m <= write_data_e;
          rd_m         <= rd_e;
@@ -60,7 +74,7 @@ module pipeline_reg_2 #(
          opcode_m     <= opcode_d;
          func3_m      <= func3_d;
          instr_m      <= instr_d;
-      end : to_next_stage
-      
+      end
+
    end : pipelined_register
 endmodule

@@ -5,8 +5,9 @@
 // Project Name: RISC-V Core
 // Module Name:  [forwarding_unit]
 // Designer:     [AHSAN ALI]
-// Description:  [The unit to solve RAW data hazards in RISC-V Core]
-//
+// Description:  [The unit to solve RAW data hazards in RISC-V Core
+//                actually both forwarding and stalling unit ]
+//                
 /////////////////////////////////////////////////////////////////////////////////
 
 module forwarding_unit
@@ -18,8 +19,15 @@ module forwarding_unit
    input  logic [REGW-1:0] rs2_e,         //rs2 in execute stage
    input  logic [REGW-1:0] rd_m,          //rd in memory/wb stage (Becaue M and WB are same stages)
    input  logic            reg_write_m,
+   input  logic            wb_sel_0,      //checks whether the inst was LOAD
+   input  logic            br_taken,
+
    output logic            forward_a,     //forward to input A of ALU
-   output logic            forward_b      //forward to input B of ALU
+   output logic            forward_b,      //forward to input B of ALU
+
+   output logic            stall_mw,      //stall MW stage
+   output logic            stall_fd,       //stall FD stage
+   output logic            flush
 );
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +44,25 @@ module forwarding_unit
       end
    end
 
+   always_comb begin
+      if (wb_sel_0 && (rs1_e == rd_m || rs2_e == rd_m)) begin
+         stall_fd = 1;
+         stall_mw = 1;
+      end
+      else begin
+         stall_fd = 0;
+         stall_mw = 0;   
+      end
+   end
+
+   always_comb begin
+      if (br_taken || stall_fd ) begin
+         flush = 1;
+      end
+      else begin
+         flush = 0;
+      end
+   end
 /////////////////////////////////////////////////////////////////////////////////
 
 endmodule: forwarding_unit

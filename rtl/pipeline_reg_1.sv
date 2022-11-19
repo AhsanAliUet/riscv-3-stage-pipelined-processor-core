@@ -4,6 +4,8 @@ module pipeline_reg_1 #(
    input  logic clk_i,
    input  logic rst_i,
    
+   input  logic stall,
+   input  logic flush,
    input  logic [DW-1:0] instr_f,      //instruction in fetch stage
    output logic [DW-1:0] instr_d,      //instruction in decode stage
 
@@ -25,12 +27,26 @@ module pipeline_reg_1 #(
          imm_ext_d   <= '0;
       end : reset_block
 
-      else begin : to_next_stage
+      else if (stall) begin : to_next_stage
+         instr_d     <= instr_d;
+         pc_d        <= pc_d;
+         pc_plus_4_d <= pc_plus_4_d;
+         imm_ext_d   <= imm_ext_d;
+      end : to_next_stage
+
+      else if (flush) begin
+         instr_d     <= '0;
+         pc_d        <= '0;
+         pc_plus_4_d <= '0;
+         imm_ext_d   <= '0;
+      end
+
+      else begin
          instr_d     <= instr_f;
          pc_d        <= pc_f;
          pc_plus_4_d <= pc_plus_4_f;
          imm_ext_d   <= imm_ext_f;
-      end : to_next_stage
+      end
 
    end : pipelined_register
 endmodule
