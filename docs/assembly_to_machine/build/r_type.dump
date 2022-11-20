@@ -1,0 +1,26 @@
+
+build/r_type.elf:     file format elf32-littleriscv
+
+Contents of section .text:
+ 0000 93001000 13012000 93013000 13024000  ...... ...0...@.
+ 0010 93025000 13036000 b3801000 33012040  ..P...`.....3. @
+ 0020 33e41000 b3f40400 23251000 0325a000  3.......#%...%..
+Contents of section .riscv.attributes:
+ 0000 41190000 00726973 63760001 0f000000  A....riscv......
+ 0010 05727633 32693270 3000               .rv32i2p0.      
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:	00100093          	li	ra,1
+   4:	00200113          	li	sp,2
+   8:	00300193          	li	gp,3
+   c:	00400213          	li	tp,4
+  10:	00500293          	li	t0,5
+  14:	00600313          	li	t1,6
+  18:	001080b3          	add	ra,ra,ra
+  1c:	40200133          	neg	sp,sp
+  20:	0010e433          	or	s0,ra,ra
+  24:	0004f4b3          	and	s1,s1,zero
+  28:	00102523          	sw	ra,10(zero) # a <_sidata-0x26>
+  2c:	00a02503          	lw	a0,10(zero) # a <_sidata-0x26>

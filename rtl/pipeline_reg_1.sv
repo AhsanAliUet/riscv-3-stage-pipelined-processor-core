@@ -35,7 +35,7 @@ module pipeline_reg_1 #(
       end : to_next_stage
 
       else if (flush) begin
-         instr_d     <= '0;
+         instr_d     <= 32'h00000013;   //equivalent to nop (addi x0, x0, 0)
          pc_d        <= '0;
          pc_plus_4_d <= '0;
          imm_ext_d   <= '0;
