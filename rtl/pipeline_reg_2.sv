@@ -18,6 +18,9 @@ module pipeline_reg_2 #(
    input  logic [DW-1:0]   pc_plus_4_e,        //PC plus 4 in execute stage
    output logic [DW-1:0]   pc_plus_4_m,        //PC plus 4 in memory stage
 
+   input  logic [DW-1:0]   pc_d,
+   output logic [DW-1:0]   pc_m,
+
    input  logic            reg_write_d,        //decode and execute are same so suffix _d or _e are same 
    input  logic [1:0]      wb_sel_d,
    input  logic            mem_write_d,
@@ -33,7 +36,13 @@ module pipeline_reg_2 #(
    output logic [2:0]      func3_m,
 
    input  logic [DW-1:0]   instr_d,
-   output logic [DW-1:0]   instr_m
+   output logic [DW-1:0]   instr_m,
+
+   input  logic [DW-1:0]    imm_csr_d,
+   output logic [DW-1:0]    imm_csr_m,
+
+   input  logic [DW-1:0]    rs1_d,
+   output logic [DW-1:0]    rs1_m
 );
 
    always_ff @ (posedge clk_i, posedge rst_i) begin : pipelined_register
@@ -48,6 +57,9 @@ module pipeline_reg_2 #(
          opcode_m     <= '0;
          func3_m      <= '0;
          instr_m      <= '0;
+         imm_csr_m    <= '0;
+         pc_m         <= '0;
+         rs1_m        <= '0;
       end : reset_block
 
       else if (stall) begin : to_next_stage
@@ -61,6 +73,9 @@ module pipeline_reg_2 #(
          opcode_m     <= opcode_m;
          func3_m      <= func3_m;
          instr_m      <= instr_m;
+         imm_csr_m    <= imm_csr_m;
+         pc_m         <= pc_m;
+         rs1_m        <= rs1_m;
       end : to_next_stage
 
       else begin
@@ -74,6 +89,9 @@ module pipeline_reg_2 #(
          opcode_m     <= opcode_d;
          func3_m      <= func3_d;
          instr_m      <= instr_d;
+         imm_csr_m    <= imm_csr_d;
+         pc_m         <= pc_d;
+         rs1_m        <= rs1_d;
       end
 
    end : pipelined_register

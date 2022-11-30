@@ -46,6 +46,9 @@ module riscv_pipelined_top #(
    logic          alu_src_a;
    logic [1:0]    wb_sel;
 
+   logic csr_we;
+   logic csr_re;
+
    //extend unit signls
    logic [DW-1:0] imm_ext;
 
@@ -93,6 +96,13 @@ module riscv_pipelined_top #(
    logic [DW-1:0] imm_ext_d;
 
    logic [DW-1:0] instr_m;
+
+   logic [DW-1:0] imm_csr_d;
+   logic [DW-1:0] imm_csr_m;
+
+   logic [DW-1:0] pc_m;
+
+   logic [DW-1:0] rs1_m;
    //forwarding unit signals
    logic          forward_a;
    logic          forward_b;
@@ -102,6 +112,10 @@ module riscv_pipelined_top #(
 
    logic [DW-1:0] going_in_alu_a;
    logic [DW-1:0] going_in_alu_b;
+
+   //CSR signals
+   logic [DW-1:0] epc;
+   logic [DW-1:0] data_csr_o;   
 
 pc #(
    .DW      (DW)
@@ -285,6 +299,9 @@ pipeline_reg_2 #(
    .pc_plus_4_e  (pc_plus_4_d  ),    //because decode and execute stages are same
    .pc_plus_4_m  (pc_plus_4_m  ),
 
+   .pc_d         (pc_d         ),
+   .pc_m         (pc_m         ),
+
    .reg_write_d  (reg_write    ),
    .wb_sel_d     (wb_sel       ),
    .mem_write_d  (mem_write    ),
@@ -300,7 +317,13 @@ pipeline_reg_2 #(
    .func3_m      (func3_m      ),
 
    .instr_d      (instr_d      ),
-   .instr_m      (instr_m      )
+   .instr_m      (instr_m      ),
+
+   .imm_csr_d    (imm_ext      ),
+   .imm_csr_m    (imm_csr_m    ),
+
+   .rs1_d        (going_in_alu_a),
+   .rs1_m        (rs1_m        )
 );
 
 
@@ -336,6 +359,26 @@ data_mem #(
    .rdata_o        (rdata_data_mem)
 );
 
+csr_regs # (
+   .DW   (DW),
+   .ADDRW(12)
+) i_csr_regs(
+   .clk_i (clk_i          ),
+   .rst_i (rst_i          ),
+
+   .intr  (intr           ),
+   .addr  (imm_csr_m[11:0]),    //pick only 12 bits which were coming from instruction
+   .we    (csr_we         ),
+   .re    (csr_re         ),
+
+   .data_i(rs1_m          ),
+
+   .pc_i  (pc_m           ),
+   .epc_o (epc            ),
+
+   .data_o(data_csr_o     )
+);
+
 adder #(
    .DW     (DW       ),
    .ADDENT (ADDENT   )
@@ -350,7 +393,7 @@ mux_4x1 #(
    .in0  (alu_out_m  ),           //alu_result
    .in1  (data_l_o   ),
    .in2  (pc_plus_4_m),           //for jumps and non-jumps (Branches also)
-   .in3  (32'h0      ),
+   .in3  (data_csr_o ),           //csr output data to be stored in reg_file
    .s    (wb_sel_m   ),
    .out  (data_wb    )            //forwarding will be taken from here
 );
@@ -379,7 +422,9 @@ main_decoder i_main_decoder(
    .imm_src   (imm_src  ),
    .alu_src   (alu_src  ),
    .alu_src_a (alu_src_a),
-   .wb_sel    (wb_sel   )
+   .wb_sel    (wb_sel   ),
+   .csr_we    (csr_we   ),
+   .csr_re    (csr_re   )
 );
 
 endmodule

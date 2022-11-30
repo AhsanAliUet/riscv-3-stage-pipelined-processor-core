@@ -8,7 +8,10 @@ module main_decoder (
    output logic [2:0] imm_src,
    output logic       alu_src,
    output logic       alu_src_a,
-   output logic [1:0] wb_sel
+   output logic [1:0] wb_sel,
+
+   output logic       csr_we,
+   output logic       csr_re
 );
    logic       jump;
    logic       branch;
@@ -25,7 +28,10 @@ always_comb begin
          branch    = 1'b0;
          jump      = 1'b0;
 
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
+
       7'b0100011: begin            //sw
          reg_write = 1'b0;
          mem_write = 1'b1;
@@ -36,7 +42,10 @@ always_comb begin
          branch    = 1'b0;
          jump      = 1'b0;
 
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
+
       7'b0110011: begin            //R
          reg_write = 1'b1;
          mem_write = 1'b0;
@@ -46,8 +55,11 @@ always_comb begin
          wb_sel    = 2'b00;
          branch    = 1'b0;
          jump      = 1'b0;
-
+         
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
+
       7'b1100011: begin            //B
          reg_write = 1'b0;
          mem_write = 1'b0;
@@ -57,8 +69,11 @@ always_comb begin
          wb_sel    = 2'b00;
          branch    = 1'b1;
          jump      = 1'b0;
-
+         
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
+
       7'b0010011: begin            //I
          reg_write = 1'b1;
          mem_write = 1'b0;
@@ -68,8 +83,9 @@ always_comb begin
          wb_sel    = 2'b00;
          branch    = 1'b0;
          jump      = 1'b0;
-
-
+         
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
 
       7'b0110111 , 7'b0010111: begin            //U-type
@@ -81,7 +97,9 @@ always_comb begin
          wb_sel    = 2'b00;
          branch    = 1'b0;
          jump      = 1'b0;
-
+         
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
    
       7'b1101111: begin            //Jal 
@@ -93,8 +111,11 @@ always_comb begin
          wb_sel    = 2'b10;
          branch    = 1'b0;
          jump      = 1'b1;
-
+         
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
+
       7'b1100111: begin         //Jalr
          reg_write = 1'b1;
          mem_write = 1'b0;
@@ -104,7 +125,25 @@ always_comb begin
          wb_sel    = 2'b10;
          branch    = 1'b0;
          jump      = 1'b0;
+         
+         csr_we    = 1'b0;
+         csr_re    = 1'b0;
       end
+
+      7'b1110011: begin       //csrrw instruction
+         reg_write = 1'b1;
+         mem_write = 1'b0;
+         imm_src   = 3'b101;
+         alu_src   = 1'b1;    //does not matter in CSR
+         alu_src_a = 1'b0;    //does not matter in CSR
+         wb_sel    = 2'b11;
+         branch    = 1'b0;
+         jump      = 1'b0;
+         
+         csr_we    = 1'b1;    
+         csr_re    = 1'b1;
+      end
+
       default: begin         //default case is of R-type
          reg_write = 1'b1;
          mem_write = 1'b0;
@@ -114,6 +153,9 @@ always_comb begin
          wb_sel    = 2'b00;
          branch    = 1'b0;
          jump      = 1'b0;
+         
+         csr_we    = 1'b0;    
+         csr_re    = 1'b0;
       end
    endcase
 end

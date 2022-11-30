@@ -1,6 +1,4 @@
 
-import csr_pkg::*;
-
 module csr_regs # (
    parameter DW    = 32,
    parameter ADDRW = 12
@@ -8,7 +6,6 @@ module csr_regs # (
    input  logic             clk_i,
    input  logic             rst_i,
 
-   input  logic [DW-1:0]    instruction,
    input  logic             intr,         //interrupt signal
    input  logic [ADDRW-1:0] addr,
    input  logic             we,
@@ -24,11 +21,6 @@ module csr_regs # (
 
    // localparam NO_OF_REGS = 256;
    // logic [DW-1:0] csr_regs [0:NO_OF_REGS-1];    //totall 256 CSR registers
-
-   logic [DW-1:0] ra;                     //return address  
-
-   logic [DW-1:0] handlder_addr;
-   assign handlder_addr = 32'h00000010    //consider there is only one handler
 
    parameter [ADDRW-1:0] MSTATUS_ADDR = 12'h300;
    parameter [ADDRW-1:0] MIE_ADDR     = 12'h304;
@@ -72,7 +64,7 @@ module csr_regs # (
       end
 
       else if (we) begin
-         case(addr):
+         case(addr)
             MSTATUS_ADDR : mstatus_ff <= data_i;   //mstatus
             MIE_ADDR     : mie_ff     <= data_i;   //mie
             MTVEC_ADDR   : mtvec_ff   <= data_i;   //mtvec
@@ -84,17 +76,17 @@ module csr_regs # (
 
    end
 
-   always_comb begin
-      if (intr) begin
-         ra         = pc_i;               //PC of usual program is saved is ra
-         epc_o      = handlder_addr;      //pc will go to handler
-         flush_intr = 1;                  //flush the pipeline when interrupt comes
-      end
+   // always_comb begin
+   //    if (intr) begin
+   //       ra         = pc_i;               //PC of usual program is saved is ra
+   //       epc_o      = handlder_addr;      //pc will go to handler
+   //       flush_intr = 1;                  //flush the pipeline when interrupt comes
+   //    end
 
-      else begin
-         ra         = pc_i;
-         epc_o      = pc_i;
-         flush_intr = 0;                 //no need to flush when no interrupt
-      end
-   end
+   //    else begin
+   //       ra         = pc_i;
+   //       epc_o      = pc_i;
+   //       flush_intr = 0;                 //no need to flush when no interrupt
+   //    end
+   // end
 endmodule
