@@ -7,3 +7,7 @@ transcript
 git_5_stage_sim/
 Readme.md
 csr.sv
+docs/
+dump.vcd
+vsim.wlf
+

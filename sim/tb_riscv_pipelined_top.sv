@@ -55,6 +55,10 @@ riscv_pipelined_top #(
    end
 
    initial begin
+      $dumpfile("docs//dump.vcd");
+      $dumpvars;
+   end
+   initial begin
       #2000;
       //seeing the contents of register file
       $display("=============== Register file is: ===============");
