@@ -31,6 +31,8 @@ compile:
 simulate:
 	vsim -c -voptargs="+acc" work.$(TB_FILE1) -do "run -all; quit -sim; quit;"
 
+wave:
+	vsim -voptargs="+acc" work.$(TB_FILE1) -do "do wave.do; run -all; quit -sim; quit;"    #add all the signal to wave which are in TB_FILE1
 run:
 	make compile
 	make simulate

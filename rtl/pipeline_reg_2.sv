@@ -41,6 +41,12 @@ module pipeline_reg_2 #(
    input  logic [DW-1:0]    imm_csr_d,
    output logic [DW-1:0]    imm_csr_m,
 
+   input  logic             csr_we_d,   //csr write enable in decode stage
+   output logic             csr_we_m,
+
+   input  logic             csr_re_d,
+   output logic             csr_re_m,
+
    input  logic [DW-1:0]    rs1_d,
    output logic [DW-1:0]    rs1_m
 );
@@ -60,6 +66,8 @@ module pipeline_reg_2 #(
          imm_csr_m    <= '0;
          pc_m         <= '0;
          rs1_m        <= '0;
+         csr_we_m     <= '0;
+         csr_re_m     <= '0;
       end : reset_block
 
       else if (stall) begin : to_next_stage
@@ -76,6 +84,8 @@ module pipeline_reg_2 #(
          imm_csr_m    <= imm_csr_m;
          pc_m         <= pc_m;
          rs1_m        <= rs1_m;
+         csr_we_m     <= csr_we_m;
+         csr_re_m     <= csr_re_m;
       end : to_next_stage
 
       else begin
@@ -92,6 +102,8 @@ module pipeline_reg_2 #(
          imm_csr_m    <= imm_csr_d;
          pc_m         <= pc_d;
          rs1_m        <= rs1_d;
+         csr_we_m     <= csr_we_d;
+         csr_re_m     <= csr_re_d;
       end
 
    end : pipelined_register

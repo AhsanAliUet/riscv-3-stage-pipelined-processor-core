@@ -115,7 +115,10 @@ module riscv_pipelined_top #(
 
    //CSR signals
    logic [DW-1:0] epc;
-   logic [DW-1:0] data_csr_o;   
+   logic [DW-1:0] data_csr_o; 
+
+   logic          csr_we_m;
+   logic          csr_re_m;  
 
 pc #(
    .DW      (DW)
@@ -322,6 +325,12 @@ pipeline_reg_2 #(
    .imm_csr_d    (imm_ext      ),
    .imm_csr_m    (imm_csr_m    ),
 
+   .csr_we_d     (csr_we       ),  //from main_decoder
+   .csr_we_m     (csr_we_m     ),
+
+   .csr_re_d     (csr_re       ),  //from main_decoder
+   .csr_re_m     (csr_re_m     ),
+
    .rs1_d        (going_in_alu_a),
    .rs1_m        (rs1_m        )
 );
@@ -368,8 +377,8 @@ csr_regs # (
 
    .intr  (intr           ),
    .addr  (imm_csr_m[11:0]),    //pick only 12 bits which were coming from instruction
-   .we    (csr_we         ),
-   .re    (csr_re         ),
+   .we    (csr_we_m       ),
+   .re    (csr_re_m       ),
 
    .data_i(rs1_m          ),
 

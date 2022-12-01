@@ -53,7 +53,7 @@ module csr_regs # (
       end
    end
 
-   always_ff @ (posedge clk_i, posedge rst_i) begin
+   always_ff @ (negedge clk_i, posedge rst_i) begin  //write at negative edge
       if (rst_i) begin
          mstatus_ff <= '0;
          mie_ff     <= '0;
