@@ -26,13 +26,12 @@ If you want to see the waves which are produced by Processor as a result of your
 
 `make wave`  
 
-this will show you all the wave in gtkwave.  
+this will show you all the waves in gtkwave.  
 If you find any issue regarding anything related to the processor, you can reach me at  
 
 |Name|Email|
 |----|-----|
-|John|ahsan.uet.ee.115@gmail.com|
+|Ahsan|ahsan.uet.ee.115@gmail.com|
 
 # Author
 - [@Ahsan Ali](https://github.com/AhsanAliUet)
-
