@@ -36,8 +36,7 @@ module csr_regs # (
    logic [DW-1:0] mcause_ff;
    logic [DW-1:0] mip_ff;
 
-   always_comb   //asynchrounus read from CSRs
-   begin
+   always_comb begin  //asynchrounus read from CSRs
       if (re) begin
          case(addr)
             MSTATUS_ADDR : data_o = mstatus_ff; //mstatus
@@ -76,6 +75,12 @@ module csr_regs # (
 
    end
 
+   always_comb begin
+      if (intr) begin
+         epc_o = pc_i;
+      end
+   end
+   
    // always_comb begin
    //    if (intr) begin
    //       ra         = pc_i;               //PC of usual program is saved is ra

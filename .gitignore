@@ -6,7 +6,6 @@ work/
 transcript
 git_5_stage_sim/
 Readme.md
-csr.sv
 dump.vcd
 vsim.wlf
 
