@@ -8,3 +8,4 @@ add x3, x2, x1
 add x4, x3, x1
 add x5, x4, x1
 add x6, x6, x1
+mret

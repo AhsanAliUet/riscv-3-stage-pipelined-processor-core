@@ -1,21 +1,26 @@
 //a part of the controller of processor
 
-module main_decoder (
-   input  logic [6:0] opcode,
+module main_decoder # (
+   parameter DW = 32
+)(
+   input  logic [DW-1:0] inst,   //instruction input to main_decoder
    
-   output logic       reg_write,
-   output logic       mem_write,
-   output logic [2:0] imm_src,
-   output logic       alu_src,
-   output logic       alu_src_a,
-   output logic [1:0] wb_sel,
+   output logic          reg_write,
+   output logic          mem_write,
+   output logic [2:0]    imm_src,
+   output logic          alu_src,
+   output logic          alu_src_a,
+   output logic [1:0]    wb_sel,
 
-   output logic       csr_we,
-   output logic       csr_re,
-   output logic       is_mret
+   output logic          csr_we,
+   output logic          csr_re,
+   output logic          is_mret
 );
    logic       jump;
    logic       branch;
+
+   logic [6:0] opcode;
+   assign opcode = inst[6:0];
 
 always_comb begin
    case(opcode)
@@ -139,6 +144,12 @@ always_comb begin
          is_mret   = 1'b0;
       end
 
+      7'b1110011: begin    //MRET instruction
+         if (inst[31:20] == 12'h302) begin //last 12 bits
+            is_mret   = 1'b1;
+         end
+      end
+
       7'b1110011: begin       //csrrw instruction
          reg_write = 1'b1;
          mem_write = 1'b0;
@@ -153,10 +164,6 @@ always_comb begin
          csr_re    = 1'b1;
          is_mret   = 1'b0;
       end
-      
-      7'b1110011: begin    //MRET instruction
-         is_mret   = 1'b1;
-      end
 
       default: begin         //default case is of R-type
          reg_write = 1'b1;
@@ -170,6 +177,7 @@ always_comb begin
          
          csr_we    = 1'b0;    
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
    endcase
 end

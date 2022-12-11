@@ -461,7 +461,7 @@ i_forwarding_unit(
 );
 
 main_decoder i_main_decoder(
-   .opcode    (opcode_d ),   //opcode
+   .inst      (instr_d  ),   //inst
    
    .reg_write (reg_write),
    .mem_write (mem_write),
