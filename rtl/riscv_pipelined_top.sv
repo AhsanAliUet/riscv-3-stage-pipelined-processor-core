@@ -7,7 +7,8 @@ module riscv_pipelined_top #(
    parameter REGW                = $clog2(REG_SIZE),
    parameter MEM_SIZE_IN_KB      = 1,
    parameter NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4,
-   parameter ADDENT              = 4
+   parameter ADDENT              = 4,
+   parameter ADDRW               = 12
 
 )(
    input  logic clk_i,
@@ -118,7 +119,10 @@ module riscv_pipelined_top #(
    logic [DW-1:0] data_csr_o; 
 
    logic          csr_we_m;
-   logic          csr_re_m;  
+   logic          csr_re_m;
+   logic          intr;
+   logic          is_mret;
+   logic [DW-1:0] pc_final;
 
 pc #(
    .DW      (DW)
@@ -126,7 +130,7 @@ pc #(
    .clk_i   (clk_i    ),
    .rst_i   (rst_i    ),
    .stall   (stall_fd ),
-   .pc_next (pc_target),
+   .pc_next (pc_final ),
    .pc      (pc       )
 );
 
@@ -158,6 +162,16 @@ mux_2x1 #(           //the mux to select PC+4 or PC+Target
    .s    (br_taken  ),
 
    .out  (pc_target )
+);
+
+mux_2x1 #(           //the mux to select usual PC or EPC (exception PC)
+   .DW   (DW         )
+)i_mux_csr(
+   .in0  (pc_target  ),
+   .in1  (epc        ),
+   .s    (intr       ),
+
+   .out  (pc_final   )
 );
 
 adder #(
@@ -368,25 +382,48 @@ data_mem #(
    .rdata_o        (rdata_data_mem)
 );
 
-csr_regs # (
-   .DW   (DW),
-   .ADDRW(12)
-) i_csr_regs(
-   .clk_i (clk_i          ),
-   .rst_i (rst_i          ),
+// csr_regs # (
+//    .DW   (DW),
+//    .ADDRW(12)
+// ) i_csr_regs(
+//    .clk_i (clk_i          ),
+//    .rst_i (rst_i          ),
 
-   .intr  (intr           ),
-   .addr  (imm_csr_m[11:0]),    //pick only 12 bits which were coming from instruction
-   .we    (csr_we_m       ),
-   .re    (csr_re_m       ),
+//    .intr  (intr           ),
+//    .addr  (imm_csr_m[11:0]),    //pick only 12 bits which were coming from instruction
+//    .we    (csr_we_m       ),
+//    .re    (csr_re_m       ),
 
-   .data_i(rs1_m          ),
+//    .data_i(rs1_m          ),
 
-   .pc_i  (pc_m           ),
-   .epc_o (epc            ),
+//    .pc_i  (pc_m           ),
+//    .epc_o (epc            ),
 
-   .data_o(data_csr_o     )
+//    .data_o(data_csr_o     )
+// );
+
+
+csr #(
+   .DW   (DW   ),
+   .ADDRW(ADDRW)
+
+) i_csr(
+   .clk_i    (clk_i          ),
+   .rst_i    (rst_i          ),
+   .addr     (imm_csr_m[11:0]),
+   .we       (csr_we_m       ),
+   .re       (csr_re_m       ),
+
+   .pc_i     (pc_m           ),
+   .data_i   (rs1_m          ),
+
+   .is_mret  (is_mret        ),
+   .intr_flag(intr           ),
+   .data_o   (data_csr_o     ),
+   .epc_o    (epc            )
+
 );
+
 
 adder #(
    .DW     (DW       ),
@@ -433,7 +470,8 @@ main_decoder i_main_decoder(
    .alu_src_a (alu_src_a),
    .wb_sel    (wb_sel   ),
    .csr_we    (csr_we   ),
-   .csr_re    (csr_re   )
+   .csr_re    (csr_re   ),
+   .is_mret   (is_mret  )
 );
 
 endmodule

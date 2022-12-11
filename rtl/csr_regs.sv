@@ -1,3 +1,4 @@
+//CSR register file
 
 module csr_regs # (
    parameter DW    = 32,
@@ -6,17 +7,24 @@ module csr_regs # (
    input  logic             clk_i,
    input  logic             rst_i,
 
-   input  logic             intr,         //interrupt signal
+   input  logic             intr_flag,
    input  logic [ADDRW-1:0] addr,
    input  logic             we,
    input  logic             re,
 
+   input  logic [DW-1:0]    pc_i,
    input  logic [DW-1:0]    data_i,
 
-   input  logic [DW-1:0]    pc_i,
-   output logic [DW-1:0]    epc_o,
+   output logic [DW-1:0]    data_o,
 
-   output logic [DW-1:0]    data_o
+   //output from register file (read all registers in parallel)
+   output logic [DW-1:0]    mstatus_o,
+   output logic [DW-1:0]    mie_o,
+   output logic [DW-1:0]    mtvec_o,
+   output logic [DW-1:0]    mepc_o,
+   output logic [DW-1:0]    mcause_o,
+   output logic [DW-1:0]    mip_o
+
 );
 
    // localparam NO_OF_REGS = 256;
@@ -29,6 +37,7 @@ module csr_regs # (
    parameter [ADDRW-1:0] MCAUSE_ADDR  = 12'h342;
    parameter [ADDRW-1:0] MIP_ADDR     = 12'h344;
 
+   //internal registers of CSR register file
    logic [DW-1:0] mstatus_ff;
    logic [DW-1:0] mie_ff;
    logic [DW-1:0] mtvec_ff;
@@ -67,7 +76,16 @@ module csr_regs # (
             MSTATUS_ADDR : mstatus_ff <= data_i;   //mstatus
             MIE_ADDR     : mie_ff     <= data_i;   //mie
             MTVEC_ADDR   : mtvec_ff   <= data_i;   //mtvec
-            MEPC_ADDR    : mepc_ff    <= data_i;   //mpec
+            
+            MEPC_ADDR    : begin
+               if (intr_flag) begin
+                  mepc_ff    <= pc_i;
+               end
+               else begin
+                  mepc_ff    <= data_i;
+               end
+            end
+
             MCAUSE_ADDR  : mcause_ff  <= data_i;   //mcause
             MIP_ADDR     : mip_ff     <= data_i;   //mie
          endcase
@@ -75,11 +93,27 @@ module csr_regs # (
 
    end
 
-   always_comb begin
-      if (intr) begin
-         epc_o = pc_i;
+   //read all the registers in parallel
+   always_ff @ (posedge clk_i) begin
+      if (rst_i) begin
+         mstatus_o <= '0;
+         mie_o     <= '0;
+         mtvec_o   <= '0;
+         mepc_o    <= '0;
+         mcause_o  <= '0;
+         mip_o     <= '0;
+      end
+
+      else begin
+         mstatus_o <= mstatus_ff;
+         mie_o     <= mie_ff;
+         mtvec_o   <= mtvec_ff;
+         mepc_o    <= mepc_ff;
+         mcause_o  <= mcause_ff;
+         mip_o     <= mip_ff;
       end
    end
+
    
    // always_comb begin
    //    if (intr) begin

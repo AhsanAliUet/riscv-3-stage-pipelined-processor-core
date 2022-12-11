@@ -1,91 +1,77 @@
+//contains CSR registers and interrupt generation process from those registers
 
-//this module is used to generate interrupt signal
+module csr #(
+    parameter DW = 32,
+    parameter ADDRW = 12
 
-module csr # (
-   parameter DW = 32
 ) (
+    input  logic             clk_i,
+    input  logic             rst_i,
+    input  logic [ADDRW-1:0] addr,
+    input  logic             we,
+    input  logic             re,
 
-   input  logic [DW-1:0] mstatus_reg,
-   input  logic [DW-1:0] mie_reg,
-   input  logic [DW-1:0] mip_reg,
-   input  logic [DW-1:0] mtvec_reg,
-   input  logic [DW-1:0] mcause_reg,
+    input  logic [DW-1:0]    pc_i,
+    input  logic [DW-1:0]    data_i,
 
-   output logic          intr,
-   output logic [DW-1:0] where      //where we will go when interrupt comes
-
+    input  logic             is_mret,
+    output logic             intr_flag,
+    output logic [DW-1:0]    data_o,
+    output logic [DW-1:0]    epc_o
 
 );
-   //These 3 registers will generate interrupt signal, mstatus, mie, mip
-   localparam MIE  = 3;   //index, corresponds to mie bit of mstatus_reg
 
-   localparam MTIE = 7;   //index, corresponds to mtie bit of mie_reg
-   localparam MEIE = 11;  //index, corresponds to meie bit of mie_reg
-
-   localparam MTIP = 7;   //index, corresponds to mtip bit of mip_reg
-   localparam MEIP = 11;  //index, corresponds to meip bit of mip_reg
-
-   logic timer_intr_flag; //tells coming of local timer interrupt came or not
-   logic exter_intr_flag; //tells coming of local externall interrupt came or not
-
-   logic timer_intr_came; //if mie of mstatus_reg was set, now the interrupt goes to core
-   logic exter_intr_came; //if mie of mstatus_reg was set, now the interrupt goes to core
-
-   logic [30:0] exp_code;  //exception code
-   assign exp_code = mcause_reg[30:0];
-
-   logic [1:0] mode;
-   assign mode = mtvec_reg[1:0];
-
-   logic [29:0] base;
-   assign base = mtvec_reg[31:2];
+    logic [DW-1:0]    mstatus_o;
+    logic [DW-1:0]    mie_o;
+    logic [DW-1:0]    mtvec_o;
+    logic [DW-1:0]    mepc_o;
+    logic [DW-1:0]    mcause_o;
+    logic [DW-1:0]    mip_o;
 
 
+csr_regs # (
+   .DW   (DW   ),
+   .ADDRW(ADDRW)
+) i_csr_regs(
+   .clk_i    (clk_i    ),
+   .rst_i    (rst_i    ),
 
-   always_comb begin  //local checking of interrupt coming
-      if (mie_reg[MTIE] && mip_reg[MTIP]) begin
-         timer_intr_flag = 1;
-      end
-      else begin
-         timer_intr_flag = 0;
-      end
+   .intr_flag(intr_flag),
+   .addr     (addr     ),
+   .we       (we       ),
+   .re       (re       ),
 
-      if (mie_reg[MEIE] && mip_reg[MEIP]) begin
-         exter_intr_flag = 1;
-      end
-      else begin
-         exter_intr_flag = 0;
-      end
-   end
+   .pc_i     (pc_i     ),
+   .data_i   (data_i   ),
 
-   always_comb begin  //global checking of interrupt coming
-      if (mstatus_reg[MIE] && timer_intr_flag) begin
-         timer_intr_came = 1;
-      end
-      else begin
-         timer_intr_came = 0;
-      end
+   .data_o   (data_o   ),
 
-      if (mstatus_reg[MIE] && exter_intr_flag) begin
-         exter_intr_came = 1;
-      end
-      else begin
-         exter_intr_came = 0;
-      end
-   end
+   //output from register file (read all registers in parallel)
+   .mstatus_o(mstatus_o),
+   .mie_o    (mie_o    ),
+   .mtvec_o  (mtvec_o  ),
+   .mepc_o   (mepc_o   ),
+   .mcause_o (mcause_o ),
+   .mip_o    (mip_o    )
 
-   always_comb begin  //check interrupt from any of the source
-      if (timer_intr_came || exter_intr_came) begin
-         intr = 1;
-      end
-      else begin
-         intr = 0;
-      end
-   end
+);
 
-   always_comb begin
-      assign where = mode[0] ? {2'b0, base}:
-                               {2'b0, base} + ({1'b0, exp_code} << 2);
-   end
+csr_ops # (
+   .DW(DW)
+) i_csr_ops(
+
+   .mstatus_reg(mstatus_o),
+   .mie_reg    (mie_o    ),
+   .mtvec_reg  (mtvec_o  ),
+   .mepc_reg   (mepc_o   ),
+   .mcause_reg (mcause_o ),
+   .mip_reg    (mip_o    ),
+
+   .is_mret    (is_mret  ),
+   .intr_flag  (intr_flag),
+   .where_to_go(epc_o    )
+
+);
+
 
 endmodule

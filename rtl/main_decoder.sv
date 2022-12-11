@@ -11,7 +11,8 @@ module main_decoder (
    output logic [1:0] wb_sel,
 
    output logic       csr_we,
-   output logic       csr_re
+   output logic       csr_re,
+   output logic       is_mret
 );
    logic       jump;
    logic       branch;
@@ -30,6 +31,7 @@ always_comb begin
 
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
 
       7'b0100011: begin            //sw
@@ -44,6 +46,7 @@ always_comb begin
 
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
 
       7'b0110011: begin            //R
@@ -58,6 +61,7 @@ always_comb begin
          
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
 
       7'b1100011: begin            //B
@@ -72,6 +76,7 @@ always_comb begin
          
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
 
       7'b0010011: begin            //I
@@ -86,6 +91,7 @@ always_comb begin
          
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
 
       7'b0110111 , 7'b0010111: begin            //U-type
@@ -100,6 +106,7 @@ always_comb begin
          
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
    
       7'b1101111: begin            //Jal 
@@ -114,6 +121,7 @@ always_comb begin
          
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
 
       7'b1100111: begin         //Jalr
@@ -128,6 +136,7 @@ always_comb begin
          
          csr_we    = 1'b0;
          csr_re    = 1'b0;
+         is_mret   = 1'b0;
       end
 
       7'b1110011: begin       //csrrw instruction
@@ -142,6 +151,11 @@ always_comb begin
          
          csr_we    = 1'b1;    
          csr_re    = 1'b1;
+         is_mret   = 1'b0;
+      end
+      
+      7'b1110011: begin    //MRET instruction
+         is_mret   = 1'b1;
       end
 
       default: begin         //default case is of R-type
