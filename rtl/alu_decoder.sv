@@ -12,7 +12,7 @@ module alu_decoder #(
 
    always_comb begin
       case(opcode)
-         7'b0110011: begin    //opcode for R-type
+         7'b0110011, 7'b0010011: begin    //opcode for R-type or I type
             case(func3)
                3'b000: begin  //both add and subtract
                   alu_control = 3'b000;
@@ -41,9 +41,11 @@ module alu_decoder #(
                default: alu_control = 3'b000;
             endcase
          end
-         7'b0010011: begin    //I-type
-            alu_control = 3'b000;
-         end
+
+         //the following comments are covered in the above case
+         // 7'b0010011: begin    //I-type
+         //    alu_control = 3'b000;
+         // end
          7'b0000011: begin    //loads
             alu_control = 3'b000;
          end

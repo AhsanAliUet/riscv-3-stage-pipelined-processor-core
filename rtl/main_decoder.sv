@@ -145,12 +145,6 @@ always_comb begin
       end
 
       7'b1110011: begin    //MRET instruction
-         if (inst[31:20] == 12'h302) begin //last 12 bits
-            is_mret   = 1'b1;
-         end
-      end
-
-      7'b1110011: begin       //csrrw instruction
          reg_write = 1'b1;
          mem_write = 1'b0;
          imm_src   = 3'b101;
@@ -162,8 +156,30 @@ always_comb begin
          
          csr_we    = 1'b1;    
          csr_re    = 1'b1;
-         is_mret   = 1'b0;
+         
+         if (inst[31:20] == 12'h302) begin //last 12 bits
+            is_mret   = 1'b1;
+         end
+
+         else begin
+            is_mret = 1'b0;
+         end
       end
+
+      // 7'b1110011: begin       //csrrw instruction
+      //    reg_write = 1'b1;
+      //    mem_write = 1'b0;
+      //    imm_src   = 3'b101;
+      //    alu_src   = 1'b1;    //does not matter in CSR
+      //    alu_src_a = 1'b0;    //does not matter in CSR
+      //    wb_sel    = 2'b11;
+      //    branch    = 1'b0;
+      //    jump      = 1'b0;
+         
+      //    csr_we    = 1'b1;    
+      //    csr_re    = 1'b1;
+      //    is_mret   = 1'b0;
+      // end
 
       default: begin         //default case is of R-type
          reg_write = 1'b1;

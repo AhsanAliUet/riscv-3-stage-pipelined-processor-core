@@ -1,11 +1,13 @@
-li x10, 1
-li x12, 10
-csrrw x11, mtvec, x10
-csrrw x13, mtvec, x12
+addi x5, x0, 8
+csrrw x0, mstatus, x5 #mie
+
 addi x1, x0, 1
-add x2, x1, x1
-add x3, x2, x1
-add x4, x3, x1
-add x5, x4, x1
-add x6, x6, x1
-mret
+slli x2, x1, 7    #timer interrupt
+slli x3, x1, 11   #external interrupt
+add x4, x2, x3    #both timer and external interrupts
+
+csrrw x0, mie, x4  #mtie and meie
+csrrw x0, mip, x2  #pending is only timer interrupt
+
+stop:
+    j stop
