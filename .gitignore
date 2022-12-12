@@ -8,4 +8,10 @@ git_5_stage_sim/
 Readme.md
 dump.vcd
 vsim.wlf
+waves.shm/
+xcelium.d/
+xrun.history
+xrun.key
+xrun.log
+.simvision/
 
