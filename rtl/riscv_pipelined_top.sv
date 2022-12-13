@@ -12,7 +12,9 @@ module riscv_pipelined_top #(
 
 )(
    input  logic clk_i,
-   input  logic rst_i
+   input  logic rst_i,
+   input  logic t_intr,  //timer interrupt
+   input  logic e_intr   //external interrupt
 );
 
    logic [DW-1:0] pc_next;
@@ -382,34 +384,17 @@ data_mem #(
    .rdata_o        (rdata_data_mem)
 );
 
-// csr_regs # (
-//    .DW   (DW),
-//    .ADDRW(12)
-// ) i_csr_regs(
-//    .clk_i (clk_i          ),
-//    .rst_i (rst_i          ),
-
-//    .intr  (intr           ),
-//    .addr  (imm_csr_m[11:0]),    //pick only 12 bits which were coming from instruction
-//    .we    (csr_we_m       ),
-//    .re    (csr_re_m       ),
-
-//    .data_i(rs1_m          ),
-
-//    .pc_i  (pc_m           ),
-//    .epc_o (epc            ),
-
-//    .data_o(data_csr_o     )
-// );
-
-
-csr #(
-   .DW   (DW   ),
-   .ADDRW(ADDRW)
-
-) i_csr(
+csr_regs # (
+   .DW       (DW             ),
+   .ADDRW    (ADDRW          )
+) i_csr_regs(
    .clk_i    (clk_i          ),
    .rst_i    (rst_i          ),
+
+   .t_intr   (t_intr         ),     //timer interrupt
+   .e_intr   (e_intr         ),     //external interrupt
+   .is_mret  (is_mret        ),
+   
    .addr     (imm_csr_m[11:0]),
    .we       (csr_we_m       ),
    .re       (csr_re_m       ),
@@ -417,12 +402,33 @@ csr #(
    .pc_i     (pc_m           ),
    .data_i   (rs1_m          ),
 
-   .is_mret  (is_mret        ),
    .intr_flag(intr           ),
-   .data_o   (data_csr_o     ),
-   .epc_o    (epc            )
+   .pc_o     (epc            ),
+   .data_o   (data_csr_o     )
 
 );
+
+
+// csr #(
+//    .DW   (DW   ),
+//    .ADDRW(ADDRW)
+
+// ) i_csr(
+//    .clk_i    (clk_i          ),
+//    .rst_i    (rst_i          ),
+//    .addr     (imm_csr_m[11:0]),
+//    .we       (csr_we_m       ),
+//    .re       (csr_re_m       ),
+
+//    .pc_i     (pc_m           ),
+//    .data_i   (rs1_m          ),
+
+//    .is_mret  (is_mret        ),
+//    .intr_flag(intr           ),
+//    .data_o   (data_csr_o     ),
+//    .epc_o    (epc            )
+
+// );
 
 
 adder #(

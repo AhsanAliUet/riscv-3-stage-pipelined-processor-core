@@ -7,7 +7,10 @@ module csr_regs # (
    input  logic             clk_i,
    input  logic             rst_i,
 
-   input  logic             intr_flag,
+   input  logic             t_intr,     //timer interrupt
+   input  logic             e_intr,     //external interrupt
+   input  logic             is_mret,
+   
    input  logic [ADDRW-1:0] addr,
    input  logic             we,
    input  logic             re,
@@ -15,20 +18,11 @@ module csr_regs # (
    input  logic [DW-1:0]    pc_i,
    input  logic [DW-1:0]    data_i,
 
-   output logic [DW-1:0]    data_o,
-
-   //output from register file (read all registers in parallel)
-   output logic [DW-1:0]    mstatus_o,
-   output logic [DW-1:0]    mie_o,
-   output logic [DW-1:0]    mtvec_o,
-   output logic [DW-1:0]    mepc_o,
-   output logic [DW-1:0]    mcause_o,
-   output logic [DW-1:0]    mip_o
+   output logic             intr_flag,
+   output logic [DW-1:0]    pc_o,
+   output logic [DW-1:0]    data_o
 
 );
-
-   // localparam NO_OF_REGS = 256;
-   // logic [DW-1:0] csr_regs [0:NO_OF_REGS-1];    //totall 256 CSR registers
 
    parameter [ADDRW-1:0] MSTATUS_ADDR = 12'h300;
    parameter [ADDRW-1:0] MIE_ADDR     = 12'h304;
@@ -77,55 +71,79 @@ module csr_regs # (
             MIE_ADDR     : mie_ff     <= data_i;   //mie
             MTVEC_ADDR   : mtvec_ff   <= data_i;   //mtvec
             
-            MEPC_ADDR    : begin
-               if (intr_flag) begin
-                  mepc_ff    <= pc_i;
-               end
-               else begin
-                  mepc_ff    <= data_i;
-               end
-            end
+            // MEPC_ADDR    : begin
+            //    if (intr_flag) begin
+            //       mepc_ff    <= pc_i;
+            //    end
+            //    else begin
+            //       mepc_ff    <= data_i;
+            //    end
+            // end
 
             MCAUSE_ADDR  : mcause_ff  <= data_i;   //mcause
-            MIP_ADDR     : mip_ff     <= data_i;   //mie
+            // MIP_ADDR     : mip_ff     <= data_i;   //mip  //cannot write on mip
          endcase
       end
 
    end
 
-   //read all the registers in parallel
-   always_ff @ (posedge clk_i) begin
-      if (rst_i) begin
-         mstatus_o <= '0;
-         mie_o     <= '0;
-         mtvec_o   <= '0;
-         mepc_o    <= '0;
-         mcause_o  <= '0;
-         mip_o     <= '0;
-      end
+   localparam MTIP = 7;
+   localparam MEIP = 11; 
 
-      else begin
-         mstatus_o <= mstatus_ff;
-         mie_o     <= mie_ff;
-         mtvec_o   <= mtvec_ff;
-         mepc_o    <= mepc_ff;
-         mcause_o  <= mcause_ff;
-         mip_o     <= mip_ff;
+   always_ff @ (posedge clk_i, posedge rst_i) begin
+      if (rst_i) begin
+         mip_ff <= '0;
+      end
+      if (t_intr) begin
+         mip_ff[MTIP] <= 1'b1;
+      end
+      if (e_intr) begin
+         mip_ff[MEIP] <= 1'b1;
       end
    end
 
-   
-   // always_comb begin
-   //    if (intr) begin
-   //       ra         = pc_i;               //PC of usual program is saved is ra
-   //       epc_o      = handlder_addr;      //pc will go to handler
-   //       flush_intr = 1;                  //flush the pipeline when interrupt comes
-   //    end
+   always_ff @ (posedge clk_i, posedge rst_i ) begin
 
-   //    else begin
-   //       ra         = pc_i;
-   //       epc_o      = pc_i;
-   //       flush_intr = 0;                 //no need to flush when no interrupt
-   //    end
-   // end
+      if (intr_flag) begin
+         mepc_ff    <= pc_i;
+      end
+      else begin
+         mepc_ff    <= '0;
+      end
+
+   end
+
+   always_ff @ (posedge clk_i, posedge rst_i) begin
+      if (t_intr) begin
+         mcause_ff <= 32'h2;
+      end
+      else if (e_intr) begin
+         mcause_ff <= 32'h3;
+      end
+      else if (we && (addr == MCAUSE_ADDR)) begin
+         mcause_ff <= data_i;
+      end
+      else begin
+         mcause_ff <= '0;
+      end
+   end
+
+csr_ops # (
+   .DW(DW)
+) i_csr_ops(
+
+   .mstatus_reg(mstatus_ff),
+   .mie_reg    (mie_ff    ),
+   .mtvec_reg  (mtvec_ff  ),
+   .mepc_reg   (mepc_ff   ),
+   .mcause_reg (mcause_ff ),
+   .mip_reg    (mip_ff    ),
+
+   .is_mret    (is_mret   ),
+   .intr_flag  (intr_flag ),
+   .where_to_go(pc_o      )   //where we will go when interrupt comes, PC out
+
+
+);
+
 endmodule

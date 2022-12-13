@@ -8,4 +8,5 @@ git_5_stage_sim/
 Readme.md
 dump.vcd
 vsim.wlf
+dummy_asm_code.txt
 
