@@ -16,65 +16,64 @@ module uart_tx #(
    output logic          Tx
 );
 
-logic serial_o;
-logic clear_baud;   //output from FSM
-logic counter_baud_of;
-logic counter_of;
-logic clear;      //bit counter clear, output from FSM to bit counter
-logic start;      //to assert Transmiting the data_i
-logic shift;      //output from FSM
-logic load_xmt_shfreg;
-logic load_xmt_dreg;
-// logic byte_ready_i;
-// logic t_byte_i;
+   logic serial_o;
+   logic clear_baud;       //output from FSM
+   logic counter_baud_of;
+   logic counter_of;
+   logic clear;            //bit counter clear, output from FSM to bit counter
+   logic start;            //to assert Transmiting the data_i
+   logic shift;            //output from FSM
+   logic load_xmt_shfreg;
+   logic load_xmt_dreg;
 
-
-shift_register #(.DW(DW))
- i_shift_register(
+shift_register # (
+   .DW(DW)
+) i_shift_register (
    .clk_i      (clk_i          ),
-   .rst_i      (rst_i          ),     //active high
-   .en         (cs             )
+   .rst_i      (rst_i          ),
+   .en         (cs             ),
    .data_i     (data_i         ),
    .shift_i    (shift          ),    //from FSM
    .load_byte_i(load_xmt_shfreg),
    .serial_o   (serial_o       )     //single bit serial out from shift register
 );
 
-baud_counter #(CLOCK, BAUD_RATE)
-i_baud_counter(
-   .clk_i(clk_i),
-   .rst_i(rst_i),
-   .en(cs),
-   .clear_baud(clear_baud),
+baud_counter #(
+   .CLOCK    (CLOCK    ),
+   .BAUD_RATE(BAUD_RATE)
+) i_baud_counter(
+   .clk_i            (clk_i          ),
+   .rst_i            (rst_i          ),
+   .en               (cs             ),
+   .clear_baud       (clear_baud     ),
    .counter_baud_of_o(counter_baud_of)
 );
 
-bit_counter #(BITS_TO_COUNT)
-i_bit_counter(
-   .clk_i(clk_i),
-   .rst_i(rst_i),
-   .en   (cs)
-   .clear(clear),   //clear signal from FSM
+bit_counter #(
+   .BITS_TO_COUNT(BITS_TO_COUNT)
+) i_bit_counter (
+   .clk_i       (clk_i     ),
+   .rst_i       (rst_i     ),
+   .en          (cs        ),
+   .clear       (clear     ),   //clear signal from FSM
    .counter_of_o(counter_of)
 );
 
 uart_fsm i_uart_fsm(
-   .clk_i(clk_i),
-   .rst_i(rst_i),
-   .en(cs)
-   .byte_ready_i(byte_ready_i),
-   .t_byte_i(t_byte_i),
-   
-   // .counter(32'd9),   //BITS_TO_COUNT
-   // .counter_baud(BAUD_COUNTER),
-   .counter_of_i(counter_of),     //from bit counter
+   .clk_i            (clk_i          ),
+   .rst_i            (rst_i          ),
+   .en               (cs             ),
+   .byte_ready_i     (byte_ready_i   ),
+   .t_byte_i         (t_byte_i       ),
+
+   .counter_of_i     (counter_of     ),     //from bit counter
    .counter_baud_of_i(counter_baud_of),   //from overflow of baud counter
 
-   .start_o(start),
-   .clear_o(clear),
-   .shift_o(shift),
-   .clear_baud_o(clear_baud),
-   .load_xmt_dreg_o(load_xmt_dreg),
+   .start_o          (start          ),
+   .clear_o          (clear          ),
+   .shift_o          (shift          ),
+   .clear_baud_o     (clear_baud     ),
+   .load_xmt_dreg_o  (load_xmt_dreg  ),
    .load_xmt_shfreg_o(load_xmt_shfreg)
 );
 
