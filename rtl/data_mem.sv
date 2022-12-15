@@ -24,7 +24,7 @@ module data_mem #(
          for (int i = 0; i < NO_OF_REGS; i = i + 1) begin
             data_mem[i] <= '0;
          end
-      end else if (we && !cs) begin
+      end else if (we && cs) begin
          if (mask[0]) begin
             data_mem[addr_i][7:0]   <= wdata_i[7:0];
          end

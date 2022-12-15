@@ -16,7 +16,7 @@ module peripherals_bus #(
     output logic [DW-1:0]    data_store_o,   //data to be stored at peripherals (output side of bus)
 
     input  logic [3:0]       mask_dm_i,      //for data memory
-    output logic [3:0]       mask_dm_o       //for data memory
+    output logic [3:0]       mask_dm_o,       //for data memory
 
     output logic             cs_dm,          //chip select of data memory
     output logic             cs_uart         //chip select of data memory
