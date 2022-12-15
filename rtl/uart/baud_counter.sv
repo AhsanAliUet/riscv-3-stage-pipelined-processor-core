@@ -6,6 +6,7 @@ module baud_counter #(
 )(
    input  logic           clk_i,
    input  logic           rst_i,
+   input  logic           en,
    input  logic           clear_baud,
    output logic           counter_baud_of_o
 );
@@ -15,9 +16,9 @@ always_ff @ (posedge clk_i, posedge rst_i, posedge clear_baud) begin
    if (rst_i || clear_baud) begin
       counter_value <= '0;
       counter_baud_of_o = 0;
-   end if (counter_value >= BAUD_COUNTER) begin
+   end if (en && (counter_value >= BAUD_COUNTER)) begin
       counter_baud_of_o <= 1'b1;
-   end else begin
+   end else if (en) begin
       counter_value <= counter_value + 1;
    end
 end

@@ -3,7 +3,7 @@ module uart_fsm
 (
    input  logic clk_i,
    input  logic rst_i,
-
+   input  logic en,
    input  logic byte_ready_i,
    input  logic t_byte_i,
 
@@ -27,7 +27,7 @@ module uart_fsm
 always_ff @(posedge clk_i, posedge rst_i) begin
    if (rst_i) begin
       state <= S0;
-   end else begin
+   end else if (en) begin
       state <= next_state;
    end
 end
