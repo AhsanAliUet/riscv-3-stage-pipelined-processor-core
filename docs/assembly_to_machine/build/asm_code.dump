@@ -2,24 +2,43 @@
 build/asm_code.elf:     file format elf32-littleriscv
 
 Contents of section .text:
- 0000 93028000 73900230 93001000 13917000  ....s..0......p.
- 0010 9391b000 33023100 73104230 73104134  ....3.1.s.B0s.A4
- 0020 6f000000                             o...            
+ 0000 6f008002 6f00c000 6f00c000 6f000001  o...o...o...o...
+ 0010 6f004001 130a4001 73002030 930aa000  o.@...@.s. 0....
+ 0020 73002030 6f000000 93028000 73900230  s. 0o.......s..0
+ 0030 93001000 13917000 9391b000 33023100  ......p.....3.1.
+ 0040 73104230 6ff0dffc                    s.B0o...        
 Contents of section .riscv.attributes:
  0000 411d0000 00726973 63760001 13000000  A....riscv......
  0010 05727633 32693270 30000801 0a0b      .rv32i2p0.....  
 
 Disassembly of section .text:
 
-00000000 <stop-0x20>:
-   0:	00800293          	li	t0,8
-   4:	30029073          	csrw	mstatus,t0
-   8:	00100093          	li	ra,1
-   c:	00709113          	slli	sp,ra,0x7
-  10:	00b09193          	slli	gp,ra,0xb
-  14:	00310233          	add	tp,sp,gp
-  18:	30421073          	csrw	mie,tp
-  1c:	34411073          	csrw	mip,sp
+00000000 <main-0x10>:
+   0:	0280006f          	j	28 <configure>
+   4:	00c0006f          	j	10 <main>
+   8:	00c0006f          	j	14 <h1>
+   c:	0100006f          	j	1c <h2>
 
-00000020 <stop>:
-  20:	0000006f          	j	20 <stop>
+00000010 <main>:
+  10:	0140006f          	j	24 <exit>
+
+00000014 <h1>:
+  14:	01400a13          	li	s4,20
+  18:	30200073          	mret
+
+0000001c <h2>:
+  1c:	00a00a93          	li	s5,10
+  20:	30200073          	mret
+
+00000024 <exit>:
+  24:	0000006f          	j	24 <exit>
+
+00000028 <configure>:
+  28:	00800293          	li	t0,8
+  2c:	30029073          	csrw	mstatus,t0
+  30:	00100093          	li	ra,1
+  34:	00709113          	slli	sp,ra,0x7
+  38:	00b09193          	slli	gp,ra,0xb
+  3c:	00310233          	add	tp,sp,gp
+  40:	30421073          	csrw	mie,tp
+  44:	fcdff06f          	j	10 <main>

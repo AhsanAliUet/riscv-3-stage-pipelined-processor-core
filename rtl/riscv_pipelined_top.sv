@@ -126,6 +126,9 @@ module riscv_pipelined_top #(
    logic          is_mret;
    logic [DW-1:0] pc_final;
 
+   logic          t_intr_d;
+   logic          e_intr_d;
+
 pc #(
    .DW      (DW)
 )i_pc(
@@ -171,7 +174,7 @@ mux_2x1 #(           //the mux to select usual PC or EPC (exception PC)
 )i_mux_csr(
    .in0  (pc_target  ),
    .in1  (epc        ),
-   .s    (intr       ),
+   .s    (t_intr_d || e_intr_d || is_mret  ),  //every of these is written because all write on PC.
 
    .out  (pc_final   )
 );
@@ -458,6 +461,8 @@ i_forwarding_unit(
    .reg_write_m(reg_write_m   ),
    .wb_sel_0   (wb_sel_m[0]   ),
    .br_taken   (br_taken      ),
+   .is_mret    (is_mret       ),
+
    .forward_a  (forward_a     ),
    .forward_b  (forward_b     ),
 
@@ -480,4 +485,8 @@ main_decoder i_main_decoder(
    .is_mret   (is_mret  )
 );
 
+   always_ff @ (posedge clk_i) begin
+      t_intr_d <= t_intr;
+      e_intr_d <= e_intr;
+   end
 endmodule

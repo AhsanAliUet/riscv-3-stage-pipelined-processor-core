@@ -65,11 +65,18 @@ riscv_pipelined_top #(
       $dumpvars;
    end
    initial begin
+      e_intr = 0;
+      t_intr = 0;
       repeat(15) @(posedge clk_i); //give interrupt after register are configured
       t_intr = 1;
       
       @(posedge clk_i);
       t_intr = 0;
+      repeat(15) @(posedge clk_i);
+      e_intr = 1;
+      @(posedge clk_i);
+      e_intr = 0;
+
 
       #5000;
       //seeing the contents of register file

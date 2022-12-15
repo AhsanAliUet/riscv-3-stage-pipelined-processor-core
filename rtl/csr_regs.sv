@@ -100,20 +100,21 @@ module csr_regs # (
       if (e_intr) begin
          mip_ff[MEIP] <= 1'b1;
       end
+      else if (is_mret) begin
+         mip_ff <= '0;
+      end
    end
 
-   always_ff @ (posedge clk_i, posedge rst_i ) begin
-
-      if (intr_flag) begin
-         mepc_ff    <= pc_i;
+   always_ff @ (posedge t_intr, posedge e_intr, posedge rst_i ) begin
+      if (rst_i) begin
+         mepc_ff <= '0;
       end
       else begin
-         mepc_ff    <= '0;
+         mepc_ff    <= pc_i;
       end
-
    end
-
-   always_ff @ (posedge clk_i, posedge rst_i) begin
+     
+   always_ff @ (posedge clk_i, posedge rst_i, posedge t_intr) begin
       if (t_intr) begin
          mcause_ff <= 32'h2;
       end
@@ -123,9 +124,9 @@ module csr_regs # (
       else if (we && (addr == MCAUSE_ADDR)) begin
          mcause_ff <= data_i;
       end
-      else begin
-         mcause_ff <= '0;
-      end
+      // else begin
+      //    mcause_ff <= '0;
+      // end
    end
 
 csr_ops # (

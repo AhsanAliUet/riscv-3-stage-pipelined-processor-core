@@ -144,7 +144,7 @@ always_comb begin
          is_mret   = 1'b0;
       end
 
-      7'b1110011: begin    //MRET instruction
+      7'b1110011: begin    //CSRRW, CSRRWI and MRET instruction
          reg_write = 1'b1;
          mem_write = 1'b0;
          imm_src   = 3'b101;

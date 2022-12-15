@@ -7,11 +7,16 @@ main:
     j exit
 
 h1:
-    addi x10, x0, 10
-    xor x10, x10, x10  #toggle x10
+    # lui x1, 0xfffff
+    # addi x1, x1, 0xff
+
+    # addi x10, x0, 10
+    # xor x10, x10, x1  #toggle x10
+    # nop
+    addi x20, x0, 20
     mret
 h2:
-    xor x11, x11, x11  #toggle x11
+    addi x21, x0, 10
     mret
 
 exit:

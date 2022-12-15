@@ -21,6 +21,7 @@ module forwarding_unit
    input  logic            reg_write_m,
    input  logic            wb_sel_0,      //checks whether the inst was LOAD
    input  logic            br_taken,
+   input  logic            is_mret,      //detection of mret instruction
 
    output logic            forward_a,     //forward to input A of ALU
    output logic            forward_b,      //forward to input B of ALU
@@ -56,7 +57,7 @@ module forwarding_unit
    end
 
    always_comb begin
-      if (br_taken || stall_fd ) begin
+      if (br_taken || is_mret) begin // || stall_fd
          flush = 1;
       end
       else begin

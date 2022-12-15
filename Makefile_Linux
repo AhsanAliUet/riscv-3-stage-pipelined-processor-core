@@ -1,0 +1,44 @@
+
+RTL_FILE1  = adder
+RTL_FILE2  = alu_decoder
+RTL_FILE3  = alu_new
+RTL_FILE4  = alu
+RTL_FILE5  = branch_checker
+RTL_FILE6  = data_mem
+RTL_FILE7  = riscv_pkg
+RTL_FILE8  = imm_generator
+RTL_FILE9  = inst_mem
+RTL_FILE10 = lsu
+RTL_FILE11 = main_decoder
+RTL_FILE12 = mux_2x1
+RTL_FILE13 = mux_4x1
+RTL_FILE14 = pc
+RTL_FILE15 = pipeline_reg_1
+RTL_FILE16 = pipeline_reg_2
+RTL_FILE17 = reg_file
+RTL_FILE18 = riscv_pipelined_top
+RTL_FILE19 = forwarding_unit
+
+RTL_FILE20 = csr_regs
+RTL_FILE21 = csr_ops
+RTL_FILE22 = csr
+
+TB_FILE1  = tb_riscv_pipelined_top
+TB_PATH   = sim/
+RTL_PATH  = rtl/
+WAVE_PATH = docs/
+WAVE_NAME = dump
+
+EXT = .sv
+conv_to_machine:  #converts assembly code to machine code
+	cd docs/assembly_to_machine/ && $(MAKE)   #this make does not call this makefile but in that folder
+
+run_cli:
+	xrun $(RTL_PATH)$(RTL_FILE1)$(EXT) $(RTL_PATH)$(RTL_FILE2)$(EXT) $(RTL_PATH)$(RTL_FILE3)$(EXT) $(RTL_PATH)$(RTL_FILE4)$(EXT) $(RTL_PATH)$(RTL_FILE5)$(EXT) $(RTL_PATH)$(RTL_FILE6)$(EXT) $(RTL_PATH)$(RTL_FILE7)$(EXT) $(RTL_PATH)$(RTL_FILE8)$(EXT) $(RTL_PATH)$(RTL_FILE9)$(EXT) $(RTL_PATH)$(RTL_FILE10)$(EXT) $(RTL_PATH)$(RTL_FILE11)$(EXT) $(RTL_PATH)$(RTL_FILE12)$(EXT) $(RTL_PATH)$(RTL_FILE13)$(EXT) $(RTL_PATH)$(RTL_FILE14)$(EXT) $(RTL_PATH)$(RTL_FILE15)$(EXT) $(RTL_PATH)$(RTL_FILE16)$(EXT) $(RTL_PATH)$(RTL_FILE17)$(EXT) $(RTL_PATH)$(RTL_FILE18)$(EXT) $(RTL_PATH)$(RTL_FILE19)$(EXT) $(RTL_PATH)$(RTL_FILE20)$(EXT) $(RTL_PATH)$(RTL_FILE21)$(EXT) $(RTL_PATH)$(RTL_FILE22)$(EXT) $(TB_PATH)$(TB_FILE1)$(EXT) -timescale 1ns/1ps -access +rwc
+
+run_gui:
+	xrun $(RTL_PATH)$(RTL_FILE1)$(EXT) $(RTL_PATH)$(RTL_FILE2)$(EXT) $(RTL_PATH)$(RTL_FILE3)$(EXT) $(RTL_PATH)$(RTL_FILE4)$(EXT) $(RTL_PATH)$(RTL_FILE5)$(EXT) $(RTL_PATH)$(RTL_FILE6)$(EXT) $(RTL_PATH)$(RTL_FILE7)$(EXT) $(RTL_PATH)$(RTL_FILE8)$(EXT) $(RTL_PATH)$(RTL_FILE9)$(EXT) $(RTL_PATH)$(RTL_FILE10)$(EXT) $(RTL_PATH)$(RTL_FILE11)$(EXT) $(RTL_PATH)$(RTL_FILE12)$(EXT) $(RTL_PATH)$(RTL_FILE13)$(EXT) $(RTL_PATH)$(RTL_FILE14)$(EXT) $(RTL_PATH)$(RTL_FILE15)$(EXT) $(RTL_PATH)$(RTL_FILE16)$(EXT) $(RTL_PATH)$(RTL_FILE17)$(EXT) $(RTL_PATH)$(RTL_FILE18)$(EXT) $(RTL_PATH)$(RTL_FILE19)$(EXT) $(RTL_PATH)$(RTL_FILE20)$(EXT) $(TB_PATH)$(TB_FILE1)$(EXT) $(RTL_PATH)$(RTL_FILE21)$(EXT) $(RTL_PATH)$(RTL_FILE22)$(EXT) -timescale 1ns/1ps -access +rwc -gui
+
+wave:
+	gtkwave $(WAVE_PATH)$(WAVE_NAME).vcd
+	

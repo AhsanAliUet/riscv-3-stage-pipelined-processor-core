@@ -8,5 +8,14 @@ git_5_stage_sim/
 Readme.md
 dump.vcd
 vsim.wlf
+<<<<<<< HEAD
 dummy_asm_code.txt
+=======
+waves.shm/
+xcelium.d/
+xrun.history
+xrun.key
+xrun.log
+.simvision/
+>>>>>>> 3c8644dc0defc75430c9417e2e44130eef78d107
 

@@ -14,7 +14,7 @@ module csr_ops # (
    input  logic [DW-1:0] mip_reg,
 
    input  logic          is_mret,
-   output logic          intr_flag,
+   output logic          intr_flag,       //will remain high in the while interrupt is being serviced
    output logic [DW-1:0] where_to_go      //where we will go when interrupt comes, PC out
 
 
@@ -89,16 +89,17 @@ module csr_ops # (
    end
 
    always_comb begin
-      if (intr) begin
+      if (is_mret) begin
+         where_to_go = mepc_reg;  //return to normal execution
+         intr_flag   = 0;
+      end
+      else if (intr) begin
          intr_flag = 1;
          where_to_go = mode[0] ? {2'b0, base}:
                                  {2'b0, base} + ({1'b0, exp_code} << 2);
       end
-      else if (is_mret) begin
-         where_to_go = mepc_reg;  //return to normal execution
-         intr_flag   = 0;
-      end
       else begin
+         where_to_go = '0;
          intr_flag = 0;
       end
    end
