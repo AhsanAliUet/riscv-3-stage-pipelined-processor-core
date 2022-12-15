@@ -427,7 +427,7 @@ uart_tx #(
 );
 
 data_mem #(
-   .REG_SIZE       (REG_SIZE      ),
+   .DW             (DW            ),
    .MEM_SIZE_IN_KB (MEM_SIZE_IN_KB),
    .NO_OF_REGS     (NO_OF_REGS    )
 )i_data_mem(
