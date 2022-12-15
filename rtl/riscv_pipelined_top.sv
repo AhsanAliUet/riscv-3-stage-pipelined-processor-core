@@ -404,17 +404,38 @@ peripherals_bus #(
    .cs_uart     (cs_uart       )
 );
 
+localparam DW_UART          = 8;
+localparam CLOCK_FREQ       = 100e6;
+localparam BAUD_RATE        = 9600;
+localparam BITS_TO_COUNT    = 8;
+logic      Tx;
+
+uart_tx #(
+   .DW           (DW_UART      ),
+   .CLOCK        (CLOCK_FREQ   ),
+   .BAUD_RATE    (BAUD_RATE    ),
+   .BITS_TO_COUNT(BITS_TO_COUNT)
+
+) i_uart_tx(
+   .clk_i       (clk_i                   ),
+   .rst_i       (rst_i                   ),
+   .cs          (cs_uart                 ),
+   .data_i      (data_s_pb_o[DW_UART-1:0]),
+   .byte_ready_i(cs_uart                 ),
+   .t_byte_i    (cs_uart                 ),
+   .Tx          (Tx                      )
+);
 
 data_mem #(
    .REG_SIZE       (REG_SIZE      ),
    .MEM_SIZE_IN_KB (MEM_SIZE_IN_KB),
    .NO_OF_REGS     (NO_OF_REGS    )
 )i_data_mem(
-   .clk_i          (clk_i         ), //
-   .rst_i          (rst_i         ), //
-   .we             (mem_write_m   ), //
-   .cs             (1'b0          ), 
-   .mask           (mask_dm       ), //
+   .clk_i          (clk_i         ),
+   .rst_i          (rst_i         ),
+   .we             (mem_write_m   ),
+   .cs             (cs_dm         ), 
+   .mask           (mask_dm       ),
    .addr_i         (addr_dm       ),
    .wdata_i        (data_s_pb_o   ),
    .rdata_o        (rdata_data_mem)

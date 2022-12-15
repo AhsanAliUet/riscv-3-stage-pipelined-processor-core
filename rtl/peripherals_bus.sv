@@ -22,6 +22,10 @@ module peripherals_bus #(
     output logic             cs_uart         //chip select of data memory
 
 );
+    always_comb begin
+        data_load_o  = data_load_i;
+        data_store_o = data_store_i;
+    end
 
     always_comb begin
         addr_o    = addr_i[ADDRW+1:2];      //because last 2 LSBs are to access bytes (byte accesible)
@@ -32,6 +36,5 @@ module peripherals_bus #(
         cs_dm   = addr_i[ADDRW+2];
         cs_uart = addr_i[ADDRW+3];
     end
-
 
 endmodule
