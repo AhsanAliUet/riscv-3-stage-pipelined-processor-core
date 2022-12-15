@@ -28,7 +28,7 @@ If you want to see the waves which are produced by Processor as a result of your
 
 this will show you all the waves in gtkwave.  
 
-If you are using Linux machine then you have to use the Makefile_Linux. Use the commands below for Makefile_Linux.  This command will convert assembly code to machine code. The writable assembly is in sim/asm_code.s  
+If you are using Linux machine then you have to use the Makefile_Linux and Cadence Xcelium software installed in the Linux machine. Machine. Use the commands below for Makefile_Linux.  This command will convert assembly code to machine code. The writable assembly is in sim/asm_code.s  
 
 `make -f Makefile_Linux conv_to_machine`  
 
@@ -36,7 +36,7 @@ The following command will run the core in command line:
 
 `make -f Makefile_Linux run_cli`   
 
-The following command will run the core in GUI of Cadene (If you have it, otherwise error):
+The following command will run the core in GUI of Cadence Xcelium (If you have it, otherwise error):
 
 `make -f Makefile_Linux run_gui`   
 
