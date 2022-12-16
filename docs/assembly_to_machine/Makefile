@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := a_linux
+.DEFAULT_GOAL := a
 
 a:   #target to convert assembly to machine code
 	./make_a_to_m.bat
