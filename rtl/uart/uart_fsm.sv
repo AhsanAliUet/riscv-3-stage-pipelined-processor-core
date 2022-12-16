@@ -15,7 +15,8 @@ module uart_fsm
    output logic shift_o,
    output logic clear_baud_o,
    output logic load_xmt_dreg_o,
-   output logic load_xmt_shfreg_o
+   output logic load_xmt_shfreg_o,
+   output logic done
 );
    parameter S0 = 2'b00;
    parameter S1 = 2'b01;
@@ -44,6 +45,7 @@ always_comb begin
             load_xmt_shfreg_o = 0;
             start_o = 0;
             shift_o = 0;
+            done = 0;
          end else begin
             next_state = S1;
             
@@ -53,6 +55,7 @@ always_comb begin
             load_xmt_shfreg_o = 0;
             start_o = 0;
             shift_o = 0;
+            done = 0;
          end
       end
       S1: begin
@@ -64,6 +67,7 @@ always_comb begin
             load_xmt_shfreg_o = 1;
             start_o = 0;
             shift_o = 0;
+            done = 0;
          end else begin
             next_state = S2;
             clear_baud_o = 1;
@@ -72,6 +76,7 @@ always_comb begin
             load_xmt_shfreg_o = 0;
             start_o = 0;
             shift_o = 0;
+            done = 0;
          end   
       end
       S2: begin
@@ -83,6 +88,7 @@ always_comb begin
             load_xmt_shfreg_o = 0;
             start_o = 1;
             shift_o = 0;
+            done = 0;
          end else if (!counter_of_i && counter_baud_of_i) begin
             next_state = S2;
             clear_baud_o = 0;
@@ -91,8 +97,10 @@ always_comb begin
             load_xmt_shfreg_o = 0;
             start_o = 1;
             shift_o = 1;
+            done = 0;
          end 
          else if (counter_of_i && counter_baud_of_i) begin
+            done = 1;
             next_state = S0;
          end
       end

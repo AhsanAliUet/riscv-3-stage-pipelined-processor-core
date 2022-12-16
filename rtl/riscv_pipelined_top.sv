@@ -409,6 +409,9 @@ localparam CLOCK_FREQ       = 100e6;
 localparam BAUD_RATE        = 9600;
 localparam BITS_TO_COUNT    = 8;
 logic      Tx;
+logic      done_uart;
+logic      byte_ready_uart;
+logic      t_byte_uart;
 
 uart_tx #(
    .DW           (DW_UART      ),
@@ -421,9 +424,17 @@ uart_tx #(
    .rst_i       (rst_i                   ),
    .cs          (cs_uart                 ),
    .data_i      (data_s_pb_o[DW_UART-1:0]),
-   .byte_ready_i(cs_uart                 ),
-   .t_byte_i    (cs_uart                 ),
-   .Tx          (Tx                      )
+   .byte_ready_i(byte_ready_uart         ),
+   .t_byte_i    (t_byte_uart             ),
+   .Tx          (Tx                      ),
+   .done_uart   (done_uart               )
+);
+
+uart_riscv_contr i_uart_riscv_contr(
+   .cs_uart   (cs_uart        ),
+   .done_uart (done_uart      ),
+   .byte_ready(byte_ready_uart),
+   .t_byte    (t_byte_uart    )
 );
 
 data_mem #(

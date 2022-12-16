@@ -13,7 +13,8 @@ module uart_tx #(
    input  logic [DW-1:0] data_i,
    input  logic          byte_ready_i,
    input  logic          t_byte_i,
-   output logic          Tx
+   output logic          Tx,
+   output logic          done_uart
 );
 
    logic serial_o;
@@ -74,7 +75,8 @@ uart_fsm i_uart_fsm(
    .shift_o          (shift          ),
    .clear_baud_o     (clear_baud     ),
    .load_xmt_dreg_o  (load_xmt_dreg  ),
-   .load_xmt_shfreg_o(load_xmt_shfreg)
+   .load_xmt_shfreg_o(load_xmt_shfreg),
+   .done             (done_uart      )
 );
 
    always_comb begin

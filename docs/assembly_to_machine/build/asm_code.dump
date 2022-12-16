@@ -2,7 +2,7 @@
 build/asm_code.elf:     file format elf32-littleriscv
 
 Contents of section .text:
- 0000 93001000 1391a000 93013000 13014100  ..........0...A.
+ 0000 93001000 1391b000 93013000 13014100  ..........0...A.
  0010 23203100                             # 1.            
 Contents of section .riscv.attributes:
  0000 41190000 00726973 63760001 0f000000  A....riscv......
@@ -12,7 +12,7 @@ Disassembly of section .text:
 
 00000000 <.text>:
    0:	00100093          	li	ra,1
-   4:	00a09113          	slli	sp,ra,0xa
+   4:	00b09113          	slli	sp,ra,0xb
    8:	00300193          	li	gp,3
    c:	00410113          	addi	sp,sp,4
   10:	00312023          	sw	gp,0(sp)
