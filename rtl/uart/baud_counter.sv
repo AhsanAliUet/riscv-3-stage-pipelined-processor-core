@@ -11,7 +11,7 @@ module baud_counter #(
    output logic           counter_baud_of_o
 );
 
-logic [BRW-1:0] counter_value = 0;
+logic [BRW-1:0] counter_value;
 always_ff @ (posedge clk_i, posedge rst_i, posedge clear_baud) begin
    if (rst_i || clear_baud) begin
       counter_value <= '0;

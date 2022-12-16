@@ -60,9 +60,9 @@ module csr_regs # (
          mstatus_ff <= '0;
          mie_ff     <= '0;
          mtvec_ff   <= '0;
-         mepc_ff    <= '0;
-         mcause_ff  <= '0;
-         mip_ff     <= '0;
+         // mepc_ff    <= '0;
+         // mcause_ff  <= '0;
+         // mip_ff     <= '0;
       end
 
       else if (we) begin
@@ -80,7 +80,7 @@ module csr_regs # (
             //    end
             // end
 
-            MCAUSE_ADDR  : mcause_ff  <= data_i;   //mcause
+            // MCAUSE_ADDR  : mcause_ff  <= data_i;   //mcause
             // MIP_ADDR     : mip_ff     <= data_i;   //mip  //cannot write on mip
          endcase
       end

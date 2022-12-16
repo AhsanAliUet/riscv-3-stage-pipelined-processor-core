@@ -8,7 +8,7 @@ module bit_counter #(
    output logic           counter_of_o
 );
 
-logic [15:0] counter_value = 0;
+logic [15:0] counter_value;
 always_ff @ (posedge clk_i, posedge rst_i, posedge clear) begin
    if (rst_i || clear) begin
       counter_value <= 16'b0;
