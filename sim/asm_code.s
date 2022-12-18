@@ -4,6 +4,16 @@ j h1  #timer interrupt handler
 j h2  #external interrupt handler
 
 main:
+    addi x22, x0, 1
+    addi x23, x0, 1
+    addi x24, x0, 1
+    addi x25, x0, 1
+    addi x26, x0, 1
+    addi x27, x0, 1
+    addi x28, x0, 1
+    addi x29, x0, 1
+    addi x30, x0, 1
+    addi x31, x0, 1
     j exit
 
 h1:

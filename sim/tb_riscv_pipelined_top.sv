@@ -4,9 +4,7 @@ module tb_riscv_pipelined_top();
    parameter DW                  = 32;
    parameter REG_SIZE            = 32;
    parameter NO_OF_REGS_REG_FILE = 32;
-   parameter REGW                = $clog2(REG_SIZE);
    parameter MEM_SIZE_IN_KB      = 1;
-   parameter NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4;
    parameter ADDENT = 4;
    parameter ADDRW               = 12;
 
@@ -19,9 +17,7 @@ riscv_pipelined_top #(
    .DW                 (DW                 ),
    .REG_SIZE           (REG_SIZE           ),
    .NO_OF_REGS_REG_FILE(NO_OF_REGS_REG_FILE),
-   .REGW               (REGW               ),
    .MEM_SIZE_IN_KB     (MEM_SIZE_IN_KB     ),
-   .NO_OF_REGS         (NO_OF_REGS         ),
    .ADDENT             (ADDENT             ),
    .ADDRW              (ADDRW              )
 
@@ -67,13 +63,13 @@ riscv_pipelined_top #(
    initial begin
       e_intr = 0;
       t_intr = 0;
-      repeat(15) @(posedge clk_i); //give interrupt after register are configured
-      t_intr = 1;
+      repeat(20) @(posedge clk_i); //give interrupt after register are configured
+      t_intr = 1; //1
       
       @(posedge clk_i);
       t_intr = 0;
       repeat(15) @(posedge clk_i);
-      e_intr = 1;
+      e_intr = 0; //1
       @(posedge clk_i);
       e_intr = 0;
 

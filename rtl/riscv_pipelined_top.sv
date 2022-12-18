@@ -1,14 +1,14 @@
 //top file of 3 stage pipelined riscv
 
 module riscv_pipelined_top #(
-   parameter DW                  = 32,
-   parameter REG_SIZE            = 32,
-   parameter NO_OF_REGS_REG_FILE = 32,
-   parameter REGW                = $clog2(REG_SIZE),
-   parameter MEM_SIZE_IN_KB      = 1,
-   parameter NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4,
-   parameter ADDENT              = 4,
-   parameter ADDRW               = 12
+   parameter  DW                  = 32,
+   parameter  REG_SIZE            = 32,
+   parameter  NO_OF_REGS_REG_FILE = 32,
+   parameter  MEM_SIZE_IN_KB      = 1,
+   parameter  ADDENT              = 4,
+   parameter  ADDRW               = 12,
+   localparam REGW                = $clog2(REG_SIZE),
+   localparam NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4
 
 )(
    input  logic clk_i,
@@ -18,6 +18,12 @@ module riscv_pipelined_top #(
 );
 
    localparam ADDRW_DM = $clog2(NO_OF_REGS);
+
+   //uart localparams
+   localparam DW_UART          = 8;
+   localparam CLOCK_FREQ       = 100e6;
+   localparam BAUD_RATE        = 9600;
+   localparam BITS_TO_COUNT    = 8;
 
    logic [DW-1:0] pc_next;
    logic [DW-1:0] pc;
@@ -140,8 +146,14 @@ module riscv_pipelined_top #(
    logic [DW-1:0]       data_l_pb_o;  //data load from data memory and output of peripheral bus (pb) input to lsu
    logic [DW-1:0]       data_s_pb_o;  //data to be stored at data memory and output of peripheral bus (pb) input to lsu
 
+   //peripheral (uart) signals
+   logic      Tx;
+   logic      done_uart;
+   logic      byte_ready_uart;
+   logic      t_byte_uart;
+
 pc #(
-   .DW      (DW)
+   .DW      (DW       )
 )i_pc(
    .clk_i   (clk_i    ),
    .rst_i   (rst_i    ),
@@ -262,17 +274,6 @@ mux_2x1 #(
    .out (alu_operand_1 )
 );
 
-// alu #(   //non-reduced hardware
-//    .DW(DW)
-// )i_alu(
-//    .opcode(opcode),
-//    .func3(func3),
-//    .func7_5(func7[5]),
-//    .alu_operand_1_i(alu_operand_1),
-//    .alu_operand_2_i(scr_b),
-//    .alu_result_o(alu_result)
-// );
-
 alu_decoder #(
    .DW          (DW         )
 )i_alu_decoder(
@@ -303,6 +304,7 @@ mux_2x1 #(
    .s   (forward_a     ),
    .out (going_in_alu_a)
 );
+
 mux_2x1 #(
    .DW  (DW            )
 )i_mux_forward_b(
@@ -365,7 +367,6 @@ pipeline_reg_2 #(
    .rs1_m        (rs1_m        )
 );
 
-
 lsu #(
    .DW       (DW            )
 )i_lsu(
@@ -403,15 +404,6 @@ peripherals_bus #(
    .cs_dm       (cs_dm         ),
    .cs_uart     (cs_uart       )
 );
-
-localparam DW_UART          = 8;
-localparam CLOCK_FREQ       = 100e6;
-localparam BAUD_RATE        = 9600;
-localparam BITS_TO_COUNT    = 8;
-logic      Tx;
-logic      done_uart;
-logic      byte_ready_uart;
-logic      t_byte_uart;
 
 uart_tx #(
    .DW           (DW_UART      ),
@@ -476,29 +468,6 @@ csr_regs # (
 
 );
 
-
-// csr #(
-//    .DW   (DW   ),
-//    .ADDRW(ADDRW)
-
-// ) i_csr(
-//    .clk_i    (clk_i          ),
-//    .rst_i    (rst_i          ),
-//    .addr     (imm_csr_m[11:0]),
-//    .we       (csr_we_m       ),
-//    .re       (csr_re_m       ),
-
-//    .pc_i     (pc_m           ),
-//    .data_i   (rs1_m          ),
-
-//    .is_mret  (is_mret        ),
-//    .intr_flag(intr           ),
-//    .data_o   (data_csr_o     ),
-//    .epc_o    (epc            )
-
-// );
-
-
 adder #(
    .DW     (DW       ),
    .ADDENT (ADDENT   )
@@ -551,7 +520,18 @@ main_decoder i_main_decoder(
 );
 
    always_ff @ (posedge clk_i) begin
-      t_intr_d <= t_intr;
-      e_intr_d <= e_intr;
+      //t_intr_d and e_intr_d are given to pc mux to select pc appropriately when interrupt comes
+      // if configured
+      if (!intr) begin
+         t_intr_d <= t_intr;
+         e_intr_d <= e_intr;
+      end
+
+      //interrupt signal should not be generated if it is not configured
+      else begin
+         t_intr_d <= 0;
+         e_intr_d <= 0;
+      end
    end
+
 endmodule
