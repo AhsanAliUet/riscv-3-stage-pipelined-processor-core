@@ -66,7 +66,7 @@ riscv_pipelined_top #(
       repeat(20) @(posedge clk_i); //give interrupt after register are configured
       t_intr = 1; //1
       
-      @(posedge clk_i);
+      repeat(2) @(posedge clk_i);
       t_intr = 0;
       repeat(15) @(posedge clk_i);
       e_intr = 0; //1
