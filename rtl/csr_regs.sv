@@ -11,6 +11,8 @@ module csr_regs # (
    input  logic             e_intr,     //external interrupt
    input  logic             is_mret,
    
+   input  logic [2:0]       csr_cntr,
+
    input  logic [ADDRW-1:0] addr,
    input  logic             we,
    input  logic             re,
@@ -67,21 +69,42 @@ module csr_regs # (
 
       else if (we) begin
          case(addr)
-            MSTATUS_ADDR : mstatus_ff <= data_i;   //mstatus
-            MIE_ADDR     : mie_ff     <= data_i;   //mie
-            MTVEC_ADDR   : mtvec_ff   <= data_i;   //mtvec
-            
-            // MEPC_ADDR    : begin
-            //    if (intr_flag) begin
-            //       mepc_ff    <= pc_i;
-            //    end
-            //    else begin
-            //       mepc_ff    <= data_i;
-            //    end
-            // end
+            MSTATUS_ADDR : begin
+               if (csr_cntr == 3'b000 || csr_cntr == 3'b001 || csr_cntr == 3'b011 || csr_cntr == 3'b100) begin   //CSRRW | CSRRS | CSRRWI | CSRRSI
+                  mstatus_ff <= data_i;   //mstatus
+               end
+               else if (csr_cntr == 3'b010 || csr_cntr == 3'b101) begin  //CSRRC | CSRRCI
+                  mstatus_ff <= ~data_i;   //because is is csr read and clear
+               end
+               else begin
+                  mstatus_ff <= data_i;
+               end
+            end
 
-            // MCAUSE_ADDR  : mcause_ff  <= data_i;   //mcause
-            // MIP_ADDR     : mip_ff     <= data_i;   //mip  //cannot write on mip
+            MIE_ADDR     : begin
+               if (csr_cntr == 3'b000 || csr_cntr == 3'b001 || csr_cntr == 3'b011 || csr_cntr == 3'b100) begin   //CSRRW | CSRRS | CSRRWI | CSRRSI
+                  mie_ff <= data_i;   //mie_ff
+               end
+               else if (csr_cntr == 3'b010 || csr_cntr == 3'b101) begin  //CSRRC | CSRRCI
+                  mie_ff <= ~data_i;   //because is is csr read and clear
+               end
+               else begin
+                  mie_ff <= data_i;
+               end
+            end
+
+            MTVEC_ADDR   : begin
+               if (csr_cntr == 3'b000 || csr_cntr == 3'b001 || csr_cntr == 3'b011 || csr_cntr == 3'b100) begin   //CSRRW | CSRRS | CSRRWI | CSRRSI
+                  mtvec_ff <= data_i;   //mtvec_ff
+               end
+               else if (csr_cntr == 3'b010 || csr_cntr == 3'b101) begin  //CSRRC | CSRRCI
+                  mtvec_ff <= ~data_i;   //because is is csr read and clear
+               end
+               else begin
+                  mtvec_ff <= data_i;
+               end
+            end
+
          endcase
       end
 

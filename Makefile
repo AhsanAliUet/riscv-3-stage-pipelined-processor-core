@@ -21,7 +21,7 @@ RTL_FILE19 = forwarding_unit
 
 RTL_FILE20 = csr_regs
 RTL_FILE21 = csr_ops
-RTL_FILE22 = csr
+RTL_FILE22 = csr_decoder
 
 RTL_FILE23 = peripherals_bus
 

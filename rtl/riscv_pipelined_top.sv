@@ -444,6 +444,17 @@ data_mem #(
    .rdata_o        (rdata_data_mem)
 );
 
+logic [2:0] csr_cntr;
+
+csr_decoder #(
+   .DW   (DW   ),
+   .ADDRW(ADDRW)
+) i_csr_decoder(
+   .opcode  (instr_m[6:0]  ),
+   .func3   (instr_m[14:12]),
+   .csr_cntr(csr_cntr      )
+);
+
 csr_regs # (
    .DW       (DW             ),
    .ADDRW    (ADDRW          )
@@ -454,7 +465,9 @@ csr_regs # (
    .t_intr   (t_intr         ),     //timer interrupt
    .e_intr   (e_intr         ),     //external interrupt
    .is_mret  (is_mret        ),
-   
+
+   .csr_cntr (csr_cntr       ),
+
    .addr     (imm_csr_m[11:0]),
    .we       (csr_we_m       ),
    .re       (csr_re_m       ),

@@ -8,7 +8,8 @@ Contents of section .text:
  0030 130f1000 930f1000 6f004001 130a4001  ........o.@...@.
  0040 73002030 930aa000 73002030 6f000000  s. 0....s. 0o...
  0050 93028000 73900230 93001000 13917000  ....s..0......p.
- 0060 9391b000 33023100 73104230 6ff05ffa  ....3.1.s.B0o._.
+ 0060 9391b000 33023100 73104230 73b00630  ....3.1.s.B0s..0
+ 0070 6ff01ffa                             o...            
 Contents of section .riscv.attributes:
  0000 411d0000 00726973 63760001 13000000  A....riscv......
  0010 05727633 32693270 30000801 0a0b      .rv32i2p0.....  
@@ -53,4 +54,5 @@ Disassembly of section .text:
   60:	00b09193          	slli	gp,ra,0xb
   64:	00310233          	add	tp,sp,gp
   68:	30421073          	csrw	mie,tp
-  6c:	fa5ff06f          	j	10 <main>
+  6c:	3006b073          	csrc	mstatus,a3
+  70:	fa1ff06f          	j	10 <main>
