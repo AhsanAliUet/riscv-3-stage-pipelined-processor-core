@@ -22,10 +22,10 @@ riscv_pipelined_top #(
    .ADDRW              (ADDRW              )
 
 )i_riscv_pipelined_top(
-   .clk_i (clk_i ),
-   .rst_i (rst_i ),
-   .t_intr(t_intr),
-   .e_intr(e_intr)
+   .clk_fpga(clk_i ),
+   .rst_i   (rst_i ),
+   .t_intr  (t_intr),
+   .e_intr  (e_intr)
 );
 
    initial begin

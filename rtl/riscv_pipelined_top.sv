@@ -8,10 +8,12 @@ module riscv_pipelined_top #(
    parameter  ADDENT              = 4,
    parameter  ADDRW               = 12,
    localparam REGW                = $clog2(REG_SIZE),
-   localparam NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4
+   localparam NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4,
+   localparam CLOCK_SYS           = 100e6,     //clock of FPGA
+   localparam CLOCK_OUT           = 1e6        //the clock we will give to processor
 
 )(
-   input  logic clk_i,
+   input  logic clk_fpga,
    input  logic rst_i,
    input  logic t_intr,  //timer interrupt
    input  logic e_intr   //external interrupt
@@ -151,6 +153,19 @@ module riscv_pipelined_top #(
    logic      done_uart;
    logic      byte_ready_uart;
    logic      t_byte_uart;
+
+
+   logic      clk_i;
+
+clock_div #(
+   .CLOCK_SYS(CLOCK_SYS),
+   .CLOCK_OUT(CLOCK_OUT),
+
+) i_clock_div (
+   clk_i(clk_fpga),
+   rst_i(rst_i   ),
+   clk_o(clk_i   )  //divided clock
+);
 
 pc #(
    .DW      (DW       )
