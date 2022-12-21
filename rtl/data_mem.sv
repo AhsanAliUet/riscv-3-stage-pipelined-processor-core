@@ -13,7 +13,8 @@ module data_mem #(
    input  logic [3:0]          mask,
    input  logic [ADDRW-1:0]    addr_i,
    input  logic [DW-1:0]       wdata_i,
-   output logic [DW-1:0]       rdata_o
+   output logic [DW-1:0]       rdata_o,
+   output logic [DW-1:0]       dm_reg_0      //this register is used to print data on 7 segments
 );
 
    logic [DW-1:0] data_mem [0:NO_OF_REGS-1];
@@ -40,4 +41,6 @@ module data_mem #(
          end
       end
    end
+
+   assign dm_reg_0 = data_mem[0];
 endmodule

@@ -9,14 +9,17 @@ module riscv_pipelined_top #(
    parameter  ADDRW               = 12,
    localparam REGW                = $clog2(REG_SIZE),
    localparam NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4,
-   localparam CLOCK_SYS           = 100e6,     //clock of FPGA
-   localparam CLOCK_OUT           = 1e6        //the clock we will give to processor
+   localparam CLOCK_SYS           = 100e6,      //clock of FPGA
+   localparam CLOCK_OUT           = 100e6,        //the clock we will give to processor
+   parameter  NO_OF_SEGS          = 8
 
 )(
-   input  logic clk_fpga,
-   input  logic rst_i,
-   input  logic t_intr,  //timer interrupt
-   input  logic e_intr   //external interrupt
+   input  logic                  clk_fpga,
+   input  logic                  rst_i,
+   input  logic                  t_intr,   //timer interrupt
+   input  logic                  e_intr,   //external interrupt
+   output logic [NO_OF_SEGS-1:0] anode,
+   output logic [6:0]            display
 );
 
    localparam ADDRW_DM = $clog2(NO_OF_REGS);
@@ -159,12 +162,12 @@ module riscv_pipelined_top #(
 
 clock_div #(
    .CLOCK_SYS(CLOCK_SYS),
-   .CLOCK_OUT(CLOCK_OUT),
+   .CLOCK_OUT(CLOCK_OUT)
 
 ) i_clock_div (
-   clk_i(clk_fpga),
-   rst_i(rst_i   ),
-   clk_o(clk_i   )  //divided clock
+   .clk_i(clk_fpga),
+   .rst_i(rst_i   ),
+   .clk_o(clk_i   )  //divided clock
 );
 
 pc #(
@@ -444,6 +447,8 @@ uart_riscv_contr i_uart_riscv_contr(
    .t_byte    (t_byte_uart    )
 );
 
+logic [DW-1:0] dm_reg_0;   //register mapped to 7 segments display
+
 data_mem #(
    .DW             (DW            ),
    .MEM_SIZE_IN_KB (MEM_SIZE_IN_KB),
@@ -456,7 +461,8 @@ data_mem #(
    .mask           (mask_dm       ),
    .addr_i         (addr_dm       ),
    .wdata_i        (data_s_pb_o   ),
-   .rdata_o        (rdata_data_mem)
+   .rdata_o        (rdata_data_mem),
+   .dm_reg_0       (dm_reg_0      )
 );
 
 logic [2:0] csr_cntr;
@@ -545,6 +551,16 @@ main_decoder i_main_decoder(
    .csr_we    (csr_we   ),
    .csr_re    (csr_re   ),
    .is_mret   (is_mret  )
+);
+
+ssd #(
+   .DW        (DW        )
+) i_ssd(
+   .clk    (clk_fpga),
+   .rst_i  (rst_i   ),
+   .data_i (dm_reg_0),
+   .anode  (anode   ), 
+   .display(display )
 );
 
    always_ff @ (posedge clk_i) begin

@@ -7,11 +7,16 @@ module tb_riscv_pipelined_top();
    parameter MEM_SIZE_IN_KB      = 1;
    parameter ADDENT = 4;
    parameter ADDRW               = 12;
+   parameter NO_OF_SEGS          = 8;
 
    logic clk_i;
    logic rst_i;
    logic t_intr;   //timer interrupt
    logic e_intr;   //external interrupt
+   
+   logic [NO_OF_SEGS-1:0] anode;
+   logic [6:0]            display;
+
 
 riscv_pipelined_top #(
    .DW                 (DW                 ),
@@ -19,13 +24,16 @@ riscv_pipelined_top #(
    .NO_OF_REGS_REG_FILE(NO_OF_REGS_REG_FILE),
    .MEM_SIZE_IN_KB     (MEM_SIZE_IN_KB     ),
    .ADDENT             (ADDENT             ),
-   .ADDRW              (ADDRW              )
+   .ADDRW              (ADDRW              ),
+   .NO_OF_SEGS         (NO_OF_SEGS         )
 
 )i_riscv_pipelined_top(
-   .clk_fpga(clk_i ),
-   .rst_i   (rst_i ),
-   .t_intr  (t_intr),
-   .e_intr  (e_intr)
+   .clk_fpga(clk_i  ),
+   .rst_i   (rst_i  ),
+   .t_intr  (t_intr ),
+   .e_intr  (e_intr ),
+   .anode   (anode  ),
+   .display (display)
 );
 
    initial begin
