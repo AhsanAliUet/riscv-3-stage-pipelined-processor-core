@@ -37,4 +37,7 @@ negative_and_zero:              #exception handler
 two:
    addi x4, x0, 2
 stop:
+   addi x1, x0, 1
+   slli x2, x1, 10     #chip select of data memory
+   sw x4, 0(x2)
    j stop

@@ -3,7 +3,7 @@
 module data_mem #(
    parameter  DW             = 32,
    parameter  MEM_SIZE_IN_KB = 1,   //size of the instruction memory
-   parameter  NO_OF_REGS     = MEM_SIZE_IN_KB * 1024 / 4,    //4 bytes in 32 bits
+   localparam NO_OF_REGS     = MEM_SIZE_IN_KB * 1024 / 4,    //4 bytes in 32 bits
    localparam ADDRW          = $clog2(NO_OF_REGS)
 )(
    input  logic                clk_i,

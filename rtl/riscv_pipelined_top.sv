@@ -10,7 +10,7 @@ module riscv_pipelined_top #(
    localparam REGW                = $clog2(REG_SIZE),
    localparam NO_OF_REGS          = MEM_SIZE_IN_KB * 1024 / 4,
    localparam CLOCK_SYS           = 100e6,      //clock of FPGA
-   localparam CLOCK_OUT           = 100e6,        //the clock we will give to processor
+   localparam CLOCK_OUT           = 1e6,        //the clock we will give to processor
    parameter  NO_OF_SEGS          = 8
 
 )(
@@ -119,6 +119,9 @@ module riscv_pipelined_top #(
    logic [DW-1:0] pc_m;
 
    logic [DW-1:0] rs1_m;
+
+   logic cs_dm_d;
+   logic cs_uart_d;
    //forwarding unit signals
    logic          forward_a;
    logic          forward_b;
@@ -159,16 +162,16 @@ module riscv_pipelined_top #(
 
 
    logic      clk_i;
+   assign clk_i = clk_fpga;
+// clock_div #(
+//    .CLOCK_SYS(CLOCK_SYS),
+//    .CLOCK_OUT(CLOCK_OUT)
 
-clock_div #(
-   .CLOCK_SYS(CLOCK_SYS),
-   .CLOCK_OUT(CLOCK_OUT)
-
-) i_clock_div (
-   .clk_i(clk_fpga),
-   .rst_i(rst_i   ),
-   .clk_o(clk_i   )  //divided clock
-);
+// ) i_clock_div (
+//    .clk_i(clk_fpga),
+//    .rst_i(rst_i   ),
+//    .clk_o(clk_i   )  //divided clock
+// );
 
 pc #(
    .DW      (DW       )
@@ -382,7 +385,12 @@ pipeline_reg_2 #(
    .csr_re_m     (csr_re_m     ),
 
    .rs1_d        (going_in_alu_a),
-   .rs1_m        (rs1_m        )
+   .rs1_m        (rs1_m        ),
+
+   .cs_dm        (cs_dm        ),
+   .cs_dm_d      (cs_dm_d      ),
+   .cs_uart      (cs_uart      ),
+   .cs_uart_d    (cs_uart_d    )
 );
 
 lsu #(
@@ -432,7 +440,7 @@ uart_tx #(
 ) i_uart_tx(
    .clk_i       (clk_i                   ),
    .rst_i       (rst_i                   ),
-   .cs          (cs_uart                 ),
+   .cs          (cs_uart_d               ),
    .data_i      (data_s_pb_o[DW_UART-1:0]),
    .byte_ready_i(byte_ready_uart         ),
    .t_byte_i    (t_byte_uart             ),
@@ -451,13 +459,12 @@ logic [DW-1:0] dm_reg_0;   //register mapped to 7 segments display
 
 data_mem #(
    .DW             (DW            ),
-   .MEM_SIZE_IN_KB (MEM_SIZE_IN_KB),
-   .NO_OF_REGS     (NO_OF_REGS    )
+   .MEM_SIZE_IN_KB (MEM_SIZE_IN_KB)
 )i_data_mem(
    .clk_i          (clk_i         ),
    .rst_i          (rst_i         ),
    .we             (mem_write_m   ),
-   .cs             (cs_dm         ), 
+   .cs             (cs_dm_d       ),  //delayed version of cs for data memory
    .mask           (mask_dm       ),
    .addr_i         (addr_dm       ),
    .wdata_i        (data_s_pb_o   ),
@@ -465,7 +472,7 @@ data_mem #(
    .dm_reg_0       (dm_reg_0      )
 );
 
-logic [2:0] csr_cntr;
+logic [2:0] csr_cntr;   //for all type of CSR instructions
 
 csr_decoder #(
    .DW   (DW   ),
@@ -566,7 +573,7 @@ ssd #(
    always_ff @ (posedge clk_i) begin
       //t_intr_d and e_intr_d are given to pc mux to select pc appropriately when interrupt comes
       // if configured
-      if (!intr) begin
+      if (intr) begin
          t_intr_d <= t_intr;
          e_intr_d <= e_intr;
       end

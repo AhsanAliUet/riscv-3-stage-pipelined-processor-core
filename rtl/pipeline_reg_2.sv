@@ -48,7 +48,14 @@ module pipeline_reg_2 #(
    output logic             csr_re_m,
 
    input  logic [DW-1:0]    rs1_d,
-   output logic [DW-1:0]    rs1_m
+   output logic [DW-1:0]    rs1_m,
+
+   input  logic             cs_dm,
+   output logic             cs_dm_d,
+
+   input  logic             cs_uart,
+   output logic             cs_uart_d  //delayed version of chip select of uart
+
 );
 
    always_ff @ (posedge clk_i, posedge rst_i) begin : pipelined_register
@@ -68,6 +75,8 @@ module pipeline_reg_2 #(
          rs1_m        <= '0;
          csr_we_m     <= '0;
          csr_re_m     <= '0;
+         cs_dm_d      <= '0;
+         cs_uart_d    <= '0;
       end : reset_block
 
       else if (stall) begin : to_next_stage
@@ -86,6 +95,8 @@ module pipeline_reg_2 #(
          rs1_m        <= rs1_m;
          csr_we_m     <= csr_we_m;
          csr_re_m     <= csr_re_m;
+         cs_dm_d      <= cs_dm_d;
+         cs_uart_d    <= cs_uart_d;
       end : to_next_stage
 
       else begin
@@ -104,6 +115,8 @@ module pipeline_reg_2 #(
          rs1_m        <= rs1_d;
          csr_we_m     <= csr_we_d;
          csr_re_m     <= csr_re_d;
+         cs_dm_d      <= cs_dm;
+         cs_uart_d    <= cs_uart;
       end
 
    end : pipelined_register

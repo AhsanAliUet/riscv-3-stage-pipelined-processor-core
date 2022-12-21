@@ -62,7 +62,5 @@ simulate:
 wave:
 	gtkwave $(WAVE_PATH)$(WAVE_NAME).vcd
 	
-run:
-	make conv_to_machine
-	make compile
+run: conv_to_machine compile
 	make simulate

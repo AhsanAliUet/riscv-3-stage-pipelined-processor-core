@@ -26,3 +26,5 @@ simvision16505.diag
 simvision16505.diag
 simvision.dsn
 simvision.trn
+fpga_code.s
+fpga_fact.s
