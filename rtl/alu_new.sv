@@ -60,14 +60,23 @@ module alu_new #(
          SLTU   : alu_result_o = alu_operand_1_i          < alu_operand_2_i;
          XOR    : alu_result_o = alu_operand_1_i          ^ alu_operand_2_i;
          SRL_SRA: begin   //Use only 1 shifter for both SRL and SRA
-                     for (int i = 0; i < alu_operand_2_i; i = i + 1) begin
-                        operand_2_srl_sra = operand_2_srl_sra >> 1;       //srl by default
+                     // for (int i = 0; i < alu_operand_2_i; i = i + 1) begin
+                     //    operand_2_srl_sra = operand_2_srl_sra >> 1;       //srl by default
 
-                        if (func7_5) begin
-                           temp = {func7_5, operand_2_srl_sra};
-                        end
+                     //    if (func7_5) begin
+                     //       temp = {func7_5, operand_2_srl_sra};
+                     //    end
+                     // end
+
+                     operand_2_srl_sra = operand_2_srl_sra >> alu_operand_2_i;
+
+                     if (func7_5) begin
+                        temp = {func7_5, operand_2_srl_sra};
                      end
-
+                     else begin
+                        temp = '0;
+                     end
+                     
                      if (func7_5) begin
                         alu_result_o = temp;
                      end else begin
