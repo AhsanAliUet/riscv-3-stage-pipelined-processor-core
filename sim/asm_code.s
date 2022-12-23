@@ -75,3 +75,4 @@ configure:
     csrrw x0, mie, x26  #mtie and meie
 
     j main
+

@@ -9,3 +9,4 @@ python3 maketxt.py build/asm_code.bin > build/asm_code.txt
 riscv64-unknown-elf-objdump -S -s build/asm_code.elf > build/asm_code.dump
 
 cp build/asm_code.txt ../../sim/machine_codes.txt
+cp ../../sim/machine_codes.txt ../../sim/machine_codes.mem
