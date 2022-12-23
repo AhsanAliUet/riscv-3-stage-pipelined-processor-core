@@ -189,13 +189,14 @@ pc #(
    .pc      (pc       )
 );
 
-logic sh;
-always_ff @ (posedge clk_i, posedge t_intr) begin
-   if (t_intr) begin
-      sh <= 1;
+logic flush_intr;   //flushing signal by interrupts
+
+always_ff @ (posedge clk_i, posedge t_intr, posedge e_intr) begin
+   if (t_intr || e_intr) begin
+      flush_intr <= 1;
    end
    else begin
-      sh <= 0;
+      flush_intr <= 0;
    end
 end
 
@@ -206,7 +207,7 @@ pipeline_reg_1 #(
    .rst_i        (rst_i      ),
    
    .stall        (stall_fd   ),
-   .flush        (flush || sh     ),
+   .flush        (flush || flush_intr     ),
    .instr_f      (inst_o     ),   //instruction in fetch stage
    .instr_d      (instr_d    ),   //instruction in decode stage
 
