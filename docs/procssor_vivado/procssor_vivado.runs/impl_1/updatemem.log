@@ -1,0 +1,22 @@
+#-----------------------------------------------------------
+# updatemem v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Sun Dec 25 16:00:28 2022
+# Process ID: 5340
+# Current directory: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1
+# Command line: updatemem.exe -mode batch -source C:/Xilinx/Vivado/2018.2/scripts/updatemem/main.tcl -notrace -tclargs -meminfo riscv_pipelined_top.mmi -data machine_codes.mem -proc xpm_memory_spram_inst/xpm_memory_base_inst -bit riscv_pipelined_top.bit -out out.bit -force -debug
+# Log file: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/updatemem.log
+# Journal file: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1\updatemem.jou
+#-----------------------------------------------------------
+source C:/Xilinx/Vivado/2018.2/scripts/updatemem/main.tcl -notrace
+Command: update_mem -meminfo riscv_pipelined_top.mmi -data machine_codes.mem -proc xpm_memory_spram_inst/xpm_memory_base_inst -bit riscv_pipelined_top.bit -out out.bit -force -debug
+Loading bitfile riscv_pipelined_top.bit
+Loading data files...
+Updating memory content...
+Creating bitstream...
+Writing bitstream out.bit...
+0 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+update_mem completed successfully
+update_mem: Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 525.781 ; gain = 469.902
+INFO: [Common 17-206] Exiting updatemem at Sun Dec 25 16:00:56 2022...

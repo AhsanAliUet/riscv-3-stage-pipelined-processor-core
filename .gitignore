@@ -1,0 +1,30 @@
+*.bak
+report/
+pipelined_questa/
+pipelined_3_staged_questa/
+work/
+transcript
+git_5_stage_sim/
+Readme.md
+dump.vcd
+vsim.wlf
+<<<<<<< HEAD
+dummy_asm_code.txt
+=======
+waves.shm/
+xcelium.d/
+xrun.history
+xrun.key
+xrun.log
+.simvision/
+>>>>>>> 3c8644dc0defc75430c9417e2e44130eef78d107
+
+intr_asm_code.s
+peripherals_asm_code.sv
+simvision16505.diag
+simvision16505.diag
+simvision16505.diag
+simvision.dsn
+simvision.trn
+fpga_code.s
+fpga_fact.s

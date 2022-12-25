@@ -1,0 +1,58 @@
+
+build/asm_code.elf:     file format elf32-littleriscv
+
+Contents of section .text:
+ 0000 93015000 63c40104 63820104 93002000  ..P.c...c..... .
+ 0010 63821104 33023000 33013000 93821200  c...3.0.3.0.....
+ 0020 1301f1ff b3014000 6f000001 e31a11fe  ......@.o.......
+ 0030 6f008002 33023200 b3032000 9383f3ff  o...3.2... .....
+ 0040 33023200 e39c53fe 6ff05ffe 13021000  3.2...S.o._.....
+ 0050 6f008000 13022000 93001000 1391a000  o..... .........
+ 0060 23204100 6ff05fff                    # A.o._.        
+Contents of section .riscv.attributes:
+ 0000 41190000 00726973 63760001 0f000000  A....riscv......
+ 0010 05727633 32693270 3000               .rv32i2p0.      
+
+Disassembly of section .text:
+
+00000000 <find-0x20>:
+   0:	00500193          	li	gp,5
+   4:	0401c463          	bltz	gp,4c <negative_and_zero>
+   8:	04018263          	beqz	gp,4c <negative_and_zero>
+   c:	00200093          	li	ra,2
+  10:	04118263          	beq	gp,ra,54 <two>
+  14:	00300233          	add	tp,zero,gp
+  18:	00300133          	add	sp,zero,gp
+  1c:	00128293          	addi	t0,t0,1
+
+00000020 <find>:
+  20:	fff10113          	addi	sp,sp,-1
+  24:	004001b3          	add	gp,zero,tp
+  28:	0100006f          	j	38 <multiply>
+
+0000002c <done>:
+  2c:	fe111ae3          	bne	sp,ra,20 <find>
+  30:	0280006f          	j	58 <stop>
+  34:	00320233          	add	tp,tp,gp
+
+00000038 <multiply>:
+  38:	002003b3          	add	t2,zero,sp
+
+0000003c <multiply1>:
+  3c:	fff38393          	addi	t2,t2,-1
+  40:	00320233          	add	tp,tp,gp
+  44:	fe539ce3          	bne	t2,t0,3c <multiply1>
+  48:	fe5ff06f          	j	2c <done>
+
+0000004c <negative_and_zero>:
+  4c:	00100213          	li	tp,1
+  50:	0080006f          	j	58 <stop>
+
+00000054 <two>:
+  54:	00200213          	li	tp,2
+
+00000058 <stop>:
+  58:	00100093          	li	ra,1
+  5c:	00a09113          	slli	sp,ra,0xa
+  60:	00412023          	sw	tp,0(sp)
+  64:	ff5ff06f          	j	58 <stop>
