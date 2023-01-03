@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Sun Dec 25 15:36:00 2022
+| Date         : Tue Jan  3 12:34:53 2023
 | Host         : DESKTOP-FD2K84H running 64-bit major release  (build 9200)
 | Command      : report_methodology -file riscv_pipelined_top_methodology_drc_routed.rpt -pb riscv_pipelined_top_methodology_drc_routed.pb -rpx riscv_pipelined_top_methodology_drc_routed.rpx
 | Design       : riscv_pipelined_top
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 1284
+             Violations found: 1252
 +-----------+----------+-----------------------------+------------+
 | Rule      | Severity | Description                 | Violations |
 +-----------+----------+-----------------------------+------------+
 | TIMING-17 | Warning  | Non-clocked sequential cell | 1000       |
-| TIMING-20 | Warning  | Non-clocked latch           | 284        |
+| TIMING-20 | Warning  | Non-clocked latch           | 252        |
 +-----------+----------+-----------------------------+------------+
 
 2. REPORT DETAILS
@@ -5195,1260 +5195,1100 @@ Related violations: <none>
 
 TIMING-20#33 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[0] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[0]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[0] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#34 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[10] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[10]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[10] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#35 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[11] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[11]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[11] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#36 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[12] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[12]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[12] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[12]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#37 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[13] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[13]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[13] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[13]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#38 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[14] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[14]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[14] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[14]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#39 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[15] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[15]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[15] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[15]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#40 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[16] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[16]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[16] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[16]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#41 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[17] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[17]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[17] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[17]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#42 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[18] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[18]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[18] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[18]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#43 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[19] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[19]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[19] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[19]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#44 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[1] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[1]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[1] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#45 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[20] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[20]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[20] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[20]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#46 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[21] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[21]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[21] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[21]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#47 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[22] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[22]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[22] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[22]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#48 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[23] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[23]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[23] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[23]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#49 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[24] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[24]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[24] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[24]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#50 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[25] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[25]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[25] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[25]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#51 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[26] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[26]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[26] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[26]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#52 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[27] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[27]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[27] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[27]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#53 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[28] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[28]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[28] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[28]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#54 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[29] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[29]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[29] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[29]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#55 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[2] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[2]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[2] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#56 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[30] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[30]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[30] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[30]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#57 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[31] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[31]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[31] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[31]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#58 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[3] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[3]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[3] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#59 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[4] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[4]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[4] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#60 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[5] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[5]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[5] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#61 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[6] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[6]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[6] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#62 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[7] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[7]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[7] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#63 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[8] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[8]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[8] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[8]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#64 Warning
 Non-clocked latch  
-The latch i_imm_generator/imm_ext_reg[9] cannot be properly analyzed as its control pin i_imm_generator/imm_ext_reg[9]/G is not reached by a timing clock
+The latch i_lsu/data_l_o_reg[9] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[9]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#65 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[0] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[0]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[0] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#66 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[10] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[10]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[0]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#67 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[11] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[11]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[0]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#68 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[12] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[12]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[0]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#69 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[13] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[13]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[10] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#70 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[14] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[14]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[10]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#71 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[15] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[15]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[10]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#72 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[16] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[16]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[10]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#73 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[17] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[17]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[11] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#74 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[18] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[18]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[11]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#75 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[19] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[19]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[11]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#76 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[1] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[1]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[11]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#77 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[20] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[20]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[12] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#78 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[21] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[21]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[12]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#79 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[22] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[22]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[12]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#80 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[23] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[23]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[12]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#81 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[24] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[24]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[13] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#82 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[25] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[25]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[13]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#83 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[26] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[26]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[13]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#84 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[27] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[27]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[13]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#85 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[28] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[28]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[14] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#86 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[29] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[29]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[14]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#87 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[2] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[2]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[14]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#88 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[30] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[30]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[14]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#89 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[31] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[31]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[15] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#90 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[3] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[3]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[15]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#91 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[4] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[4]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[15]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#92 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[5] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[5]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[15]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#93 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[6] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[6]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[16] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#94 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[7] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[7]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[16]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#95 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[8] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[8]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[16]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#96 Warning
 Non-clocked latch  
-The latch i_lsu/data_l_o_reg[9] cannot be properly analyzed as its control pin i_lsu/data_l_o_reg[9]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[16]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#97 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[0] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[17] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#98 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[0]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[17]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#99 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[0]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[17]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#100 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[0]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[0]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[17]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#101 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[10] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[18] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#102 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[10]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[18]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#103 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[10]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[18]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#104 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[10]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[10]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[18]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#105 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[11] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[19] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#106 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[11]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[19]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#107 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[11]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[19]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#108 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[11]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[11]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[19]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#109 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[12] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[1] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#110 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[12]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[1]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#111 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[12]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[1]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#112 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[12]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[12]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[1]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#113 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[13] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[20] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#114 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[13]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[20]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#115 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[13]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[20]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#116 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[13]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[13]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[20]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#117 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[14] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[21] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#118 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[14]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[21]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#119 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[14]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[21]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#120 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[14]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[14]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[21]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#121 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[15] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[22] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#122 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[15]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[22]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#123 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[15]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[22]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#124 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[15]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[15]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[22]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#125 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[16] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[23] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#126 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[16]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[23]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#127 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[16]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[23]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#128 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[16]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[16]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[23]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#129 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[17] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[24] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#130 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[17]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[24]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#131 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[17]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[24]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#132 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[17]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[17]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[24]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#133 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[18] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[25] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#134 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[18]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[25]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#135 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[18]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[25]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#136 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[18]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[18]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[25]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#137 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[19] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[26] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#138 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[19]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[26]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#139 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[19]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[26]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#140 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[19]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[19]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[26]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#141 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[1] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[27] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#142 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[1]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[27]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#143 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[1]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[27]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#144 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[1]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[1]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[27]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#145 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[20] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[28] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#146 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[20]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[28]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#147 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[20]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[28]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#148 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[20]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[20]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[28]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#149 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[21] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[29] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#150 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[21]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[29]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#151 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[21]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[29]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#152 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[21]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[21]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[29]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#153 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[22] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[2] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#154 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[22]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[2]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#155 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[22]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[2]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#156 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[22]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[22]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[2]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#157 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[23] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[30] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#158 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[23]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[30]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#159 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[23]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[30]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#160 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[23]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[23]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[30]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#161 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[24] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[31] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#162 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[24]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[31]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#163 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[24]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[31]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#164 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[24]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[24]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[31]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#165 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[25] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[3] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#166 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[25]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[3]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#167 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[25]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[3]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#168 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[25]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[25]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[3]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#169 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[26] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[4] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#170 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[26]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[4]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#171 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[26]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[4]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#172 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[26]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[26]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[4]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#173 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[27] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[5] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#174 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[27]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[5]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#175 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[27]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[5]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#176 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[27]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[27]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[5]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#177 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[28] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[6] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#178 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[28]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[6]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#179 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[28]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[6]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#180 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[28]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[28]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[6]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#181 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[29] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[7] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#182 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[29]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[7]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#183 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[29]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[7]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#184 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[29]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[29]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[7]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#185 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[2] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[8] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#186 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[2]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[8]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#187 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[2]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[8]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#188 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[2]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[2]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[8]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#189 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[30] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[9] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#190 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[30]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]_rep/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[9]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]_rep/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#191 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[30]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]_rep__0/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[9]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]_rep__0/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#192 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[30]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[30]_rep__1/G is not reached by a timing clock
+The latch i_lsu/data_s_o_reg[9]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]_rep__1/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#193 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[31] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]/G is not reached by a timing clock
+The latch i_lsu/mask_reg[0] cannot be properly analyzed as its control pin i_lsu/mask_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#194 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[31]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]_rep/G is not reached by a timing clock
+The latch i_lsu/mask_reg[1] cannot be properly analyzed as its control pin i_lsu/mask_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#195 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[31]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]_rep__0/G is not reached by a timing clock
+The latch i_lsu/mask_reg[2] cannot be properly analyzed as its control pin i_lsu/mask_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#196 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[31]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[31]_rep__1/G is not reached by a timing clock
+The latch i_lsu/mask_reg[3] cannot be properly analyzed as its control pin i_lsu/mask_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#197 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[3] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[0] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#198 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[3]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]_rep/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[1] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#199 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[3]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]_rep__0/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[2] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#200 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[3]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[3]_rep__1/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[3] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#201 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[4] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[4] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#202 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[4]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]_rep/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[5] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#203 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[4]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]_rep__0/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[6] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#204 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[4]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[4]_rep__1/G is not reached by a timing clock
+The latch i_lsu/rdata_byte_reg[7] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#205 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[5] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[0] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#206 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[5]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]_rep/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[10] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#207 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[5]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]_rep__0/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[11] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#208 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[5]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[5]_rep__1/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[12] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[12]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#209 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[6] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[13] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[13]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#210 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[6]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]_rep/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[14] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[14]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#211 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[6]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]_rep__0/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[15] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[15]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#212 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[6]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[6]_rep__1/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[1] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#213 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[7] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[2] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#214 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[7]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]_rep/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[3] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#215 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[7]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]_rep__0/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[4] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#216 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[7]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[7]_rep__1/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[5] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#217 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[8] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[6] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#218 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[8]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]_rep/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[7] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#219 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[8]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]_rep__0/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[8] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[8]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#220 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[8]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[8]_rep__1/G is not reached by a timing clock
+The latch i_lsu/rdata_hword_reg[9] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[9]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#221 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[9] cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[0] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#222 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[9]_rep cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]_rep/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[10] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[10]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#223 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[9]_rep__0 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]_rep__0/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[11] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[11]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#224 Warning
 Non-clocked latch  
-The latch i_lsu/data_s_o_reg[9]_rep__1 cannot be properly analyzed as its control pin i_lsu/data_s_o_reg[9]_rep__1/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[12] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[12]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#225 Warning
 Non-clocked latch  
-The latch i_lsu/mask_reg[0] cannot be properly analyzed as its control pin i_lsu/mask_reg[0]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[13] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[13]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#226 Warning
 Non-clocked latch  
-The latch i_lsu/mask_reg[1] cannot be properly analyzed as its control pin i_lsu/mask_reg[1]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[14] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[14]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#227 Warning
 Non-clocked latch  
-The latch i_lsu/mask_reg[2] cannot be properly analyzed as its control pin i_lsu/mask_reg[2]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[15] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[15]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#228 Warning
 Non-clocked latch  
-The latch i_lsu/mask_reg[3] cannot be properly analyzed as its control pin i_lsu/mask_reg[3]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[16] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[16]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#229 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[0] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[0]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[17] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[17]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#230 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[1] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[1]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[18] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[18]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#231 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[2] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[2]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[19] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[19]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#232 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[3] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[3]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[1] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#233 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[4] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[4]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[20] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[20]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#234 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[5] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[5]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[21] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[21]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#235 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[6] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[6]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[22] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[22]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#236 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_byte_reg[7] cannot be properly analyzed as its control pin i_lsu/rdata_byte_reg[7]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[23] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[23]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#237 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[0] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[0]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[24] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[24]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#238 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[10] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[10]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[25] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[25]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#239 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[11] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[11]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[26] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[26]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#240 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[12] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[12]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[27] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[27]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#241 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[13] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[13]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[28] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[28]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#242 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[14] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[14]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[29] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[29]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#243 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[15] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[15]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[2] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#244 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[1] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[1]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[30] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[30]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#245 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[2] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[2]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[31] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[31]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#246 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[3] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[3]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[3] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#247 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[4] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[4]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[4] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#248 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[5] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[5]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[5] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#249 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[6] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[6]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[6] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#250 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[7] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[7]/G is not reached by a timing clock
+The latch i_lsu/rdata_word_reg[7] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#251 Warning
 Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[8] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[8]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#252 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_hword_reg[9] cannot be properly analyzed as its control pin i_lsu/rdata_hword_reg[9]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#253 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[0] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#254 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[10] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[10]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#255 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[11] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[11]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#256 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[12] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[12]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#257 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[13] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[13]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#258 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[14] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[14]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#259 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[15] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[15]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#260 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[16] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[16]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#261 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[17] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[17]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#262 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[18] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[18]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#263 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[19] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[19]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#264 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[1] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#265 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[20] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[20]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#266 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[21] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[21]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#267 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[22] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[22]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#268 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[23] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[23]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#269 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[24] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[24]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#270 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[25] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[25]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#271 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[26] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[26]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#272 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[27] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[27]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#273 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[28] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[28]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#274 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[29] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[29]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#275 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[2] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[2]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#276 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[30] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[30]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#277 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[31] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[31]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#278 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[3] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[3]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#279 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[4] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[4]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#280 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[5] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[5]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#281 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[6] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[6]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#282 Warning
-Non-clocked latch  
-The latch i_lsu/rdata_word_reg[7] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#283 Warning
-Non-clocked latch  
 The latch i_lsu/rdata_word_reg[8] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[8]/G is not reached by a timing clock
 Related violations: <none>
 
-TIMING-20#284 Warning
+TIMING-20#252 Warning
 Non-clocked latch  
 The latch i_lsu/rdata_word_reg[9] cannot be properly analyzed as its control pin i_lsu/rdata_word_reg[9]/G is not reached by a timing clock
 Related violations: <none>

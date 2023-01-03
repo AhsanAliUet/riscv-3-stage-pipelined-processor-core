@@ -1,0 +1,865 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Jan  3 11:52:18 2023
+# Process ID: 12888
+# Current directory: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent14632 H:\Semester 7\CA\Lab\Lab11\fpga\docs\procssor_vivado\procssor_vivado.xpr
+# Log file: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/vivado.log
+# Journal file: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.xpr}
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:48 ; elapsed = 00:00:41 . Memory (MB): peak = 861.520 ; gain = 163.246
+update_compile_order -fileset sources_1
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: riscv_pipelined_top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 942.883 ; gain = 81.363
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'riscv_pipelined_top' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:2]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter REG_SIZE bound to: 32 - type: integer 
+	Parameter NO_OF_REGS_REG_FILE bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter ADDENT bound to: 4 - type: integer 
+	Parameter ADDRW bound to: 12 - type: integer 
+	Parameter REGW bound to: 5 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+	Parameter CLOCK_SYS bound to: 100000000.000000 - type: float 
+	Parameter CLOCK_OUT bound to: 1000000.000000 - type: float 
+	Parameter NO_OF_SEGS bound to: 8 - type: integer 
+	Parameter ADDRW_DM bound to: 8 - type: integer 
+	Parameter DW_UART bound to: 8 - type: integer 
+	Parameter CLOCK_FREQ bound to: 100000000.000000 - type: float 
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'clock_div' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/clock_div.sv:2]
+	Parameter CLOCK_SYS bound to: 100000000.000000 - type: float 
+	Parameter CLOCK_OUT bound to: 1000000.000000 - type: float 
+	Parameter CNT_VALUE bound to: 100 - type: integer 
+	Parameter CW bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clock_div' (1#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/clock_div.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'pc' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pc.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (2#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pc.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pipeline_reg_1' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_1.sv:1]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_reg_1' (3#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_1.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'mux_2x1' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_2x1.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_2x1' (4#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_2x1.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'adder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/adder.sv:4]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter ADDENT bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'adder' (5#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/adder.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_spram' [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:7043]
+	Parameter MEMORY_SIZE bound to: 2048 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter ECC_MODE bound to: no_ecc - type: string 
+	Parameter MEMORY_INIT_FILE bound to: machine_codes.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: 0 - type: string 
+	Parameter USE_MEM_INIT bound to: 1 - type: integer 
+	Parameter WAKEUP_TIME bound to: disable_sleep - type: string 
+	Parameter AUTO_SLEEP_TIME bound to: 0 - type: integer 
+	Parameter MESSAGE_CONTROL bound to: 0 - type: integer 
+	Parameter MEMORY_OPTIMIZATION bound to: true - type: string 
+	Parameter WRITE_DATA_WIDTH_A bound to: 32 - type: integer 
+	Parameter READ_DATA_WIDTH_A bound to: 32 - type: integer 
+	Parameter BYTE_WRITE_WIDTH_A bound to: 32 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 10 - type: integer 
+	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter WRITE_MODE_A bound to: read_first - type: string 
+	Parameter P_MEMORY_PRIMITIVE bound to: 2 - type: integer 
+	Parameter P_CLOCKING_MODE bound to: 0 - type: integer 
+	Parameter P_ECC_MODE bound to: 0 - type: integer 
+	Parameter P_WAKEUP_TIME bound to: 0 - type: integer 
+	Parameter P_WRITE_MODE_A bound to: 1 - type: integer 
+	Parameter P_MEMORY_OPTIMIZATION bound to: 1 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:57]
+	Parameter MEMORY_TYPE bound to: 0 - type: integer 
+	Parameter MEMORY_SIZE bound to: 2048 - type: integer 
+	Parameter MEMORY_PRIMITIVE bound to: 2 - type: integer 
+	Parameter CLOCKING_MODE bound to: 0 - type: integer 
+	Parameter ECC_MODE bound to: 0 - type: integer 
+	Parameter MEMORY_INIT_FILE bound to: machine_codes.mem - type: string 
+	Parameter MEMORY_INIT_PARAM bound to: 0 - type: string 
+	Parameter USE_MEM_INIT bound to: 1 - type: integer 
+	Parameter MEMORY_OPTIMIZATION bound to: true - type: string 
+	Parameter WAKEUP_TIME bound to: 0 - type: integer 
+	Parameter AUTO_SLEEP_TIME bound to: 0 - type: integer 
+	Parameter MESSAGE_CONTROL bound to: 0 - type: integer 
+	Parameter VERSION bound to: 0 - type: integer 
+	Parameter USE_EMBEDDED_CONSTRAINT bound to: 0 - type: integer 
+	Parameter WRITE_DATA_WIDTH_A bound to: 32 - type: integer 
+	Parameter READ_DATA_WIDTH_A bound to: 32 - type: integer 
+	Parameter BYTE_WRITE_WIDTH_A bound to: 32 - type: integer 
+	Parameter ADDR_WIDTH_A bound to: 10 - type: integer 
+	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
+	Parameter READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter WRITE_MODE_A bound to: 1 - type: integer 
+	Parameter WRITE_DATA_WIDTH_B bound to: 32 - type: integer 
+	Parameter READ_DATA_WIDTH_B bound to: 32 - type: integer 
+	Parameter BYTE_WRITE_WIDTH_B bound to: 32 - type: integer 
+	Parameter ADDR_WIDTH_B bound to: 6 - type: integer 
+	Parameter READ_RESET_VALUE_B bound to: 0 - type: string 
+	Parameter READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter WRITE_MODE_B bound to: 1 - type: integer 
+	Parameter P_MEMORY_PRIMITIVE bound to: block - type: string 
+	Parameter P_MIN_WIDTH_DATA_A bound to: 32 - type: integer 
+	Parameter P_MIN_WIDTH_DATA_B bound to: 32 - type: integer 
+	Parameter P_MIN_WIDTH_DATA bound to: 32 - type: integer 
+	Parameter P_MIN_WIDTH_DATA_ECC bound to: 32 - type: integer 
+	Parameter P_MAX_DEPTH_DATA bound to: 64 - type: integer 
+	Parameter P_ECC_MODE bound to: no_ecc - type: string 
+	Parameter P_MEMORY_OPT bound to: yes - type: string 
+	Parameter P_WIDTH_COL_WRITE_A bound to: 32 - type: integer 
+	Parameter P_WIDTH_COL_WRITE_B bound to: 32 - type: integer 
+	Parameter P_NUM_COLS_WRITE_A bound to: 1 - type: integer 
+	Parameter P_NUM_COLS_WRITE_B bound to: 1 - type: integer 
+	Parameter P_NUM_ROWS_WRITE_A bound to: 1 - type: integer 
+	Parameter P_NUM_ROWS_WRITE_B bound to: 1 - type: integer 
+	Parameter P_NUM_ROWS_READ_A bound to: 1 - type: integer 
+	Parameter P_NUM_ROWS_READ_B bound to: 1 - type: integer 
+	Parameter P_WIDTH_ADDR_WRITE_A bound to: 6 - type: integer 
+	Parameter P_WIDTH_ADDR_WRITE_B bound to: 6 - type: integer 
+	Parameter P_WIDTH_ADDR_READ_A bound to: 6 - type: integer 
+	Parameter P_WIDTH_ADDR_READ_B bound to: 6 - type: integer 
+	Parameter P_WIDTH_ADDR_LSB_WRITE_A bound to: 0 - type: integer 
+	Parameter P_WIDTH_ADDR_LSB_WRITE_B bound to: 0 - type: integer 
+	Parameter P_WIDTH_ADDR_LSB_READ_A bound to: 0 - type: integer 
+	Parameter P_WIDTH_ADDR_LSB_READ_B bound to: 0 - type: integer 
+	Parameter P_ENABLE_BYTE_WRITE_A bound to: 0 - type: integer 
+	Parameter P_ENABLE_BYTE_WRITE_B bound to: 0 - type: integer 
+	Parameter P_SDP_WRITE_MODE bound to: yes - type: string 
+	Parameter NUM_CHAR_LOC bound to: 0 - type: integer 
+	Parameter MAX_NUM_CHAR bound to: 0 - type: integer 
+	Parameter P_MIN_WIDTH_DATA_SHFT bound to: 32 - type: integer 
+	Parameter P_MIN_WIDTH_DATA_LDW bound to: 4 - type: integer 
+WARNING: [Synth 8-6060] Synth Warning: [XPM_MEMORY 30-16] MEMORY_SIZE (2048), WRITE_DATA_WIDTH_A (32), and ADDR_WIDTH_A (10) together imply that the addressable range exceeds the memory size for this configuration which uses port A write operations.   [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:508]
+WARNING: [Synth 8-6060] Synth Warning: [XPM_MEMORY 30-17] MEMORY_SIZE (2048), READ_DATA_WIDTH_A (32), and ADDR_WIDTH_A (10) together imply that the addressable range exceeds the memory size for this configuration which uses port A read operations.   [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:510]
+INFO: [Synth 8-3876] $readmem data file 'machine_codes.mem' is read successfully [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:1079]
+INFO: [Synth 8-5772] Detected attribute (* rw_addr_collision = "yes" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
+INFO: [Synth 8-5772] Detected attribute (* ram_ecc = "no_ecc" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (6#1) [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:57]
+INFO: [Synth 8-5772] Detected attribute (* rw_addr_collision = "yes" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
+INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_spram' (7#1) [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:7043]
+WARNING: [Synth 8-689] width (1) of port connection 'dina' does not match port width (32) of module 'xpm_memory_spram' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:263]
+INFO: [Synth 8-6157] synthesizing module 'reg_file' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/reg_file.sv:3]
+	Parameter REG_SIZE bound to: 32 - type: integer 
+	Parameter NO_OF_REGS bound to: 32 - type: integer 
+	Parameter REGW bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'reg_file' (8#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/reg_file.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'imm_generator' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:12]
+INFO: [Synth 8-6155] done synthesizing module 'imm_generator' (9#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'branch_checker' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/branch_checker.sv:3]
+	Parameter REG_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'branch_checker' (10#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/branch_checker.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'alu_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-226] default block is never used [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'alu_decoder' (11#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'alu_new' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_new.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'alu_new' (12#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_new.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pipeline_reg_2' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_2.sv:1]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter REGW bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_reg_2' (13#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_2.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'lsu' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:1]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:34]
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:72]
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:87]
+WARNING: [Synth 8-87] always_comb on 'rdata_byte_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:30]
+WARNING: [Synth 8-87] always_comb on 'rdata_hword_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:31]
+WARNING: [Synth 8-87] always_comb on 'rdata_word_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:32]
+WARNING: [Synth 8-87] always_comb on 'data_l_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:73]
+WARNING: [Synth 8-87] always_comb on 'data_s_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:84]
+WARNING: [Synth 8-87] always_comb on 'mask_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:85]
+INFO: [Synth 8-6155] done synthesizing module 'lsu' (14#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'peripherals_bus' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/peripherals_bus.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+	Parameter ADDRW bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'peripherals_bus' (15#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/peripherals_bus.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_tx.sv:2]
+	Parameter DW bound to: 8 - type: integer 
+	Parameter CLOCK bound to: 100000000.000000 - type: float 
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+	Parameter BAUD_COUNTER bound to: 10417 - type: integer 
+	Parameter BRW bound to: 0 - type: integer 
+	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'shift_register' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/shift_register.sv:1]
+	Parameter DW bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_register' (16#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/shift_register.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'baud_counter' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:1]
+	Parameter CLOCK bound to: 100000000.000000 - type: float 
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+	Parameter BAUD_COUNTER bound to: 10417 - type: integer 
+	Parameter BRW bound to: 0 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element counter_value_reg was removed.  [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'baud_counter' (17#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'bit_counter' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/bit_counter.sv:1]
+	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bit_counter' (18#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/bit_counter.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'uart_fsm' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:2]
+	Parameter S0 bound to: 2'b00 
+	Parameter S1 bound to: 2'b01 
+	Parameter S2 bound to: 2'b10 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:37]
+WARNING: [Synth 8-87] always_comb on 'next_state_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:40]
+WARNING: [Synth 8-87] always_comb on 'clear_baud_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:42]
+WARNING: [Synth 8-87] always_comb on 'clear_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:43]
+WARNING: [Synth 8-87] always_comb on 'load_xmt_dreg_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:44]
+WARNING: [Synth 8-87] always_comb on 'load_xmt_shfreg_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:45]
+WARNING: [Synth 8-87] always_comb on 'start_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:46]
+WARNING: [Synth 8-87] always_comb on 'shift_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:47]
+WARNING: [Synth 8-87] always_comb on 'done_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:48]
+INFO: [Synth 8-6155] done synthesizing module 'uart_fsm' (19#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (20#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_tx.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'uart_riscv_contr' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_riscv_contr.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'uart_riscv_contr' (21#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_riscv_contr.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/data_mem.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+	Parameter ADDRW bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (22#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/data_mem.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'csr_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_decoder.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter ADDRW bound to: 12 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'csr_decoder' (23#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_decoder.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'csr_regs' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter ADDRW bound to: 12 - type: integer 
+	Parameter MSTATUS_ADDR bound to: 12'b001100000000 
+	Parameter MIE_ADDR bound to: 12'b001100000100 
+	Parameter MTVEC_ADDR bound to: 12'b001100000101 
+	Parameter MEPC_ADDR bound to: 12'b001101000001 
+	Parameter MCAUSE_ADDR bound to: 12'b001101000010 
+	Parameter MIP_ADDR bound to: 12'b001101000100 
+	Parameter MTIP bound to: 7 - type: integer 
+	Parameter MEIP bound to: 11 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:46]
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:71]
+INFO: [Synth 8-6157] synthesizing module 'csr_ops' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_ops.sv:5]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter MIE bound to: 3 - type: integer 
+	Parameter MTIE bound to: 7 - type: integer 
+	Parameter MEIE bound to: 11 - type: integer 
+	Parameter MTIP bound to: 7 - type: integer 
+	Parameter MEIP bound to: 11 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'csr_ops' (24#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_ops.sv:5]
+WARNING: [Synth 8-87] always_comb on 'data_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'csr_regs' (25#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'mux_4x1' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_4x1.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_4x1' (26#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_4x1.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'forwarding_unit' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (27#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'main_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'main_decoder' (28#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'ssd' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter NO_OF_SEGS bound to: 8 - type: integer 
+INFO: [Synth 8-226] default block is never used [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:60]
+INFO: [Synth 8-6155] done synthesizing module 'ssd' (29#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:3]
+INFO: [Synth 8-5772] Detected attribute (* rw_addr_collision = "yes" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
+WARNING: [Synth 8-3848] Net sleep in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:283]
+WARNING: [Synth 8-3848] Net rsta in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:279]
+WARNING: [Synth 8-3848] Net dina in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:263]
+WARNING: [Synth 8-3848] Net injectsbiterra in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:272]
+WARNING: [Synth 8-3848] Net injectdbiterra in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:268]
+INFO: [Synth 8-6155] done synthesizing module 'riscv_pipelined_top' (30#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:2]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[19]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[18]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[17]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[16]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[15]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[14]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[13]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[12]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[11]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[10]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[9]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[8]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[7]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[30]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[29]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[28]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[27]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[26]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[25]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[24]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[23]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[22]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[21]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[20]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[19]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[18]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[17]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[16]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[15]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[14]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[13]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[12]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[11]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[10]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[9]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[8]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[7]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[6]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[5]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[4]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[2]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[1]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[0]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[30]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[29]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[28]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[27]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[26]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[25]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[24]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[23]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[22]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[21]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[20]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[19]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[18]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[17]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[16]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[15]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[14]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[13]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[12]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[10]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[9]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[8]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[6]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[5]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[4]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[3]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[2]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[1]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[0]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mtvec_reg[1]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mcause_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[30]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[29]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[28]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[27]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[26]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[25]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[24]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[23]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[22]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[21]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[20]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[19]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[18]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[17]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[16]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[15]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[14]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[13]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[12]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[10]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[9]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[8]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[6]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1052.195 ; gain = 190.676
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:sleep to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
+WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:rsta to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
+WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:dina[0] to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
+WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:injectsbiterra to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
+WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:injectdbiterra to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1052.195 ; gain = 190.676
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1052.195 ; gain = 190.676
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.srcs/constrs_1/new/constraints_processor.xdc]
+Finished Parsing XDC File [H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.srcs/constrs_1/new/constraints_processor.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:01:07 ; elapsed = 00:00:55 . Memory (MB): peak = 1443.160 ; gain = 581.641
+79 Infos, 129 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:08 ; elapsed = 00:00:55 . Memory (MB): peak = 1443.160 ; gain = 581.641
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Jan  3 11:57:04 2023] Launched synth_1...
+Run output will be captured here: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Tue Jan  3 12:04:03 2023] Launched impl_1...
+Run output will be captured here: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Tue Jan  3 12:12:03 2023] Launched impl_1...
+Run output will be captured here: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.2
+  **** Build date : Jun 14 2018-20:42:52
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AD322FA
+open_hw_target: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2061.211 ; gain = 599.703
+set_property PROGRAM.FILE {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/riscv_pipelined_top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/riscv_pipelined_top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+close_hw
+add_files -norecurse {{H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv}}
+WARNING: [filemgmt 56-12] File 'H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv' cannot be added to the project because it already exists in the project, skipping this file
+update_compile_order -fileset sources_1
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 2121.137 ; gain = 35.469
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'riscv_pipelined_top' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:2]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter REG_SIZE bound to: 32 - type: integer 
+	Parameter NO_OF_REGS_REG_FILE bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter ADDENT bound to: 4 - type: integer 
+	Parameter ADDRW bound to: 12 - type: integer 
+	Parameter REGW bound to: 5 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+	Parameter CLOCK_SYS bound to: 100000000.000000 - type: float 
+	Parameter CLOCK_OUT bound to: 1000000.000000 - type: float 
+	Parameter NO_OF_SEGS bound to: 8 - type: integer 
+	Parameter ADDRW_DM bound to: 8 - type: integer 
+	Parameter DW_UART bound to: 8 - type: integer 
+	Parameter CLOCK_FREQ bound to: 100000000.000000 - type: float 
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'clock_div' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/clock_div.sv:2]
+	Parameter CLOCK_SYS bound to: 100000000.000000 - type: float 
+	Parameter CLOCK_OUT bound to: 1000000.000000 - type: float 
+	Parameter CNT_VALUE bound to: 100 - type: integer 
+	Parameter CW bound to: 7 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'clock_div' (1#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/clock_div.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'pc' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pc.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (2#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pc.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pipeline_reg_1' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_1.sv:1]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_reg_1' (3#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_1.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'mux_2x1' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_2x1.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_2x1' (4#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_2x1.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'adder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/adder.sv:4]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter ADDENT bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'adder' (5#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/adder.sv:4]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv:3]
+	Parameter REG_SIZE bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'machine_codes.mem' is read successfully [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv:15]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (6#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'reg_file' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/reg_file.sv:3]
+	Parameter REG_SIZE bound to: 32 - type: integer 
+	Parameter NO_OF_REGS bound to: 32 - type: integer 
+	Parameter REGW bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'reg_file' (7#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/reg_file.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'imm_generator' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:12]
+INFO: [Synth 8-6155] done synthesizing module 'imm_generator' (8#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'branch_checker' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/branch_checker.sv:3]
+	Parameter REG_SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'branch_checker' (9#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/branch_checker.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'alu_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-226] default block is never used [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:16]
+INFO: [Synth 8-6155] done synthesizing module 'alu_decoder' (10#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'alu_new' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_new.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'alu_new' (11#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_new.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pipeline_reg_2' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_2.sv:1]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter REGW bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_reg_2' (12#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_2.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'lsu' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:1]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:34]
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:72]
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:87]
+WARNING: [Synth 8-87] always_comb on 'rdata_byte_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:30]
+WARNING: [Synth 8-87] always_comb on 'rdata_hword_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:31]
+WARNING: [Synth 8-87] always_comb on 'rdata_word_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:32]
+WARNING: [Synth 8-87] always_comb on 'data_l_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:73]
+WARNING: [Synth 8-87] always_comb on 'data_s_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:84]
+WARNING: [Synth 8-87] always_comb on 'mask_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:85]
+INFO: [Synth 8-6155] done synthesizing module 'lsu' (13#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'peripherals_bus' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/peripherals_bus.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+	Parameter ADDRW bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'peripherals_bus' (14#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/peripherals_bus.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'uart_tx' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_tx.sv:2]
+	Parameter DW bound to: 8 - type: integer 
+	Parameter CLOCK bound to: 100000000.000000 - type: float 
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+	Parameter BAUD_COUNTER bound to: 10417 - type: integer 
+	Parameter BRW bound to: 0 - type: integer 
+	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'shift_register' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/shift_register.sv:1]
+	Parameter DW bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'shift_register' (15#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/shift_register.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'baud_counter' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:1]
+	Parameter CLOCK bound to: 100000000.000000 - type: float 
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+	Parameter BAUD_COUNTER bound to: 10417 - type: integer 
+	Parameter BRW bound to: 0 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element counter_value_reg was removed.  [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:17]
+INFO: [Synth 8-6155] done synthesizing module 'baud_counter' (16#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'bit_counter' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/bit_counter.sv:1]
+	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'bit_counter' (17#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/bit_counter.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'uart_fsm' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:2]
+	Parameter S0 bound to: 2'b00 
+	Parameter S1 bound to: 2'b01 
+	Parameter S2 bound to: 2'b10 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:37]
+WARNING: [Synth 8-87] always_comb on 'next_state_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:40]
+WARNING: [Synth 8-87] always_comb on 'clear_baud_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:42]
+WARNING: [Synth 8-87] always_comb on 'clear_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:43]
+WARNING: [Synth 8-87] always_comb on 'load_xmt_dreg_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:44]
+WARNING: [Synth 8-87] always_comb on 'load_xmt_shfreg_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:45]
+WARNING: [Synth 8-87] always_comb on 'start_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:46]
+WARNING: [Synth 8-87] always_comb on 'shift_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:47]
+WARNING: [Synth 8-87] always_comb on 'done_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:48]
+INFO: [Synth 8-6155] done synthesizing module 'uart_fsm' (18#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (19#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_tx.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'uart_riscv_contr' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_riscv_contr.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'uart_riscv_contr' (20#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_riscv_contr.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/data_mem.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+	Parameter ADDRW bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (21#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/data_mem.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'csr_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_decoder.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter ADDRW bound to: 12 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'csr_decoder' (22#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_decoder.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'csr_regs' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter ADDRW bound to: 12 - type: integer 
+	Parameter MSTATUS_ADDR bound to: 12'b001100000000 
+	Parameter MIE_ADDR bound to: 12'b001100000100 
+	Parameter MTVEC_ADDR bound to: 12'b001100000101 
+	Parameter MEPC_ADDR bound to: 12'b001101000001 
+	Parameter MCAUSE_ADDR bound to: 12'b001101000010 
+	Parameter MIP_ADDR bound to: 12'b001101000100 
+	Parameter MTIP bound to: 7 - type: integer 
+	Parameter MEIP bound to: 11 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:46]
+INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:71]
+INFO: [Synth 8-6157] synthesizing module 'csr_ops' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_ops.sv:5]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter MIE bound to: 3 - type: integer 
+	Parameter MTIE bound to: 7 - type: integer 
+	Parameter MEIE bound to: 11 - type: integer 
+	Parameter MTIP bound to: 7 - type: integer 
+	Parameter MEIP bound to: 11 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'csr_ops' (23#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_ops.sv:5]
+WARNING: [Synth 8-87] always_comb on 'data_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'csr_regs' (24#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'mux_4x1' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_4x1.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_4x1' (25#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_4x1.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'forwarding_unit' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (26#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv:13]
+INFO: [Synth 8-6157] synthesizing module 'main_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'main_decoder' (27#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'ssd' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:3]
+	Parameter DW bound to: 32 - type: integer 
+	Parameter NO_OF_SEGS bound to: 8 - type: integer 
+INFO: [Synth 8-226] default block is never used [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:60]
+INFO: [Synth 8-6155] done synthesizing module 'ssd' (28#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'riscv_pipelined_top' (29#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:2]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[19]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[18]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[17]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[16]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[15]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[14]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[13]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[12]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[11]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[10]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[9]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[8]
+WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[7]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[30]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[29]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[28]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[27]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[26]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[25]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[24]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[23]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[22]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[21]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[20]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[19]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[18]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[17]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[16]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[15]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[14]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[13]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[12]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[11]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[10]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[9]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[8]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[7]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[6]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[5]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[4]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[2]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[1]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mstatus_reg[0]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[30]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[29]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[28]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[27]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[26]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[25]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[24]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[23]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[22]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[21]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[20]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[19]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[18]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[17]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[16]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[15]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[14]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[13]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[12]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[10]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[9]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[8]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[6]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[5]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[4]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[3]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[2]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[1]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mie_reg[0]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mtvec_reg[1]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mcause_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[31]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[30]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[29]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[28]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[27]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[26]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[25]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[24]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[23]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[22]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[21]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[20]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[19]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[18]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[17]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[16]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[15]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[14]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[13]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[12]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[10]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[9]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[8]
+WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[6]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2244.066 ; gain = 158.398
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 2244.066 ; gain = 158.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:15 . Memory (MB): peak = 2244.066 ; gain = 158.398
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.srcs/constrs_1/new/constraints_processor.xdc]
+Finished Parsing XDC File [H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.srcs/constrs_1/new/constraints_processor.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+refresh_design: Time (s): cpu = 00:00:57 ; elapsed = 00:00:33 . Memory (MB): peak = 2257.773 ; gain = 172.105
+set_property needs_refresh false [get_runs synth_1]
+set_property needs_refresh false [get_runs impl_1]
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.2
+  **** Build date : Jun 14 2018-20:42:52
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 2257.773 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AD322FA
+set_property PROGRAM.FILE {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/riscv_pipelined_top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/riscv_pipelined_top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Jan  3 12:25:39 2023] Launched synth_1...
+Run output will be captured here: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/synth_1/runme.log
+close_hw
+launch_runs impl_1 -jobs 2
+[Tue Jan  3 12:30:00 2023] Launched impl_1...
+Run output will be captured here: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Tue Jan  3 12:36:24 2023] Launched impl_1...
+Run output will be captured here: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/runme.log
+open_hw
+connect_hw_server
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2018.2
+  **** Build date : Jun 14 2018-20:42:52
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210292AD322FA
+set_property PROGRAM.FILE {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/riscv_pipelined_top.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/impl_1/riscv_pipelined_top.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a100t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtools 27-3361] The debug hub core was not detected.
+Resolution: 
+1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active.
+2. Make sure the BSCAN_SWITCH_USER_MASK device property in Vivado Hardware Manager reflects the user scan chain setting in the design and refresh the device.  To determine the user scan chain setting in the design, open the implemented design and use 'get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub]'.
+For more details on setting the scan chain property, consult the Vivado Debug and Programming User Guide (UG908).
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210292AD322FA
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Jan  3 18:06:34 2023...

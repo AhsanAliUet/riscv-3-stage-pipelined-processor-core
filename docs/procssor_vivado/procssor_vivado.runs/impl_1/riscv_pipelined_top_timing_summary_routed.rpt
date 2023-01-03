@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Sun Dec 25 15:36:11 2022
+| Date         : Tue Jan  3 12:35:04 2023
 | Host         : DESKTOP-FD2K84H running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file riscv_pipelined_top_timing_summary_routed.rpt -pb riscv_pipelined_top_timing_summary_routed.pb -rpx riscv_pipelined_top_timing_summary_routed.rpx -warn_on_violation
 | Design       : riscv_pipelined_top
@@ -56,21 +56,7 @@ Table of Contents
 
  There are 32 register/latch pins with no clock driven by root clock pin: t_intr (HIGH)
 
- There are 9666 register/latch pins with no clock driven by root clock pin: i_clock_div/clk_o_reg/Q (HIGH)
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_1/instr_d_reg[0]/Q (HIGH)
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_1/instr_d_reg[1]/Q (HIGH)
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_1/instr_d_reg[2]/Q (HIGH)
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_1/instr_d_reg[3]/Q (HIGH)
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_1/instr_d_reg[4]/Q (HIGH)
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_1/instr_d_reg[5]/Q (HIGH)
-
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_1/instr_d_reg[6]/Q (HIGH)
+ There are 9652 register/latch pins with no clock driven by root clock pin: i_clock_div/clk_o_reg/Q (HIGH)
 
  There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/csr_we_m_reg/Q (HIGH)
 
@@ -96,10 +82,6 @@ Table of Contents
 
  There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/imm_csr_m_reg[8]/Q (HIGH)
 
- There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/imm_csr_m_reg[9]/Q (HIGH)
-
- There are 220 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/instr_m_reg[0]/Q (HIGH)
-
  There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/instr_m_reg[12]/Q (HIGH)
 
  There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/instr_m_reg[13]/Q (HIGH)
@@ -107,8 +89,6 @@ Table of Contents
  There are 32 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/instr_m_reg[14]/Q (HIGH)
 
  There are 220 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/instr_m_reg[1]/Q (HIGH)
-
- There are 220 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/instr_m_reg[2]/Q (HIGH)
 
  There are 220 register/latch pins with no clock driven by root clock pin: i_pipeline_reg_2/instr_m_reg[3]/Q (HIGH)
 
@@ -133,7 +113,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 29222 pins that are not constrained for maximum delay. (HIGH)
+ There are 29156 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 

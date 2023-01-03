@@ -67,10 +67,10 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param synth.incrementalSynthesisCache C:/Users/Ahsan_Ali/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-10340-DESKTOP-FD2K84H/incrSyn
+  set_param synth.incrementalSynthesisCache {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/.Xil/Vivado-12888-DESKTOP-FD2K84H/incrSyn}
+  set_param xicom.use_bs_reader 1
   open_checkpoint riscv_pipelined_top_routed.dcp
   set_property webtalk.parent_dir {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.cache/wt} [current_project]
-  set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   catch { write_mem_info -force riscv_pipelined_top.mmi }
   write_bitstream -force riscv_pipelined_top.bit 
   catch {write_debug_probes -quiet -force riscv_pipelined_top}

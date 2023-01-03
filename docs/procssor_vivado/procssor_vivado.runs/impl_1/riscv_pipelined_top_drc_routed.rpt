@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Sun Dec 25 15:35:50 2022
+| Date         : Tue Jan  3 12:34:42 2023
 | Host         : DESKTOP-FD2K84H running 64-bit major release  (build 9200)
 | Command      : report_drc -file riscv_pipelined_top_drc_routed.rpt -pb riscv_pipelined_top_drc_routed.pb -rpx riscv_pipelined_top_drc_routed.rpx
 | Design       : riscv_pipelined_top
@@ -54,7 +54,7 @@ Resolution: Poor placement of an IO pin and a BUFG has resulted in the router us
  This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
 	t_intr_IBUF_inst (IBUF.O) is locked to V10
-	t_intr_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y6
+	t_intr_IBUF_BUFG_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y5
 
 Related violations: <none>
 

@@ -17,7 +17,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param synth.incrementalSynthesisCache C:/Users/Ahsan_Ali/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-10340-DESKTOP-FD2K84H/incrSyn
+set_param synth.incrementalSynthesisCache {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/.Xil/Vivado-12888-DESKTOP-FD2K84H/incrSyn}
+set_param xicom.use_bs_reader 1
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a100tcsg324-1
@@ -27,7 +28,6 @@ set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.cache/wt} [current_project]
 set_property parent.project_path {H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.xpr} [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo {h:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.cache/ip} [current_project]
@@ -48,6 +48,7 @@ read_verilog -library xil_defaultlib -sv {
   {H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pkg.sv}
   {H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv}
   {H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv}
+  {H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv}
   {H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv}
   {H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv}
   {H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_2x1.sv}

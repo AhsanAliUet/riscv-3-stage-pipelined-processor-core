@@ -2,8 +2,8 @@
 # Vivado v2018.2 (64-bit)
 # SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
 # IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
-# Start of session at: Sun Dec 25 15:24:04 2022
-# Process ID: 8788
+# Start of session at: Tue Jan  3 12:25:46 2023
+# Process ID: 4992
 # Current directory: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/synth_1
 # Command line: vivado.exe -log riscv_pipelined_top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source riscv_pipelined_top.tcl
 # Log file: H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/synth_1/riscv_pipelined_top.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 3948 
+INFO: Helper process launched with PID 7676 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 411.562 ; gain = 98.910
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 409.781 ; gain = 97.070
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'riscv_pipelined_top' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:2]
 	Parameter DW bound to: 32 - type: integer 
@@ -55,122 +55,35 @@ INFO: [Synth 8-6157] synthesizing module 'adder' [H:/Semester 7/CA/Lab/Lab11/fpg
 	Parameter DW bound to: 32 - type: integer 
 	Parameter ADDENT bound to: 4 - type: integer 
 INFO: [Synth 8-6155] done synthesizing module 'adder' (5#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/adder.sv:4]
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_spram' [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:7043]
-	Parameter MEMORY_SIZE bound to: 2048 - type: integer 
-	Parameter MEMORY_PRIMITIVE bound to: block - type: string 
-	Parameter ECC_MODE bound to: no_ecc - type: string 
-	Parameter MEMORY_INIT_FILE bound to: machine_codes.mem - type: string 
-	Parameter MEMORY_INIT_PARAM bound to: 0 - type: string 
-	Parameter USE_MEM_INIT bound to: 1 - type: integer 
-	Parameter WAKEUP_TIME bound to: disable_sleep - type: string 
-	Parameter AUTO_SLEEP_TIME bound to: 0 - type: integer 
-	Parameter MESSAGE_CONTROL bound to: 0 - type: integer 
-	Parameter MEMORY_OPTIMIZATION bound to: true - type: string 
-	Parameter WRITE_DATA_WIDTH_A bound to: 32 - type: integer 
-	Parameter READ_DATA_WIDTH_A bound to: 32 - type: integer 
-	Parameter BYTE_WRITE_WIDTH_A bound to: 32 - type: integer 
-	Parameter ADDR_WIDTH_A bound to: 10 - type: integer 
-	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
-	Parameter READ_LATENCY_A bound to: 1 - type: integer 
-	Parameter WRITE_MODE_A bound to: read_first - type: string 
-	Parameter P_MEMORY_PRIMITIVE bound to: 2 - type: integer 
-	Parameter P_CLOCKING_MODE bound to: 0 - type: integer 
-	Parameter P_ECC_MODE bound to: 0 - type: integer 
-	Parameter P_WAKEUP_TIME bound to: 0 - type: integer 
-	Parameter P_WRITE_MODE_A bound to: 1 - type: integer 
-	Parameter P_MEMORY_OPTIMIZATION bound to: 1 - type: integer 
-INFO: [Synth 8-6157] synthesizing module 'xpm_memory_base' [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:57]
-	Parameter MEMORY_TYPE bound to: 0 - type: integer 
-	Parameter MEMORY_SIZE bound to: 2048 - type: integer 
-	Parameter MEMORY_PRIMITIVE bound to: 2 - type: integer 
-	Parameter CLOCKING_MODE bound to: 0 - type: integer 
-	Parameter ECC_MODE bound to: 0 - type: integer 
-	Parameter MEMORY_INIT_FILE bound to: machine_codes.mem - type: string 
-	Parameter MEMORY_INIT_PARAM bound to: 0 - type: string 
-	Parameter USE_MEM_INIT bound to: 1 - type: integer 
-	Parameter MEMORY_OPTIMIZATION bound to: true - type: string 
-	Parameter WAKEUP_TIME bound to: 0 - type: integer 
-	Parameter AUTO_SLEEP_TIME bound to: 0 - type: integer 
-	Parameter MESSAGE_CONTROL bound to: 0 - type: integer 
-	Parameter VERSION bound to: 0 - type: integer 
-	Parameter USE_EMBEDDED_CONSTRAINT bound to: 0 - type: integer 
-	Parameter WRITE_DATA_WIDTH_A bound to: 32 - type: integer 
-	Parameter READ_DATA_WIDTH_A bound to: 32 - type: integer 
-	Parameter BYTE_WRITE_WIDTH_A bound to: 32 - type: integer 
-	Parameter ADDR_WIDTH_A bound to: 10 - type: integer 
-	Parameter READ_RESET_VALUE_A bound to: 0 - type: string 
-	Parameter READ_LATENCY_A bound to: 1 - type: integer 
-	Parameter WRITE_MODE_A bound to: 1 - type: integer 
-	Parameter WRITE_DATA_WIDTH_B bound to: 32 - type: integer 
-	Parameter READ_DATA_WIDTH_B bound to: 32 - type: integer 
-	Parameter BYTE_WRITE_WIDTH_B bound to: 32 - type: integer 
-	Parameter ADDR_WIDTH_B bound to: 6 - type: integer 
-	Parameter READ_RESET_VALUE_B bound to: 0 - type: string 
-	Parameter READ_LATENCY_B bound to: 1 - type: integer 
-	Parameter WRITE_MODE_B bound to: 1 - type: integer 
-	Parameter P_MEMORY_PRIMITIVE bound to: block - type: string 
-	Parameter P_MIN_WIDTH_DATA_A bound to: 32 - type: integer 
-	Parameter P_MIN_WIDTH_DATA_B bound to: 32 - type: integer 
-	Parameter P_MIN_WIDTH_DATA bound to: 32 - type: integer 
-	Parameter P_MIN_WIDTH_DATA_ECC bound to: 32 - type: integer 
-	Parameter P_MAX_DEPTH_DATA bound to: 64 - type: integer 
-	Parameter P_ECC_MODE bound to: no_ecc - type: string 
-	Parameter P_MEMORY_OPT bound to: yes - type: string 
-	Parameter P_WIDTH_COL_WRITE_A bound to: 32 - type: integer 
-	Parameter P_WIDTH_COL_WRITE_B bound to: 32 - type: integer 
-	Parameter P_NUM_COLS_WRITE_A bound to: 1 - type: integer 
-	Parameter P_NUM_COLS_WRITE_B bound to: 1 - type: integer 
-	Parameter P_NUM_ROWS_WRITE_A bound to: 1 - type: integer 
-	Parameter P_NUM_ROWS_WRITE_B bound to: 1 - type: integer 
-	Parameter P_NUM_ROWS_READ_A bound to: 1 - type: integer 
-	Parameter P_NUM_ROWS_READ_B bound to: 1 - type: integer 
-	Parameter P_WIDTH_ADDR_WRITE_A bound to: 6 - type: integer 
-	Parameter P_WIDTH_ADDR_WRITE_B bound to: 6 - type: integer 
-	Parameter P_WIDTH_ADDR_READ_A bound to: 6 - type: integer 
-	Parameter P_WIDTH_ADDR_READ_B bound to: 6 - type: integer 
-	Parameter P_WIDTH_ADDR_LSB_WRITE_A bound to: 0 - type: integer 
-	Parameter P_WIDTH_ADDR_LSB_WRITE_B bound to: 0 - type: integer 
-	Parameter P_WIDTH_ADDR_LSB_READ_A bound to: 0 - type: integer 
-	Parameter P_WIDTH_ADDR_LSB_READ_B bound to: 0 - type: integer 
-	Parameter P_ENABLE_BYTE_WRITE_A bound to: 0 - type: integer 
-	Parameter P_ENABLE_BYTE_WRITE_B bound to: 0 - type: integer 
-	Parameter P_SDP_WRITE_MODE bound to: yes - type: string 
-	Parameter NUM_CHAR_LOC bound to: 0 - type: integer 
-	Parameter MAX_NUM_CHAR bound to: 0 - type: integer 
-	Parameter P_MIN_WIDTH_DATA_SHFT bound to: 32 - type: integer 
-	Parameter P_MIN_WIDTH_DATA_LDW bound to: 4 - type: integer 
-WARNING: [Synth 8-6060] Synth Warning: [XPM_MEMORY 30-16] MEMORY_SIZE (2048), WRITE_DATA_WIDTH_A (32), and ADDR_WIDTH_A (10) together imply that the addressable range exceeds the memory size for this configuration which uses port A write operations.   [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:508]
-WARNING: [Synth 8-6060] Synth Warning: [XPM_MEMORY 30-17] MEMORY_SIZE (2048), READ_DATA_WIDTH_A (32), and ADDR_WIDTH_A (10) together imply that the addressable range exceeds the memory size for this configuration which uses port A read operations.   [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:510]
-INFO: [Synth 8-3876] $readmem data file 'machine_codes.mem' is read successfully [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:1079]
-INFO: [Synth 8-5772] Detected attribute (* rw_addr_collision = "yes" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
-INFO: [Synth 8-5772] Detected attribute (* ram_ecc = "no_ecc" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_base' (6#1) [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:57]
-INFO: [Synth 8-5772] Detected attribute (* rw_addr_collision = "yes" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
-INFO: [Synth 8-6155] done synthesizing module 'xpm_memory_spram' (7#1) [C:/Xilinx/Vivado/2018.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv:7043]
-WARNING: [Synth 8-689] width (1) of port connection 'dina' does not match port width (32) of module 'xpm_memory_spram' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:263]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv:3]
+	Parameter REG_SIZE bound to: 32 - type: integer 
+	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
+	Parameter NO_OF_REGS bound to: 256 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'machine_codes.mem' is read successfully [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv:15]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (6#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/inst_mem.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'reg_file' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/reg_file.sv:3]
 	Parameter REG_SIZE bound to: 32 - type: integer 
 	Parameter NO_OF_REGS bound to: 32 - type: integer 
 	Parameter REGW bound to: 5 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'reg_file' (8#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/reg_file.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'reg_file' (7#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/reg_file.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'imm_generator' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:3]
 	Parameter DW bound to: 32 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:12]
-INFO: [Synth 8-6155] done synthesizing module 'imm_generator' (9#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'imm_generator' (8#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/imm_generator.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'branch_checker' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/branch_checker.sv:3]
 	Parameter REG_SIZE bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'branch_checker' (10#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/branch_checker.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'branch_checker' (9#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/branch_checker.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'alu_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:3]
 	Parameter DW bound to: 32 - type: integer 
 INFO: [Synth 8-226] default block is never used [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:16]
-INFO: [Synth 8-6155] done synthesizing module 'alu_decoder' (11#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'alu_decoder' (10#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_decoder.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'alu_new' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_new.sv:3]
 	Parameter DW bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'alu_new' (12#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_new.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'alu_new' (11#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/alu_new.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'pipeline_reg_2' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_2.sv:1]
 	Parameter DW bound to: 32 - type: integer 
 	Parameter REGW bound to: 5 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'pipeline_reg_2' (13#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_2.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'pipeline_reg_2' (12#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/pipeline_reg_2.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'lsu' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:1]
 	Parameter DW bound to: 32 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:34]
@@ -182,13 +95,13 @@ WARNING: [Synth 8-87] always_comb on 'rdata_word_reg' did not result in combinat
 WARNING: [Synth 8-87] always_comb on 'data_l_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:73]
 WARNING: [Synth 8-87] always_comb on 'data_s_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:84]
 WARNING: [Synth 8-87] always_comb on 'mask_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:85]
-INFO: [Synth 8-6155] done synthesizing module 'lsu' (14#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'lsu' (13#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/lsu.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'peripherals_bus' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/peripherals_bus.sv:3]
 	Parameter DW bound to: 32 - type: integer 
 	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
 	Parameter NO_OF_REGS bound to: 256 - type: integer 
 	Parameter ADDRW bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'peripherals_bus' (15#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/peripherals_bus.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'peripherals_bus' (14#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/peripherals_bus.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'uart_tx' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_tx.sv:2]
 	Parameter DW bound to: 8 - type: integer 
 	Parameter CLOCK bound to: 100000000.000000 - type: float 
@@ -198,17 +111,17 @@ INFO: [Synth 8-6157] synthesizing module 'uart_tx' [H:/Semester 7/CA/Lab/Lab11/f
 	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'shift_register' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/shift_register.sv:1]
 	Parameter DW bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'shift_register' (16#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/shift_register.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'shift_register' (15#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/shift_register.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'baud_counter' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:1]
 	Parameter CLOCK bound to: 100000000.000000 - type: float 
 	Parameter BAUD_RATE bound to: 9600 - type: integer 
 	Parameter BAUD_COUNTER bound to: 10417 - type: integer 
 	Parameter BRW bound to: 0 - type: integer 
 WARNING: [Synth 8-6014] Unused sequential element counter_value_reg was removed.  [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:17]
-INFO: [Synth 8-6155] done synthesizing module 'baud_counter' (17#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'baud_counter' (16#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/baud_counter.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'bit_counter' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/bit_counter.sv:1]
 	Parameter BITS_TO_COUNT bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'bit_counter' (18#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/bit_counter.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'bit_counter' (17#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/bit_counter.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'uart_fsm' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:2]
 	Parameter S0 bound to: 2'b00 
 	Parameter S1 bound to: 2'b01 
@@ -222,20 +135,20 @@ WARNING: [Synth 8-87] always_comb on 'load_xmt_shfreg_o_reg' did not result in c
 WARNING: [Synth 8-87] always_comb on 'start_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:46]
 WARNING: [Synth 8-87] always_comb on 'shift_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:47]
 WARNING: [Synth 8-87] always_comb on 'done_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:48]
-INFO: [Synth 8-6155] done synthesizing module 'uart_fsm' (19#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:2]
-INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (20#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_tx.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'uart_fsm' (18#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (19#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_tx.sv:2]
 INFO: [Synth 8-6157] synthesizing module 'uart_riscv_contr' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_riscv_contr.sv:5]
-INFO: [Synth 8-6155] done synthesizing module 'uart_riscv_contr' (21#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_riscv_contr.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'uart_riscv_contr' (20#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_riscv_contr.sv:5]
 INFO: [Synth 8-6157] synthesizing module 'data_mem' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/data_mem.sv:3]
 	Parameter DW bound to: 32 - type: integer 
 	Parameter MEM_SIZE_IN_KB bound to: 1 - type: integer 
 	Parameter NO_OF_REGS bound to: 256 - type: integer 
 	Parameter ADDRW bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'data_mem' (22#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/data_mem.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (21#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/data_mem.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'csr_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_decoder.sv:3]
 	Parameter DW bound to: 32 - type: integer 
 	Parameter ADDRW bound to: 12 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'csr_decoder' (23#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_decoder.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'csr_decoder' (22#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_decoder.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'csr_regs' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:3]
 	Parameter DW bound to: 32 - type: integer 
 	Parameter ADDRW bound to: 12 - type: integer 
@@ -256,29 +169,23 @@ INFO: [Synth 8-6157] synthesizing module 'csr_ops' [H:/Semester 7/CA/Lab/Lab11/f
 	Parameter MEIE bound to: 11 - type: integer 
 	Parameter MTIP bound to: 7 - type: integer 
 	Parameter MEIP bound to: 11 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'csr_ops' (24#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_ops.sv:5]
+INFO: [Synth 8-6155] done synthesizing module 'csr_ops' (23#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_ops.sv:5]
 WARNING: [Synth 8-87] always_comb on 'data_o_reg' did not result in combinational logic [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:47]
-INFO: [Synth 8-6155] done synthesizing module 'csr_regs' (25#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'csr_regs' (24#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'mux_4x1' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_4x1.sv:3]
 	Parameter DW bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'mux_4x1' (26#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_4x1.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'mux_4x1' (25#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/mux_4x1.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'forwarding_unit' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv:13]
-INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (27#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (26#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/forwarding_unit.sv:13]
 INFO: [Synth 8-6157] synthesizing module 'main_decoder' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv:3]
 	Parameter DW bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'main_decoder' (28#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'main_decoder' (27#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/main_decoder.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'ssd' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:3]
 	Parameter DW bound to: 32 - type: integer 
 	Parameter NO_OF_SEGS bound to: 8 - type: integer 
 INFO: [Synth 8-226] default block is never used [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:60]
-INFO: [Synth 8-6155] done synthesizing module 'ssd' (29#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:3]
-INFO: [Synth 8-5772] Detected attribute (* rw_addr_collision = "yes" *) on RAM gen_wr_a.gen_word_narrow.mem_reg 
-WARNING: [Synth 8-3848] Net sleep in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:283]
-WARNING: [Synth 8-3848] Net rsta in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:279]
-WARNING: [Synth 8-3848] Net dina in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:263]
-WARNING: [Synth 8-3848] Net injectsbiterra in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:272]
-WARNING: [Synth 8-3848] Net injectdbiterra in module/entity riscv_pipelined_top does not have driver. [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:268]
-INFO: [Synth 8-6155] done synthesizing module 'riscv_pipelined_top' (30#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'ssd' (28#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/ssd.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'riscv_pipelined_top' (29#1) [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:2]
 WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[19]
 WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[18]
 WARNING: [Synth 8-3331] design main_decoder has unconnected port inst[17]
@@ -381,7 +288,7 @@ WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[8]
 WARNING: [Synth 8-3331] design csr_ops has unconnected port mip_reg[6]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 526.633 ; gain = 213.980
+Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 524.020 ; gain = 211.309
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -390,19 +297,14 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:sleep to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
-WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:rsta to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
-WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:dina[0] to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
-WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:injectsbiterra to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
-WARNING: [Synth 8-3295] tying undriven pin xpm_memory_spram_inst:injectdbiterra to constant 0 [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/riscv_pipelined_top.sv:253]
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 526.633 ; gain = 213.980
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 524.020 ; gain = 211.309
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 526.633 ; gain = 213.980
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 524.020 ; gain = 211.309
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -418,23 +320,24 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 901.250 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 901.633 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:45 ; elapsed = 00:00:56 . Memory (MB): peak = 901.250 ; gain = 588.598
+Finished Constraint Validation : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 901.633 ; gain = 588.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:45 ; elapsed = 00:00:56 . Memory (MB): peak = 901.250 ; gain = 588.598
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 901.633 ; gain = 588.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:00:56 . Memory (MB): peak = 901.250 ; gain = 588.598
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 901.633 ; gain = 588.922
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "inst_mem" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "reg_file_reg[0]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "reg_file_reg[1]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "reg_file_reg[2]" won't be mapped to RAM because it is too sparse
@@ -537,7 +440,6 @@ INFO: [Synth 8-5546] ROM "data_mem_reg[61]" won't be mapped to RAM because it is
 INFO: [Synth 8-5546] ROM "data_mem_reg[62]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "data_mem_reg[63]" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "data_mem_reg[64]" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5546] ROM "data_mem_reg[65]" won't be mapped to RAM because it is too sparse
 INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-5587] ROM size for "alu_src_a" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "wb_sel" is below threshold of ROM address width. It will be mapped to LUTs
@@ -567,7 +469,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'load_xmt_shfreg_o_reg' [H:/
 WARNING: [Synth 8-327] inferring latch for variable 'done_reg' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/uart/uart_fsm.sv:48]
 WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [H:/Semester 7/CA/Lab/Lab11/fpga/rtl/csr_regs.sv:47]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:58 ; elapsed = 00:01:12 . Memory (MB): peak = 901.250 ; gain = 588.598
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:57 ; elapsed = 00:01:02 . Memory (MB): peak = 901.633 ; gain = 588.922
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-223] decloning instance 'i_adder' (adder) to 'i_adder_j'
 
@@ -576,7 +478,7 @@ Report RTL Partitions:
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
 |1     |riscv_pipelined_top__GB0 |           1|     48103|
-|2     |riscv_pipelined_top__GB1 |           1|      9003|
+|2     |riscv_pipelined_top__GB1 |           1|     10344|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -591,7 +493,7 @@ Detailed RTL Component Info :
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
-	               32 Bit    Registers := 307   
+	               32 Bit    Registers := 306   
 	               16 Bit    Registers := 1     
 	                8 Bit    Registers := 2     
 	                7 Bit    Registers := 2     
@@ -600,10 +502,9 @@ Detailed RTL Component Info :
 	                3 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 12    
-+---RAMs : 
-	               2K Bit         RAMs := 1     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 282   
+	  44 Input     32 Bit        Muxes := 1     
 	   4 Input     32 Bit        Muxes := 4     
 	   7 Input     32 Bit        Muxes := 1     
 	   4 Input     16 Bit        Muxes := 1     
@@ -674,12 +575,10 @@ Module adder
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
-Module xpm_memory_base 
+Module inst_mem 
 Detailed RTL Component Info : 
-+---Registers : 
-	               32 Bit    Registers := 1     
-+---RAMs : 
-	               2K Bit         RAMs := 1     
++---Muxes : 
+	  44 Input     32 Bit        Muxes := 1     
 Module reg_file 
 Detailed RTL Component Info : 
 +---Registers : 
@@ -873,7 +772,17 @@ INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/rd_m_reg[4]' (FDRE) 
 INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/rd_m_reg[2]' (FDRE) to 'i_1/i_pipeline_reg_2/instr_m_reg[9]'
 INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/rd_m_reg[1]' (FDRE) to 'i_1/i_pipeline_reg_2/instr_m_reg[8]'
 INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/rd_m_reg[0]' (FDRE) to 'i_1/i_pipeline_reg_2/instr_m_reg[7]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_1/instr_d_reg[31]' (FDE) to 'i_1/i_pipeline_reg_1/instr_d_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_1/instr_d_reg[29]' (FDE) to 'i_1/i_pipeline_reg_1/instr_d_reg[28]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_1/instr_d_reg[3]' (FDE) to 'i_1/i_pipeline_reg_1/instr_d_reg[2]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_1/instr_d_reg[1]' (FDE) to 'i_1/i_pipeline_reg_1/instr_d_reg[0]'
 INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/pc_m_reg[0]' (FDRE) to 'i_1/i_pipeline_reg_2/pc_plus_4_m_reg[0]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/instr_m_reg[0]' (FDRE) to 'i_1/i_pipeline_reg_2/instr_m_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/instr_m_reg[2]' (FDRE) to 'i_1/i_pipeline_reg_2/instr_m_reg[3]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_imm_generator/imm_ext_reg[30]' (LD) to 'i_1/i_imm_generator/imm_ext_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_imm_generator/imm_ext_reg[29]' (LD) to 'i_1/i_imm_generator/imm_ext_reg[28]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_imm_generator/imm_ext_reg[8]' (LD) to 'i_1/i_imm_generator/imm_ext_reg[9]'
+INFO: [Synth 8-3886] merging instance 'i_1/i_pipeline_reg_2/imm_csr_m_reg[9]' (FDRE) to 'i_1/i_pipeline_reg_2/imm_csr_m_reg[8]'
 WARNING: [Synth 8-3332] Sequential element (i_uart_fsm/start_o_reg) is unused and will be removed from module uart_tx.
 WARNING: [Synth 8-3332] Sequential element (i_uart_fsm/shift_o_reg) is unused and will be removed from module uart_tx.
 WARNING: [Synth 8-3332] Sequential element (i_uart_fsm/load_xmt_dreg_o_reg) is unused and will be removed from module uart_tx.
@@ -920,58 +829,27 @@ WARNING: [Synth 8-3332] Sequential element (imm_ext_d_reg[1]) is unused and will
 WARNING: [Synth 8-3332] Sequential element (imm_ext_d_reg[0]) is unused and will be removed from module pipeline_reg_1.
 WARNING: [Synth 8-3332] Sequential element (mip_ff_reg[9]) is unused and will be removed from module csr_regs.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:05 ; elapsed = 00:02:29 . Memory (MB): peak = 901.250 ; gain = 588.598
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:05 ; elapsed = 00:02:12 . Memory (MB): peak = 901.633 ; gain = 588.922
 ---------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Block RAM: Preliminary Mapping  Report (see note below)
-+-----------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name      | RTL Object                       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+-----------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|xpm_memory_base: | gen_wr_a.gen_word_narrow.mem_reg | 64 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
-+-----------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
-Note: The tale above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-INFO: [Synth 8-4480] The timing for the instance i_1/xpm_memory_spram_inst/xpm_memory_base_inst/i_0/gen_wr_a.gen_word_narrow.mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance i_1/xpm_memory_spram_inst/xpm_memory_base_inst/i_0/gen_wr_a.gen_word_narrow.mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 
 Report RTL Partitions: 
 +------+-------------------------+------------+----------+
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
 |1     |riscv_pipelined_top__GB0 |           1|     18082|
-|2     |riscv_pipelined_top__GB1 |           1|      7886|
+|2     |riscv_pipelined_top__GB1 |           1|      7902|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:25 ; elapsed = 00:02:53 . Memory (MB): peak = 901.250 ; gain = 588.598
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:25 ; elapsed = 00:02:34 . Memory (MB): peak = 901.633 ; gain = 588.922
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:25 ; elapsed = 00:02:53 . Memory (MB): peak = 901.250 ; gain = 588.598
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-Block RAM: Final Mapping  Report
-+-----------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|Module Name      | RTL Object                       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
-+-----------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-|xpm_memory_base: | gen_wr_a.gen_word_narrow.mem_reg | 64 x 32(READ_FIRST)    | W | R |                        |   |   | Port A           | 1      | 0      | 
-+-----------------+----------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Timing Optimization : Time (s): cpu = 00:02:25 ; elapsed = 00:02:34 . Memory (MB): peak = 901.633 ; gain = 588.922
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -979,7 +857,7 @@ Report RTL Partitions:
 |      |RTL Partition            |Replication |Instances |
 +------+-------------------------+------------+----------+
 |1     |riscv_pipelined_top__GB0 |           1|     18082|
-|2     |riscv_pipelined_top__GB1 |           1|      7886|
+|2     |riscv_pipelined_top__GB1 |           1|      7902|
 +------+-------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
@@ -1048,10 +926,32 @@ WARNING: [Synth 8-3332] Sequential element (i_reg_file/reg_file_reg[0][3]) is un
 WARNING: [Synth 8-3332] Sequential element (i_reg_file/reg_file_reg[0][2]) is unused and will be removed from module riscv_pipelined_top.
 WARNING: [Synth 8-3332] Sequential element (i_reg_file/reg_file_reg[0][1]) is unused and will be removed from module riscv_pipelined_top.
 WARNING: [Synth 8-3332] Sequential element (i_reg_file/reg_file_reg[0][0]) is unused and will be removed from module riscv_pipelined_top.
-INFO: [Synth 8-4480] The timing for the instance xpm_memory_spram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance xpm_memory_spram_inst/xpm_memory_base_inst/gen_wr_a.gen_word_narrow.mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[31]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[28]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[27]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[26]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[25]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[24]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[23]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[22]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[21]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[20]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[19]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[18]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[17]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[16]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[15]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[14]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[13]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[12]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[11]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[10]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[9]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[7]) is unused and will be removed from module riscv_pipelined_top.
+WARNING: [Synth 8-3332] Sequential element (i_imm_generator/imm_ext_reg[6]) is unused and will be removed from module riscv_pipelined_top.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:36 ; elapsed = 00:03:05 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished Technology Mapping : Time (s): cpu = 00:02:36 ; elapsed = 00:02:45 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1075,7 +975,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:42 ; elapsed = 00:03:11 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished IO Insertion : Time (s): cpu = 00:02:44 ; elapsed = 00:02:53 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1088,7 +988,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:42 ; elapsed = 00:03:12 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:44 ; elapsed = 00:02:53 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1100,25 +1000,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:43 ; elapsed = 00:03:13 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:45 ; elapsed = 00:02:54 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:43 ; elapsed = 00:03:13 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:45 ; elapsed = 00:02:54 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:44 ; elapsed = 00:03:14 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:46 ; elapsed = 00:02:55 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:44 ; elapsed = 00:03:14 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:46 ; elapsed = 00:02:55 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1131,82 +1031,78 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+---------+------+
-|      |Cell     |Count |
-+------+---------+------+
-|1     |BUFG     |     8|
-|2     |CARRY4   |    67|
-|3     |LUT1     |     8|
-|4     |LUT2     |   438|
-|5     |LUT3     |   202|
-|6     |LUT4     |   304|
-|7     |LUT5     |   323|
-|8     |LUT6     |  4128|
-|9     |MUXF7    |  1353|
-|10    |MUXF8    |   670|
-|11    |RAMB18E1 |     1|
-|12    |FDCE     |     2|
-|13    |FDPE     |     1|
-|14    |FDRE     |  9748|
-|15    |FDSE     |     8|
-|16    |LD       |   256|
-|17    |LDC      |    32|
-|18    |IBUF     |     4|
-|19    |OBUF     |    15|
-+------+---------+------+
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     7|
+|2     |CARRY4 |    67|
+|3     |LUT1   |     8|
+|4     |LUT2   |   488|
+|5     |LUT3   |   192|
+|6     |LUT4   |   303|
+|7     |LUT5   |   290|
+|8     |LUT6   |  4145|
+|9     |MUXF7  |  1354|
+|10    |MUXF8  |   670|
+|11    |FDCE   |     2|
+|12    |FDPE   |     1|
+|13    |FDRE   |  9736|
+|14    |FDSE   |     8|
+|15    |LD     |   224|
+|16    |LDC    |    32|
+|17    |IBUF   |     4|
+|18    |OBUF   |    15|
++------+-------+------+
 
 Report Instance Areas: 
-+------+-------------------------+-----------------+------+
-|      |Instance                 |Module           |Cells |
-+------+-------------------------+-----------------+------+
-|1     |top                      |                 | 17568|
-|2     |  i_imm_generator        |imm_generator    |    32|
-|3     |  i_adder                |adder            |     9|
-|4     |  i_clock_div            |clock_div        |    19|
-|5     |  i_csr_regs             |csr_regs         |   299|
-|6     |    i_csr_ops            |csr_ops          |    28|
-|7     |  i_data_mem             |data_mem         | 12020|
-|8     |  i_lsu                  |lsu              |   228|
-|9     |  i_mux_branch_pc        |mux_2x1          |    32|
-|10    |  i_mux_csr              |mux_2x1_0        |    64|
-|11    |  i_mux_forward_a        |mux_2x1_1        |    32|
-|12    |  i_mux_forward_b        |mux_2x1_2        |    32|
-|13    |  i_mux_i_type           |mux_2x1_3        |    32|
-|14    |  i_mux_wb               |mux_4x1          |    32|
-|15    |  i_pc                   |pc               |    32|
-|16    |  i_pipeline_reg_1       |pipeline_reg_1   |   895|
-|17    |  i_pipeline_reg_2       |pipeline_reg_2   |  1737|
-|18    |  i_reg_file             |reg_file         |  1933|
-|19    |  i_ssd                  |ssd              |    65|
-|20    |  i_uart_tx              |uart_tx          |    45|
-|21    |    i_bit_counter        |bit_counter      |    29|
-|22    |    i_uart_fsm           |uart_fsm         |    16|
-|23    |  xpm_memory_spram_inst  |xpm_memory_spram |     1|
-|24    |    xpm_memory_base_inst |xpm_memory_base  |     1|
-+------+-------------------------+-----------------+------+
++------+-------------------+---------------+------+
+|      |Instance           |Module         |Cells |
++------+-------------------+---------------+------+
+|1     |top                |               | 17546|
+|2     |  i_adder          |adder          |     8|
+|3     |  i_clock_div      |clock_div      |    19|
+|4     |  i_csr_regs       |csr_regs       |   299|
+|5     |    i_csr_ops      |csr_ops        |    28|
+|6     |  i_data_mem       |data_mem       | 12020|
+|7     |  i_lsu            |lsu            |   252|
+|8     |  i_mux_branch_pc  |mux_2x1        |    32|
+|9     |  i_mux_csr        |mux_2x1_0      |    64|
+|10    |  i_mux_forward_a  |mux_2x1_1      |    32|
+|11    |  i_mux_forward_b  |mux_2x1_2      |    31|
+|12    |  i_mux_i_type     |mux_2x1_3      |    26|
+|13    |  i_mux_wb         |mux_4x1        |    32|
+|14    |  i_pc             |pc             |    90|
+|15    |  i_pipeline_reg_1 |pipeline_reg_1 |   865|
+|16    |  i_pipeline_reg_2 |pipeline_reg_2 |  1704|
+|17    |  i_reg_file       |reg_file       |  1934|
+|18    |  i_ssd            |ssd            |    65|
+|19    |  i_uart_tx        |uart_tx        |    45|
+|20    |    i_bit_counter  |bit_counter    |    29|
+|21    |    i_uart_fsm     |uart_fsm       |    16|
++------+-------------------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:44 ; elapsed = 00:03:14 . Memory (MB): peak = 954.320 ; gain = 641.668
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:46 ; elapsed = 00:02:55 . Memory (MB): peak = 952.852 ; gain = 640.141
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 97 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:06 ; elapsed = 00:02:43 . Memory (MB): peak = 954.320 ; gain = 267.051
-Synthesis Optimization Complete : Time (s): cpu = 00:02:45 ; elapsed = 00:03:14 . Memory (MB): peak = 954.320 ; gain = 641.668
+Synthesis finished with 0 errors, 0 critical warnings and 126 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:10 ; elapsed = 00:02:31 . Memory (MB): peak = 952.852 ; gain = 262.527
+Synthesis Optimization Complete : Time (s): cpu = 00:02:47 ; elapsed = 00:02:56 . Memory (MB): peak = 952.852 ; gain = 640.141
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 2383 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-17] Analyzing 2351 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 288 instances were transformed.
-  LD => LDCE: 256 instances
+  A total of 256 instances were transformed.
+  LD => LDCE: 224 instances
   LDC => LDCE: 32 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-271 Infos, 226 Warnings, 0 Critical Warnings and 0 Errors encountered.
+272 Infos, 236 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:55 ; elapsed = 00:03:27 . Memory (MB): peak = 954.320 ; gain = 654.824
+synth_design: Time (s): cpu = 00:02:57 ; elapsed = 00:03:07 . Memory (MB): peak = 952.852 ; gain = 652.859
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint 'H:/Semester 7/CA/Lab/Lab11/fpga/docs/procssor_vivado/procssor_vivado.runs/synth_1/riscv_pipelined_top.dcp' has been generated.
-write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 954.320 ; gain = 0.000
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 952.852 ; gain = 0.000
 INFO: [runtcl-4] Executing : report_utilization -file riscv_pipelined_top_utilization_synth.rpt -pb riscv_pipelined_top_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.408 . Memory (MB): peak = 954.320 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 25 15:27:50 2022...
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.452 . Memory (MB): peak = 952.852 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Jan  3 12:29:13 2023...

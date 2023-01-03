@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1671964253">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1672730999">
   <File Type="BITSTR-BMM" Name="riscv_pipelined_top_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="riscv_pipelined_top_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="riscv_pipelined_top_timing_summary_init.rpt"/>
@@ -169,6 +169,13 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PPRDIR/../../rtl/inst_mem.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../rtl/lsu.sv">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -269,14 +276,6 @@
     </File>
     <File Path="$PPRDIR/../../rtl/riscv_pipelined_top.sv">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PPRDIR/../../rtl/inst_mem.sv">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
