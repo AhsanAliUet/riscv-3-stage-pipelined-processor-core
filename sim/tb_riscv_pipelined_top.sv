@@ -39,7 +39,7 @@ riscv_pipelined_top #(
    initial begin
       clk_i = 0;
       forever begin
-         #5; clk_i = ~clk_i;
+         #10; clk_i = ~clk_i;  //to see waveforms in pdf very clear
       end
    end
 
