@@ -8,7 +8,14 @@ ii) CSR instructions
 
 Moreover, it can also handle data hazards with forwarding and stalling. Flushing is also supported.  
   
-Full documentation is given in docs folder.
+Full documentation is given in docs folder.  
+
+# Dependencies  
+i. make command  
+ii. vsim (Mentor's QuestaSim Simulator)  
+iii. xrun (Cadence Xcelium, optional), it is paid version  
+
+
 # How to use this project
 Clone the repository:
 
